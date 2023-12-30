@@ -30,18 +30,17 @@ let settings = {
             },
             {
                 test: /\.(eot|ttf|woff|woff2)$/,
+                type: "asset/resource",
                 use: {
                     loader: 'file-loader',
                     options: {
-                        path: './src/static/fonts/',
-                        outputPath: './fonts/',
-                        limit: 10000,
-                        esModule: false
+                        name: '[name].[ext]',
+                        outputPath: 'assets/fonts/',
                     }
                 }
             },
             {
-                test: /\.s[ac]ss$/,
+                test: /\.(s?[ac]ss)$/,
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader
