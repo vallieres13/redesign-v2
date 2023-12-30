@@ -28,7 +28,6 @@ import Index from './pages/Index';
 
 /* Components */
 import Navigation from './components/Navigation';
-import PageContent from './components/containers/Content';
 import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
 
@@ -54,20 +53,18 @@ const App = () => {
                 </div>
                 <Navigation />
             </header>
-            <PageContent>
-                <Routes>
+            <Routes>
 
-                    {/* Index Routing */}
-                    <Route index element={<Index />} />
+                {/* Index Routing */}
+                <Route index element={<Index />} />
 
-                    {/* Labs Routing */}
-                    {/* <Route path="/Labs" element={<Labs />} /> */}
+                {/* Labs Routing */}
+                {/* <Route path="/Labs" element={<Labs />} /> */}
 
-                    {/* Any* Routing (404 Not Found) */}
-                    <Route path="*" element={<NotFound />} />
+                {/* Any* Routing (404 Not Found) */}
+                <Route path="*" element={<NotFound />} />
 
-                </Routes>
-            </PageContent>
+            </Routes>
             <Footer />
         </BrowserRouter>
     );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 /* Static */
@@ -39,8 +39,15 @@ import Js from './../static/icons/js.svg';
 import Cc from './../static/icons/cc.svg';
 import Cloud from './../static/icons/cloud.svg';
 
+import UserIcon from './../static/icons/user.svg';
+import ClockIcon from './../static/icons/clock.svg';
+import ShareIcon from './../static/icons/share.svg';
+
 /* Misc */
 import { Link } from 'react-router-dom';
+import VanillaTilt from 'vanilla-tilt';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -48,6 +55,7 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Autoplay, Pagination } from 'swiper/modules';
+import {SplitText} from "../services/SplitText";
 
 
 const Index = () => {
@@ -87,37 +95,6 @@ const Index = () => {
             description: '... is a striving full-stack web developer in today\'s ever so fast growing web-app economy.',
             buttonTitle: 'About Me',
             buttonTarget: '/about'
-        }
-    ];
-
-    const techStackItems = [
-        {
-            logo: Php,
-            stack: PhpStack
-        },
-        {
-            logo: Java,
-            stack: JavaStack
-        },
-        {
-            logo: Database,
-            stack: DatabaseStack
-        },
-        {
-            logo: Git,
-            stack: GitStack
-        },
-        {
-            logo: Js,
-            stack: JsStack
-        },
-        {
-            logo: Cc,
-            stack: CcStack
-        },
-        {
-            logo: Cloud,
-            stack: CloudStack
         }
     ];
 
@@ -166,22 +143,111 @@ const Index = () => {
         },
     ];
 
+    useEffect(() => {
+        const stackCards: NodeListOf<HTMLDivElement> = document.querySelectorAll('.techstack .card');
+        stackCards.forEach((card: HTMLDivElement) => {
+            VanillaTilt.init(card, {
+                reverse: true,
+                max: 4,
+                scale: .98,
+                perspective: 1000,
+                speed: 2000
+            });
+        });
+
+        const storyCards: NodeListOf<HTMLDivElement> = document.querySelectorAll('.stories .card');
+        storyCards.forEach((card: HTMLDivElement) => {
+            VanillaTilt.init(card, {
+                reverse: true,
+                max: 5,
+                scale: .98,
+                perspective: 2000,
+                speed: 2000
+            });
+        });
+    }, []);
+
+    const introduction = useRef<HTMLDivElement>(null);
+    useGSAP(() => {
+        gsap.fromTo('.separator', {
+            x: 1200,
+        }, {
+            x: 0,
+            duration: 1.5,
+            delay: .5
+        });
+
+        const headingPromo = document.querySelector('.introduction h1') as HTMLElement;
+        const split = new SplitText({}).split(headingPromo);
+        gsap.fromTo(split.words, {
+            x: -50,
+            opacity: 0
+        }, {
+            x: 0,
+            opacity: 1,
+            duration: .2,
+            stagger: .1,
+            delay: .25
+        });
+
+        gsap.fromTo('.introduction .underscore', {
+            x: -50,
+            opacity: 0
+        }, {
+            x: 0,
+            opacity: 1,
+            duration: .2,
+            delay: .25
+        });
+
+        gsap.fromTo('.introduction h2', {
+            x: -50,
+            opacity: 0
+        }, {
+            x: 0,
+            opacity: 1,
+            duration: .2,
+            delay: .55
+        });
+
+        gsap.fromTo('.introduction p', {
+            x: -50,
+            opacity: 0
+        }, {
+            x: 0,
+            opacity: 1,
+            duration: .2,
+            delay: .6
+        });
+
+        gsap.fromTo('.introduction .actions', {
+            x: -50,
+            opacity: 0
+        }, {
+            x: 0,
+            opacity: 1,
+            duration: .2,
+            delay: .65
+        });
+    }, { scope: introduction });
+
+
     return (
         <main className="home">
             <div className="promo">
                 <div className="profile">
                     <div className="picture">
-                        <img src={FelixTransparent} alt="Felix Hebgen" />
+                        <img src={FelixTransparent} alt="Felix Hebgen"/>
                     </div>
                     <div className="socials">
                         <ul>
-                            <li><a href="#!"><img src={LinkedInLogo} alt="LinkedIn" /></a></li>
-                            <li><a href="#!"><img src={XingLogo} alt="Xing" /></a></li>
-                            <li><a href="#!"><img src={GithubLogo} alt="GitHub" /></a></li>
+                            <li><a href="#!"><img src={LinkedInLogo} alt="LinkedIn"/></a></li>
+                            <li><a href="#!"><img src={XingLogo} alt="Xing"/></a></li>
+                            <li><a href="#!"><img src={GithubLogo} alt="GitHub"/></a></li>
                         </ul>
                     </div>
                 </div>
-                <div className="introduction">
+                <div className="introduction" ref={introduction}>
                     <h1>Felix Hebgen</h1>
                     <div className="underscore"></div>
                     <h2>Web-Developer & Designer</h2>
@@ -193,40 +259,6 @@ const Index = () => {
                     <div className="separator"></div>
                 </div>
             </div>
-            <div className="spotlight">
-                <div className="heading container">
-                    <div className="lead"></div>
-                    <h1>Spotlight</h1>
-                </div>
-                <Swiper
-                    spaceBetween={30}
-                    centeredSlides={true}
-                    slidesPerView={'auto'}
-                    loop={true}
-                    autoplay={{
-                        delay: 2500,
-                        disableOnInteraction: false,
-                    }}
-                    pagination={{ clickable: true }}
-                    modules={[Autoplay, Pagination]}
-                    className="cards"
-                >
-                    {spotlightItems.map((item: any) =>
-                        <SwiperSlide className="card">
-                            <div className="illustration">
-                                <img src={item.illustration} alt={item.title} />
-                            </div>
-                            <div className="description">
-                                <h2>{item.title}</h2>
-                                <p>{item.description}</p>
-                                <div className="actions">
-                                    <Link to={item.buttonTarget} className="button primary">{item.buttonTitle}</Link>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                    )}
-                </Swiper>
-            </div>
             <div className="techstack container">
                 <div className="heading">
                     <div className="lead"></div>
@@ -236,8 +268,8 @@ const Index = () => {
                     <div className="column large-column">
                         <div className="grid">
                             <div className="column full-column card">
-                                <img src={Php} alt="php" />
-                                <img src={PhpStack} alt="php" className="hidden" />
+                                <img src={Php} alt="php"/>
+                                <img src={PhpStack} alt="php" className="hidden"/>
                             </div>
                         </div>
                         <div className="grid">
@@ -283,38 +315,130 @@ const Index = () => {
                     </div>
                 </div>
             </div>
+            <div className="spotlight">
+                <div className="heading container">
+                    <div className="lead"></div>
+                    <h1>Spotlight</h1>
+                </div>
+                <Swiper
+                    spaceBetween={30}
+                    centeredSlides={true}
+                    slidesPerView={'auto'}
+                    loop={true}
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }}
+                    pagination={{clickable: true}}
+                    modules={[Autoplay, Pagination]}
+                    className="cards"
+                >
+                    {spotlightItems.map((item: any, index: number) =>
+                        <SwiperSlide className="card" key={index}>
+                            <div className="illustration">
+                                <img src={item.illustration} alt={item.title}/>
+                            </div>
+                            <div className="description">
+                                <h2>{item.title}</h2>
+                                <p>{item.description}</p>
+                                <div className="actions">
+                                    <Link to={item.buttonTarget} className="button primary">{item.buttonTitle}</Link>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                    )}
+                </Swiper>
+            </div>
             <div className="stories">
                 <div className="heading container">
                     <div className="lead"></div>
                     <h1>Stories</h1>
                 </div>
                 <Swiper
-                    spaceBetween={20}
+                    spaceBetween={24}
                     centeredSlides={true}
                     slidesPerView={'auto'}
                     loop={true}
                     className="cards"
                 >
-                    {articleItems.slice(0, 4).map((article: any) =>
-                        <SwiperSlide className="card">
-                            <img src={article.image} />
+                    {articleItems.slice(0, 4).map((article: any, index: number) =>
+                        <SwiperSlide className="card" key={index} data-tilt data-tilt-reverse="true">
+                            <img src={article.image} alt="Article"/>
+                            <div className="overlay">
+                                <h2>Und wieder wird dein Blick zu Stein vor mir</h2>
+                                <ul className="details">
+                                    <li><a href="#!"><img src={UserIcon} alt="User"/> {article.author}</a></li>
+                                    <li><a href="#!"><img src={ClockIcon} alt="Clock "/> {article.readTime} Minutes</a>
+                                    </li>
+                                </ul>
+                                <ul className="details right">
+                                    <li><a href="#!"><img src={ShareIcon} alt="Share"/> Share</a></li>
+                                </ul>
+                            </div>
                         </SwiperSlide>
                     )}
                 </Swiper>
                 <Swiper
-                    spaceBetween={20}
+                    spaceBetween={24}
                     slidesPerView={4}
                     loop={true}
-                    pagination={{ clickable: true }}
+                    pagination={{clickable: true}}
                     modules={[Pagination]}
                     className="cards second"
                 >
-                    {articleItems.map((article: any) =>
-                        <SwiperSlide className="card">
-                            <img src={article.image}/>
+                    {articleItems.map((article: any, index: number) =>
+                        <SwiperSlide className="card" key={index}>
+                            <img src={article.image} alt="Article"/>
+                            <div className="overlay">
+                                <h2>Und wieder wird dein Blick zu Stein vor mir</h2>
+                                <ul className="details">
+                                    <li><a href="#!"><img src={UserIcon} alt="User"/> {article.author}</a></li>
+                                    <li><a href="#!"><img src={ClockIcon} alt="Clock "/> {article.readTime} Minutes</a>
+                                    </li>
+                                </ul>
+                                <ul className="details right">
+                                    <li><a href="#!"><img src={ShareIcon} alt="Share"/> Share</a></li>
+                                </ul>
+                            </div>
                         </SwiperSlide>
                     )}
                 </Swiper>
+            </div>
+            <div className="connect container">
+                <div className="heading">
+                    <div className="lead"></div>
+                    <h1>Connect</h1>
+                </div>
+                <div className="wrapper">
+                    <div className="messages left">
+                        <div className="imessage">
+                            <p className="from-them green">AI Research</p>
+                            <p className="from-them blue">Video Production</p>
+                            <p className="from-them">Online Marketing</p>
+                        </div>
+                    </div>
+                    <div className="profile">
+                        <div className="picture">
+                            <img src={FelixTransparent} alt="Felix Hebgen" />
+                        </div>
+                        <h2>Felix Hebgen</h2>
+                        <div className="underscore"></div>
+                        <div className="socials">
+                            <ul>
+                                <li><a href="#!"><img src={LinkedInLogo} alt="LinkedIn" /></a></li>
+                                <li><a href="#!"><img src={XingLogo} alt="Xing" /></a></li>
+                                <li><a href="#!"><img src={GithubLogo} alt="GitHub" /></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="messages right">
+                        <div className="imessage">
+                            <p className="from-me">Web Development</p>
+                            <p className="from-me green">UX & UI Design</p>
+                            <p className="from-me blue">Full-Stack Development</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
     );
