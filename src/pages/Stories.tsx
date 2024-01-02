@@ -1,5 +1,8 @@
 import React, { useRef } from 'react';
 
+/* Components */
+import Newsletter from './../components/Newsletter';
+
 /* Static */
 import PierArticle from './../static/images/articles/pier.png';
 import CardArticle from './../static/images/articles/card.png';
@@ -12,13 +15,11 @@ import UserIcon from './../static/icons/user.svg';
 import ClockIcon from './../static/icons/clock.svg';
 import ShareIcon from './../static/icons/share.svg';
 
-import NewsletterTop from './../static/images/newsletter/newsletter-top.png';
-import NewsletterBottom from './../static/images/newsletter/newsletter-bottom.png';
-
 /* Misc */
 import { SplitText } from '../services/SplitText';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { Link } from 'react-router-dom';
 
 const Stories = () => {
 
@@ -127,50 +128,44 @@ const Stories = () => {
 			<div className="articles container" ref={articles}>
 				<div className="featured">
 					{articleItems.slice(0, 2).map((article: any, index: number) =>
-						<div className="article" key={index}>
-							<img src={article.image} alt="Article Image" />
-							<div className="meta">
-								<h2>{article.title}</h2>
-								<p>{article.extract}</p>
-								<ul className="details">
-									<li><a href="#!"><img src={UserIcon} alt="User"/> {article.author}</a></li>
-									<li><a href="#!"><img src={ClockIcon} alt="Clock "/> {article.readTime} Minutes</a></li>
-								</ul>
-								<ul className="details right">
-									<li><a href="#!"><img src={ShareIcon} alt="Share"/> Share</a></li>
-								</ul>
-							</div>
-						</div>
+						<Link to={'/article'} key={index}>
+							<article className="article">
+								<img src={article.image} alt="Article Image" />
+								<div className="meta">
+									<h2>{article.title}</h2>
+									<p>{article.extract}</p>
+									<ul className="details">
+										<li><img src={UserIcon} alt="User" /> {article.author}</li>
+										<li><img src={ClockIcon} alt="Clock" /> {article.readTime} Minutes</li>
+									</ul>
+									<ul className="details right">
+										<li><img src={ShareIcon} alt="Share" /> Share</li>
+									</ul>
+								</div>
+							</article>
+						</Link>
 					)}
 				</div>
 				<div className="aside">
 					{articleItems.slice(2, 5).map((article: any, index: number) =>
-						<div className="article" key={index}>
-							<img src={article.image} alt="Article Image" />
-							<div className="meta">
-								<h2>{article.title}</h2>
-								<p>{article.extract}</p>
-								<ul className="details">
-									<li><a href="#!"><img src={UserIcon} alt="User"/> {article.author}</a></li>
-									<li><a href="#!"><img src={ClockIcon} alt="Clock "/> {article.readTime} Minutes</a></li>
-								</ul>
-							</div>
-						</div>
+						<Link to={'/article'} key={index}>
+							<article className="article">
+								<img src={article.image} alt="Article Image" />
+								<div className="meta">
+									<h2>{article.title}</h2>
+									<p>{article.extract}</p>
+									<ul className="details">
+										<li><img src={UserIcon} alt="User" /> {article.author}</li>
+										<li><img src={ClockIcon} alt="Clock" /> {article.readTime} Minutes</li>
+									</ul>
+								</div>
+							</article>
+						</Link>
 					)}
 				</div>
 			</div>
-			<div className="newsletter container">
-				<img src={NewsletterTop} alt="Background Image" className="bg-top" />
-				<img src={NewsletterBottom} alt="Background Image" className="bg-bottom" />
-				<div className="description">
-					<p>Free newsletter</p>
-					<h3>Consider staying in the stream.</h3>
-				</div>
-				<div className="form">
-					<input type="text" placeholder="your name" required></input>
-					<input type="text" placeholder="email address" required></input>
-					<button>Sign Up</button>
-				</div>
+			<div style={{ margin: '1rem auto 5rem' }}>
+				<Newsletter />
 			</div>
 		</main>
 	);

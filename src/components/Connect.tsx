@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 /* Static */
 import FelixTransparent from './../static/images/promos/felix-transparent.png';
@@ -37,9 +38,9 @@ const Connect = ({ title = defaultProps.title }: Props) => {
 					<div className="underscore"></div>
 					<div className="socials">
 						<ul>
-							<li><a href="#!"><img src={LinkedInLogo} alt="LinkedIn"/></a></li>
-							<li><a href="#!"><img src={XingLogo} alt="Xing"/></a></li>
-							<li><a href="#!"><img src={GithubLogo} alt="GitHub"/></a></li>
+							<li><Link to={'https://www.linkedin.com/in/felixhebgen/'}><img src={LinkedInLogo} alt="LinkedIn"/></Link></li>
+							<li><Link to={'https://www.xing.com/profile/Felix_Hebgen'}><img src={XingLogo} alt="Xing"/></Link></li>
+							<li><Link to={'https://github.com/vallieres13'}><img src={GithubLogo} alt="GitHub"/></Link></li>
 						</ul>
 					</div>
 				</div>

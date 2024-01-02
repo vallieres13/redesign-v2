@@ -34,6 +34,11 @@ img {
 	margin: 0 auto;
 }
 
+.container-small {
+	max-width: 675px;
+	margin: 0 auto;
+}
+
 
 /* LOGO
  =================================== */
@@ -546,7 +551,6 @@ nav > .desktop {
 							img {
 								vertical-align: -.54rem;
 								margin-right: .25rem;
-								height: 27px;
 								width: 27px;
 							}
 						}
@@ -1046,67 +1050,8 @@ nav > .desktop {
 		}
 	}
 
-	.timeline {
-		margin: -6rem auto 6rem;
-
-		p {
-			font-family: "Greycliff CF Regular", sans-serif;
-			font-size: 24px;
-			color: #5C5C5C;
-
-			&.highschool {
-				margin-left: -3rem;
-			}
-		}
-
-		.wrapper {
-			border-left: 4px solid #D9D9D9;
-			padding: 2rem 0 4rem;
-
-			.year {
-				border-left: 8px solid #3C3C3C;
-				height: 160px;
-				margin-left: -6px;
-				margin-bottom: 40px;
-				width: 580px;
-				background: linear-gradient(90deg, #F7F7F7 0%, rgba(247, 247, 247, 0.00) 100%);
-
-				.heading {
-					position: absolute;
-					margin-left: -4.1rem;
-					margin-top: 3.9rem;
-					transform: rotate(-90deg);
-
-					h2 {
-						margin: 0;
-						font-family: "JetBrains Mono Bold", monospace;
-						font-size: 24px;
-						letter-spacing: -.5px;
-						color: black;
-					}
-				}
-
-				.events {
-					width: 200%;
-
-					ul {
-						list-style-type: none;
-						margin: 0;
-						padding: 0 0 0 1rem;
-
-						li {
-							display: inline-block;
-							margin: 3rem 1rem;
-
-							img {
-								max-height: 66px;
-								max-width: 296px;
-							}
-						}
-					}
-				}
-			}
-		}
+	.timeline-wrapper {
+		margin: -12rem 0 6rem;
 	}
 }
 
@@ -1125,6 +1070,16 @@ nav > .desktop {
 		gap: 45px;
 
 		> div {
+			> a {
+				display: block;
+				text-decoration: none;
+				color: inherit;
+
+				&:first-child {
+					margin-top: 9rem;
+				}
+			}
+
 			.article {
 				margin: 0 0 2.5rem;
 
@@ -1188,7 +1143,6 @@ nav > .desktop {
 							img {
 								vertical-align: -.54rem;
 								margin-right: .25rem;
-								height: 27px;
 								width: 27px;
 							}
 						}
@@ -1206,10 +1160,6 @@ nav > .desktop {
 							}
 						}
 					}
-				}
-
-				&:first-child {
-					margin-top: 9rem;
 				}
 			}
 		}
@@ -1256,12 +1206,231 @@ nav > .desktop {
 						}
 					}
 				}
+			}
+		}
+	}
+}
 
-				&:first-child {
-					margin-top: 9rem;
+
+/* CONTACT
+ =================================== */
+
+.contact {
+	.page-heading h1 > div {
+		margin-right: .5rem;
+
+		> div {
+			margin-right: -.1rem;
+		}
+	}
+
+	.promo {
+		display: flex;
+		justify-content: space-between;
+		gap: 69px;
+		margin: 2.5rem auto 2rem;
+
+		.description {
+			.options {
+				display: flex;
+				flex-direction: row;
+				gap: 26px 24px;
+				flex-wrap: wrap;
+				margin: 2rem 0;
+
+				.option {
+					position: relative;
+					display: flex;
+					align-items: center;
+					gap: 15px;
+					padding: 25px;
+					width: 245px;
+					height: 46px;
+					background-color: #F5F5F5;
+					border-radius: 10px;
+					cursor: pointer;
+					transform-style: preserve-3d;
+					transform: perspective(1000px);
+
+					> * {
+						transform: translateZ(20px);
+					}
+
+					img {
+						width: 42px;
+						height: 42px;
+						object-fit: contain;
+					}
+
+					span {
+						font-family: "Greycliff CF Bold", sans-serif;
+						font-size: 20px;
+						color: #363636;
+					}
+
+					.preferred {
+						position: absolute;
+						top: -7px;
+						right: -13px;
+						border-radius: 5px;
+						color: white;
+						background-color: black;
+						font-family: "Greycliff CF Bold", sans-serif;
+						text-transform: uppercase;
+						font-size: 14px;
+						padding: 5px 19px 3px;
+					}
 				}
 			}
 		}
+
+		.picture {
+			margin-top: -.5rem;
+
+			img {
+				width: 330px;
+			}
+		}
+	}
+
+	.disclaimer {
+		margin: 0 auto 3rem;
+
+		> * {
+			padding: 0 0 1rem;
+		}
+
+		.title {
+			font-family: "Greycliff CF ExtraBold", sans-serif;
+			text-transform: uppercase;
+		}
+	}
+
+	p {
+		font-family: "Greycliff CF Medium", sans-serif;
+		font-size: 18px;
+		color: #A0A0A0;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+
+/* PAGE
+ =================================== */
+
+.page {
+	.content {
+		margin: 3.5rem auto 5rem;
+
+		p {
+			font-family: "Greycliff CF Regular", sans-serif;
+			font-size: 22px;
+			color: #5C5C5C;
+			text-align: justify;
+			margin: 1.5rem 0;
+		}
+
+		h2 {
+			font-family: "Greycliff CF Bold", sans-serif;
+			font-size: 32px;
+			letter-spacing: -1px;
+			color: black;
+			font-weight: normal;
+			margin: 2.5rem 0 .5rem;
+		}
+
+		h3 {
+			font-family: "Greycliff CF Medium", sans-serif;
+			color: #A0A0A0;
+			font-size: 28px;
+			font-weight: normal;
+			margin: 1.5rem 0 1rem;
+			letter-spacing: -1px;
+		}
+	}
+}
+
+
+/* ARTICLE
+ =================================== */
+
+.article {
+	margin: -.5rem 0 5rem;
+
+	.image {
+		img {
+			width: 100%;
+			height: 700px;
+			object-fit: cover;
+		}
+	}
+
+	h1 {
+		font-family: "Readex Pro Bold", sans-serif;
+		font-size: 45px;
+		line-height: 52px;
+		color: black;
+		letter-spacing: -1px;
+		margin: 0;
+		padding: 22px 0 15px;
+	}
+
+	.details {
+		list-style-type: none;
+		margin: 0 0 .25rem;
+		padding: 0;
+		display: inline-block;
+
+		li {
+			font-family: 'Readex Pro Regular', sans-serif;
+			color: #969696;
+			font-size: 15px;
+			display: inline-block;
+			margin-right: 1.25rem;
+
+			a {
+				color: inherit;
+				text-decoration: none;
+				transition: .3s;
+
+				&:hover {
+					color: black;
+					transition: .3s;
+
+					img {
+						filter: brightness(.2);
+						transition: .3s;
+					}
+				}
+			}
+
+			img {
+				vertical-align: -.54rem;
+				margin-right: .25rem;
+				width: 27px;
+			}
+		}
+
+		&.right {
+			float: right;
+
+			li {
+				margin-right: 0;
+				margin-left: 1.25rem;
+
+				img {
+					vertical-align: -.5rem;
+				}
+			}
+		}
+	}
+
+	p {
+		font-family: "Greycliff CF Regular", sans-serif;
+		font-size: 20px;
+		color: #5C5C5C;
+		text-align: justify;
 	}
 }
 
@@ -1372,6 +1541,73 @@ footer {
 }
 
 
+/* TIMELINE
+ =================================== */
+
+.timeline {
+	margin: 6rem auto;
+
+	p {
+		font-family: "Greycliff CF Regular", sans-serif;
+		font-size: 24px;
+		color: #5C5C5C;
+
+		&.highschool {
+			margin-left: -3rem;
+		}
+	}
+
+	.wrapper {
+		border-left: 4px solid #D9D9D9;
+		padding: 2rem 0 4rem;
+
+		.year {
+			border-left: 8px solid #3C3C3C;
+			height: 160px;
+			margin-left: -6px;
+			margin-bottom: 40px;
+			width: 580px;
+			background: linear-gradient(90deg, #F7F7F7 0%, rgba(247, 247, 247, 0.00) 100%);
+
+			.heading {
+				position: absolute;
+				margin-left: -4.1rem;
+				margin-top: 3.9rem;
+				transform: rotate(-90deg);
+
+				h2 {
+					margin: 0;
+					font-family: "JetBrains Mono Bold", monospace;
+					font-size: 24px;
+					letter-spacing: -.5px;
+					color: black;
+				}
+			}
+
+			.events {
+				width: 200%;
+
+				ul {
+					list-style-type: none;
+					margin: 0;
+					padding: 0 0 0 1rem;
+
+					li {
+						display: inline-block;
+						margin: 3rem 1rem;
+
+						img {
+							max-height: 66px;
+							max-width: 296px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
 /* NEWSLETTER
  =================================== */
 
@@ -1380,6 +1616,93 @@ footer {
 	position: relative;
 	background-color: #F5F5F5;
 	border-radius: 10px;
+	margin: 3rem auto;
+	width: 800px;
+	padding: 60px;
+	justify-content: space-between;
+
+	.description {
+		position: relative;
+		z-index: 49;
+		width: 400px;
+
+		p {
+			font-family: "Greycliff CF Heavy", sans-serif;
+			font-size: 18px;
+			color: #D6D6D6;
+			margin: 0;
+			padding: 0;
+			text-transform: uppercase;
+		}
+
+		h3 {
+			font-family: "Readex Pro Bold", sans-serif;
+			letter-spacing: -1px;
+			line-height: 55px;
+			font-size: 48px;
+			color: black;
+			margin: 0;
+			padding: 0;
+		}
+	}
+
+	.form {
+		position: relative;
+		z-index: 99;
+		width: 290px;
+		margin-top: 1rem;
+
+		> * {
+			display: block;
+			width: 100%;
+		}
+
+		input {
+			width: 100%;
+			height: 40px;
+			border: none;
+			border-radius: 8px;
+			padding: 0 42px 0 20px;
+			font-family: "Greycliff CF Regular", sans-serif;
+			font-size: 15px;
+			margin: 0 0 1rem;
+			box-sizing: border-box;
+			color: #292929;
+			text-align: right;
+
+			&::placeholder {
+				color: #C5C5C5;
+			}
+		}
+
+		img {
+			position: absolute;
+			height: 20px;
+			width: 20px;
+			right: 12px;
+			margin-top: -2.9rem;
+		}
+
+		button {
+			margin: auto 0 auto auto;
+			width: 180px;
+			height: 40px;
+			border-radius: 8px;
+			border: none;
+			background-color: #292929;
+			font-family: "Greycliff CF ExtraBold", sans-serif;
+			font-size: 14px;
+			color: white;
+			padding: 0;
+			cursor: pointer;
+			text-transform: uppercase;
+
+			&:hover {
+				background-color: #D6D6D6;
+				color: #292929;
+			}
+		}
+	}
 
 	> img {
 		position: absolute;

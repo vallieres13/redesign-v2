@@ -28,11 +28,15 @@ import Index from './pages/Index';
 import Hire from './pages/Hire';
 import About from './pages/About';
 import Stories from './pages/Stories';
+import Article from './pages/Article';
+import Contact from './pages/Contact';
+import Imprint from './pages/Imprint';
 
 /* Components */
 import Navigation from './components/Navigation';
 import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 /* Images */
 import Logo from "./static/logo.svg";
@@ -48,6 +52,7 @@ const App = () => {
 
     return (
         <BrowserRouter>
+            <ScrollToTop />
             <header className="container">
                 <div className="logo">
                     <NavLink to="/">
@@ -69,6 +74,15 @@ const App = () => {
 
                 {/* Stories Routing */}
                 <Route path="/Stories" element={<Stories />} />
+
+                {/* Article Routing */}
+                <Route path="/Article" element={<Article />} />
+
+                {/* Contact Routing */}
+                <Route path="/Contact" element={<Contact />} />
+
+                {/* Imprint Routing */}
+                <Route path="/Imprint" element={<Imprint />} />
 
                 {/* Any* Routing (404 Not Found) */}
                 <Route path="*" element={<NotFound />} />

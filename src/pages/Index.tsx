@@ -244,9 +244,9 @@ const Index = () => {
                     </div>
                     <div className="socials">
                         <ul>
-                            <li><a href="#!"><img src={LinkedInLogo} alt="LinkedIn"/></a></li>
-                            <li><a href="#!"><img src={XingLogo} alt="Xing"/></a></li>
-                            <li><a href="#!"><img src={GithubLogo} alt="GitHub"/></a></li>
+                            <li><Link to={'https://www.linkedin.com/in/felixhebgen/'}><img src={LinkedInLogo} alt="LinkedIn"/></Link></li>
+                            <li><Link to={'https://www.xing.com/profile/Felix_Hebgen'}><img src={XingLogo} alt="Xing"/></Link></li>
+                            <li><Link to={'https://github.com/vallieres13'}><img src={GithubLogo} alt="GitHub"/></Link></li>
                         </ul>
                     </div>
                 </div>
@@ -315,12 +315,11 @@ const Index = () => {
                             <div className="overlay">
                                 <h2>Und wieder wird dein Blick zu Stein vor mir</h2>
                                 <ul className="details">
-                                    <li><a href="#!"><img src={UserIcon} alt="User"/> {article.author}</a></li>
-                                    <li><a href="#!"><img src={ClockIcon} alt="Clock "/> {article.readTime} Minutes</a>
-                                    </li>
+                                    <li><img src={UserIcon} alt="User" /> {article.author}</li>
+                                    <li><img src={ClockIcon} alt="Clock" /> {article.readTime} Minutes</li>
                                 </ul>
                                 <ul className="details right">
-                                    <li><a href="#!"><img src={ShareIcon} alt="Share"/> Share</a></li>
+                                    <li><img src={ShareIcon} alt="Share" /> Share</li>
                                 </ul>
                             </div>
                         </SwiperSlide>
@@ -340,12 +339,11 @@ const Index = () => {
                             <div className="overlay">
                                 <h2>Und wieder wird dein Blick zu Stein vor mir</h2>
                                 <ul className="details">
-                                    <li><a href="#!"><img src={UserIcon} alt="User"/> {article.author}</a></li>
-                                    <li><a href="#!"><img src={ClockIcon} alt="Clock "/> {article.readTime} Minutes</a>
-                                    </li>
+                                    <li><img src={UserIcon} alt="User" /> {article.author}</li>
+                                    <li><img src={ClockIcon} alt="Clock" /> {article.readTime} Minutes</li>
                                 </ul>
                                 <ul className="details right">
-                                    <li><a href="#!"><img src={ShareIcon} alt="Share"/> Share</a></li>
+                                    <li><img src={ShareIcon} alt="Share" /> Share</li>
                                 </ul>
                             </div>
                         </SwiperSlide>

@@ -34,6 +34,7 @@ import NetHi from './../static/icons/net-hi.svg';
 
 /* Misc */
 import VanillaTilt from 'vanilla-tilt';
+import Timeline from "../components/Timeline";
 
 const Index = () => {
 
@@ -313,7 +314,7 @@ const Index = () => {
 							</div>
 							<div className="progress">
 								<div className="bar">
-									<div style={{width: highlight.progress + '%'}}></div>
+									<div style={{ width: highlight.progress + '%' }}></div>
 								</div>
 							</div>
 							<div className="related">
@@ -343,6 +344,7 @@ const Index = () => {
 				</div>
 			</div>
 			<TechStack />
+			<Timeline />
 			<Connect title="Let's Talk"/>
 		</main>
 	);

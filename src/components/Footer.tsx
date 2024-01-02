@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate, useLocation, Link } from "react-router-dom";
-import gsap from 'gsap';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 /* Static */
 import Partners from './../static/icons/partners.svg';
@@ -9,34 +8,6 @@ import Oracle from './../static/icons/oracle.svg';
 const Footer = () => {
 
 	const thisYear = new Date().getFullYear();
-	const location = useLocation();
-	const [ pastLocation, setPastLocation ] = useState('');
-
-	const navigate = useNavigate();
-
-	const handleClick = (e: React.MouseEvent) => {
-		e.preventDefault();
-		const href = (e.target as HTMLAnchorElement).getAttribute('href') as string;
-
-		if(href.startsWith('https://')) {
-			window.open(href, '_blank')!.focus();
-		} else {
-			navigate(href);
-		}
-	};
-
-	useEffect(() => {
-		if(location.pathname === pastLocation) return;
-		setPastLocation(location.pathname);
-
-		gsap.fromTo('footer', {
-			autoAlpha: 0
-		}, {
-			autoAlpha: 1,
-			delay: .1,
-			duration: .5
-		})
-	}, [location, pastLocation]);
 
 	const devNotes: any[] = [
 		<>Cooked up with <span>🍳</span> as coding is my secret recipe.</>,
@@ -55,38 +26,35 @@ const Footer = () => {
 			<div className="grid">
 				<div className="column">
 					<ul>
-						<li><Link to={'#!'}>Stories (Blog)</Link></li>
-						<li><Link to={'#!'}>What I do</Link></li>
-						<li><Link to={'#!'}>Labs</Link></li>
-						<li><Link to={'#!'}>Hire Me</Link></li>
-						<li><Link to={'#!'}>Get In Touch</Link></li>
+						<li><Link to={'/stories'}>Stories (Blog)</Link></li>
+						<li><Link to={'/about'}>What I do</Link></li>
+						<li><Link to={'/labs'}>Labs</Link></li>
+						<li><Link to={'/hire'}>Hire Me</Link></li>
+						<li><Link to={'/contact'}>Get In Touch</Link></li>
 					</ul>
 				</div>
 				<div className="column">
 					<ul>
-						<li><Link to={'#!'}>Stories (Blog)</Link></li>
-						<li><Link to={'#!'}>What I do</Link></li>
-						<li><Link to={'#!'}>Labs</Link></li>
-						<li><Link to={'#!'}>Hire Me</Link></li>
-						<li><Link to={'#!'}>Get In Touch</Link></li>
+						<li><Link to={'/partners'}>Partners</Link></li>
+						<li><Link to={'/partners'}>Customers</Link></li>
+						<li><Link to={'/contact'}>Business Inquiry</Link></li>
+						<li><Link to={'/contact'}>Connect</Link></li>
 					</ul>
 				</div>
 				<div className="column">
 					<ul>
-						<li><Link to={'#!'}>Stories (Blog)</Link></li>
-						<li><Link to={'#!'}>What I do</Link></li>
-						<li><Link to={'#!'}>Labs</Link></li>
-						<li><Link to={'#!'}>Hire Me</Link></li>
-						<li><Link to={'#!'}>Get In Touch</Link></li>
+						<li><Link to={'/ai'}>AI at work</Link></li>
+						<li><Link to={'/about'}>What I do</Link></li>
+						<li><Link to={'/impressions'}>References</Link></li>
+						<li><Link to={'/impressions'}>Impressions</Link></li>
 					</ul>
 				</div>
 				<div className="column">
 					<ul>
-						<li><Link to={'#!'}>Stories (Blog)</Link></li>
-						<li><Link to={'#!'}>What I do</Link></li>
-						<li><Link to={'#!'}>Labs</Link></li>
-						<li><Link to={'#!'}>Hire Me</Link></li>
-						<li><Link to={'#!'}>Get In Touch</Link></li>
+						<li><Link to={'/sitemap.xml'}>Sitemap</Link></li>
+						<li><Link to={'/contact'}>Contact</Link></li>
+						<li><Link to={'/privacy'}>Privacy Policy</Link></li>
+						<li><Link to={'/imprint'}>Imprint</Link></li>
 					</ul>
 				</div>
 				<div className="column empty"></div>
@@ -100,7 +68,7 @@ const Footer = () => {
 					{devNotes[Math.floor(Math.random() * devNotes.length)]} — Made in Darmstadt, Germany. 🌳🌲
 				</div>
 				<div className="host">
-					<Link to={'#!'}>
+					<Link to={'https://www.oracle.com/cloud/'} target="_blank">
 						Hosted on
 						<img src={Oracle} alt="Oracle Cloud" />
 					</Link>
