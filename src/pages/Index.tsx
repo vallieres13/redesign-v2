@@ -1,6 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+/* Components */
+import Connect from './../components/Connect';
+
 /* Static */
 import FelixTransparent from './../static/images/promos/felix-transparent.png';
 import GithubLogo from './../static/icons/github.svg';
@@ -16,28 +19,14 @@ import AiSpotlight from './../static/images/spotlight/ai.png';
 import CoffeeArticle from './../static/images/articles/coffee.png';
 import PierArticle from './../static/images/articles/pier.png';
 import GlowArticle from './../static/images/articles/glow.png';
-import ShimmerArticle from './../static/images/articles/shimmer.png';
 import MountainsArticle from './../static/images/articles/mountains.png';
-import CrystalsArticle from './../static/images/articles/crystals.png';
-import CactusArticle from './../static/images/articles/cactus.png';
-
-import PhpStack from './../static/icons/php-stack.svg';
-import GitStack from './../static/icons/git-stack.svg';
-import HtmlStack from './../static/icons/html-stack.svg';
-import JavaStack from './../static/icons/java-stack.svg';
-import DatabaseStack from './../static/icons/database-stack.svg';
-import JsStack from './../static/icons/js-stack.svg';
-import CcStack from './../static/icons/cc-stack.svg';
-import CloudStack from './../static/icons/cloud-stack.svg';
-
-import Php from './../static/icons/php.svg';
-import Git from './../static/icons/git.svg';
-import Html from './../static/icons/html.svg';
-import Java from './../static/icons/java.svg';
-import Database from './../static/icons/database.svg';
-import Js from './../static/icons/js.svg';
-import Cc from './../static/icons/cc.svg';
-import Cloud from './../static/icons/cloud.svg';
+import CardArticle from './../static/images/articles/card.png';
+import CodeArticle from './../static/images/articles/code.png';
+import DroneArticle from './../static/images/articles/drone.png';
+import KotlinArticle from './../static/images/articles/kotlin.png';
+import MacbookArticle from './../static/images/articles/macbook.png';
+import NotesArticle from './../static/images/articles/notes.png';
+import CssArticle from './../static/images/articles/css.png';
 
 import UserIcon from './../static/icons/user.svg';
 import ClockIcon from './../static/icons/clock.svg';
@@ -55,7 +44,8 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Autoplay, Pagination } from 'swiper/modules';
-import {SplitText} from "../services/SplitText";
+import { SplitText } from "../services/SplitText";
+import TechStack from "../components/TechStack";
 
 
 const Index = () => {
@@ -119,7 +109,7 @@ const Index = () => {
         },
         {
             title: 'Und wieder wird dein Blick zu Stein vor mir',
-            image: ShimmerArticle,
+            image: CardArticle,
             author: 'Felix Hebgen',
             readTime: 7
         },
@@ -131,30 +121,43 @@ const Index = () => {
         },
         {
             title: 'Und wieder wird dein Blick zu Stein vor mir',
-            image: CrystalsArticle,
+            image: CodeArticle,
             author: 'Felix Hebgen',
             readTime: 5
         },
         {
             title: 'Und wieder wird dein Blick zu Stein vor mir',
-            image: CactusArticle,
+            image: DroneArticle,
             author: 'Felix Hebgen',
             readTime: 6
         },
+        {
+            title: 'Und wieder wird dein Blick zu Stein vor mir',
+            image: KotlinArticle,
+            author: 'Felix Hebgen',
+            readTime: 6
+        },
+        {
+            title: 'Und wieder wird dein Blick zu Stein vor mir',
+            image: MacbookArticle,
+            author: 'Felix Hebgen',
+            readTime: 6
+        },
+        {
+            title: 'Und wieder wird dein Blick zu Stein vor mir',
+            image: CssArticle,
+            author: 'Felix Hebgen',
+            readTime: 6
+        },
+        {
+            title: 'Und wieder wird dein Blick zu Stein vor mir',
+            image: NotesArticle,
+            author: 'Felix Hebgen',
+            readTime: 6
+        }
     ];
 
     useEffect(() => {
-        const stackCards: NodeListOf<HTMLDivElement> = document.querySelectorAll('.techstack .card');
-        stackCards.forEach((card: HTMLDivElement) => {
-            VanillaTilt.init(card, {
-                reverse: true,
-                max: 4,
-                scale: .98,
-                perspective: 1000,
-                speed: 2000
-            });
-        });
-
         const storyCards: NodeListOf<HTMLDivElement> = document.querySelectorAll('.stories .card');
         storyCards.forEach((card: HTMLDivElement) => {
             VanillaTilt.init(card, {
@@ -174,7 +177,7 @@ const Index = () => {
         }, {
             x: 0,
             duration: 1.5,
-            delay: .5
+            delay: .24
         });
 
         const headingPromo = document.querySelector('.introduction h1') as HTMLElement;
@@ -186,8 +189,8 @@ const Index = () => {
             x: 0,
             opacity: 1,
             duration: .2,
-            stagger: .1,
-            delay: .25
+            stagger: .075,
+            delay: 0
         });
 
         gsap.fromTo('.introduction .underscore', {
@@ -197,7 +200,7 @@ const Index = () => {
             x: 0,
             opacity: 1,
             duration: .2,
-            delay: .25
+            delay: .15
         });
 
         gsap.fromTo('.introduction h2', {
@@ -207,7 +210,7 @@ const Index = () => {
             x: 0,
             opacity: 1,
             duration: .2,
-            delay: .55
+            delay: .3
         });
 
         gsap.fromTo('.introduction p', {
@@ -217,7 +220,7 @@ const Index = () => {
             x: 0,
             opacity: 1,
             duration: .2,
-            delay: .6
+            delay: .35
         });
 
         gsap.fromTo('.introduction .actions', {
@@ -227,7 +230,7 @@ const Index = () => {
             x: 0,
             opacity: 1,
             duration: .2,
-            delay: .65
+            delay: .4
         });
     }, { scope: introduction });
 
@@ -259,62 +262,7 @@ const Index = () => {
                     <div className="separator"></div>
                 </div>
             </div>
-            <div className="techstack container">
-                <div className="heading">
-                    <div className="lead"></div>
-                    <h1>Tech-Stack</h1>
-                </div>
-                <div className="grid wrapper">
-                    <div className="column large-column">
-                        <div className="grid">
-                            <div className="column full-column card">
-                                <img src={Php} alt="php"/>
-                                <img src={PhpStack} alt="php" className="hidden"/>
-                            </div>
-                        </div>
-                        <div className="grid">
-                            <div className="column big-column card">
-                                <img src={Git} alt="Git"/>
-                                <img src={GitStack} alt="Git" className="hidden"/>
-                            </div>
-                            <div className="column enormous-column card">
-                                <img src={Html} alt="HTML"/>
-                                <img src={HtmlStack} alt="HTML" className="hidden"/>
-                            </div>
-                        </div>
-                        <div className="grid justify-end">
-                            <div className="column enormous-column card">
-                                <img src={Cc} alt="Creative Cloud"/>
-                                <img src={CcStack} alt="Creative Cloud" className="hidden"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="column huge-column">
-                        <div className="grid">
-                            <div className="column large-and-a-half-column card">
-                                <img src={Java} alt="Java"/>
-                                <img src={JavaStack} alt="Java" className="hidden"/>
-                            </div>
-                            <div className="column large-and-a-half-column card">
-                                <img src={Database} alt="Database"/>
-                                <img src={DatabaseStack} alt="Database" className="hidden"/>
-                            </div>
-                        </div>
-                        <div className="grid">
-                            <div className="column full-column card">
-                                <img src={Js} alt="JavaScript"/>
-                                <img src={JsStack} alt="JavaScript" className="hidden"/>
-                            </div>
-                        </div>
-                        <div className="grid">
-                            <div className="column enormous-column card">
-                                <img src={Cloud} alt="Cloud"/>
-                                <img src={CloudStack} alt="Cloud" className="hidden"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <TechStack />
             <div className="spotlight">
                 <div className="heading container">
                     <div className="lead"></div>
@@ -386,7 +334,7 @@ const Index = () => {
                     modules={[Pagination]}
                     className="cards second"
                 >
-                    {articleItems.map((article: any, index: number) =>
+                    {articleItems.slice(5, 10).map((article: any, index: number) =>
                         <SwiperSlide className="card" key={index}>
                             <img src={article.image} alt="Article"/>
                             <div className="overlay">
@@ -404,42 +352,7 @@ const Index = () => {
                     )}
                 </Swiper>
             </div>
-            <div className="connect container">
-                <div className="heading">
-                    <div className="lead"></div>
-                    <h1>Connect</h1>
-                </div>
-                <div className="wrapper">
-                    <div className="messages left">
-                        <div className="imessage">
-                            <p className="from-them green">AI Research</p>
-                            <p className="from-them blue">Video Production</p>
-                            <p className="from-them">Online Marketing</p>
-                        </div>
-                    </div>
-                    <div className="profile">
-                        <div className="picture">
-                            <img src={FelixTransparent} alt="Felix Hebgen" />
-                        </div>
-                        <h2>Felix Hebgen</h2>
-                        <div className="underscore"></div>
-                        <div className="socials">
-                            <ul>
-                                <li><a href="#!"><img src={LinkedInLogo} alt="LinkedIn" /></a></li>
-                                <li><a href="#!"><img src={XingLogo} alt="Xing" /></a></li>
-                                <li><a href="#!"><img src={GithubLogo} alt="GitHub" /></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="messages right">
-                        <div className="imessage">
-                            <p className="from-me">Web Development</p>
-                            <p className="from-me green">UX & UI Design</p>
-                            <p className="from-me blue">Full-Stack Development</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Connect />
         </main>
     );
 }

@@ -25,6 +25,9 @@ import './static/fonts/Newsreader-Regular.woff2';
 
 /* Pages */
 import Index from './pages/Index';
+import Hire from './pages/Hire';
+import About from './pages/About';
+import Stories from './pages/Stories';
 
 /* Components */
 import Navigation from './components/Navigation';
@@ -58,8 +61,14 @@ const App = () => {
                 {/* Index Routing */}
                 <Route index element={<Index />} />
 
-                {/* Labs Routing */}
-                {/* <Route path="/Labs" element={<Labs />} /> */}
+                {/* Hire Routing */}
+                <Route path="/Hire" element={<Hire />} />
+
+                {/* About Routing */}
+                <Route path="/About" element={<About />} />
+
+                {/* Stories Routing */}
+                <Route path="/Stories" element={<Stories />} />
 
                 {/* Any* Routing (404 Not Found) */}
                 <Route path="*" element={<NotFound />} />
