@@ -47,7 +47,7 @@ const TechStack = () => {
 		<div className="techstack container">
 			<div className="heading">
 				<div className="lead"></div>
-				<h1>Tech-Stack</h1>
+				<h1>Stack</h1>
 			</div>
 			<div className="grid wrapper">
 				<div className="column large-column">

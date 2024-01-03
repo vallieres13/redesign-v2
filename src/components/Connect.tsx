@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 /* Static */
 import FelixTransparent from './../static/images/promos/felix-transparent.png';
@@ -32,15 +33,15 @@ const Connect = ({ title = defaultProps.title }: Props) => {
 				</div>
 				<div className="profile">
 					<div className="picture">
-						<img src={FelixTransparent} alt="Felix Hebgen"/>
+						<LazyLoadImage src={FelixTransparent} alt="Felix Hebgen" />
 					</div>
 					<h2>Felix Hebgen</h2>
 					<div className="underscore"></div>
 					<div className="socials">
 						<ul>
-							<li><Link to={'https://www.linkedin.com/in/felixhebgen/'}><img src={LinkedInLogo} alt="LinkedIn"/></Link></li>
-							<li><Link to={'https://www.xing.com/profile/Felix_Hebgen'}><img src={XingLogo} alt="Xing"/></Link></li>
-							<li><Link to={'https://github.com/vallieres13'}><img src={GithubLogo} alt="GitHub"/></Link></li>
+							<li><Link to={'https://www.linkedin.com/in/felixhebgen/'}><LazyLoadImage src={LinkedInLogo} alt="LinkedIn" /></Link></li>
+							<li><Link to={'https://www.xing.com/profile/Felix_Hebgen'}><LazyLoadImage src={XingLogo} alt="Xing" /></Link></li>
+							<li><Link to={'https://github.com/vallieres13'}><LazyLoadImage src={GithubLogo} alt="GitHub" /></Link></li>
 						</ul>
 					</div>
 				</div>

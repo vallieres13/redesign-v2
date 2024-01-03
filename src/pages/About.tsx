@@ -1,4 +1,4 @@
-import React, {useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 /* Components */
 import Timeline from './../components/Timeline';
@@ -13,6 +13,13 @@ import WorldOfWarships from './../static/images/about/wows.png';
 import Eco from './../static/images/about/eco.png';
 
 import WavingEmoji from './../static/emojis/waving.gif';
+import CowboyEmoji from './../static/emojis/cowboy.gif';
+import SmileyEmoji from './../static/emojis/smiley.gif';
+import WinkingEmoji from './../static/emojis/wink.gif';
+import CoolEmoji from './../static/emojis/cool.gif';
+import CoffeeEmoji from './../static/emojis/coffee.gif';
+import RocketEmoji from './../static/emojis/rocket.gif';
+import MoyaiEmoji from './../static/emojis/moyai.gif';
 
 /* Misc */
 import gsap from 'gsap';
@@ -61,26 +68,53 @@ const About = () => {
 		});
 	}, []);
 
+	const headlines = [
+		{
+			slug: 'Hello!',
+			emoji: WavingEmoji
+		},
+		{
+			slug: 'Howdy!',
+			emoji: CowboyEmoji
+		},
+		{
+			slug: 'Hello!',
+			emoji: SmileyEmoji
+		},
+		{
+			slug: 'Hey!',
+			emoji: WinkingEmoji
+		},
+		{
+			slug: 'Hey!',
+			emoji: CoolEmoji
+		},
+		{
+			slug: 'Coffee?',
+			emoji: CoffeeEmoji
+		},
+		{
+			slug: 'Hello!',
+			emoji: RocketEmoji
+		},
+		{
+			slug: 'Hello.',
+			emoji: MoyaiEmoji
+		}
+	];
+
+	const headline = headlines[Math.floor(Math.random() * headlines.length)];
+
 	return (
 		<main className="about">
-			<div className="page-heading centered">
-				<div className="wrapper container">
-					<h1>About Me</h1>
-					<div className="underscore"></div>
-				</div>
-				<div className="line"></div>
-			</div>
 			<div className="hello container" ref={hello}>
 				<div className="description">
 					<div className="heading">
-						<div className="lead"></div>
-						<h1>Hello! <img src={WavingEmoji} alt="Waving Hand" className="emoji"/></h1>
+					<div className="lead"></div>
+						<h1>{headline.slug} <img src={headline.emoji} alt={headline.slug} className={'emoji' + (headline.emoji === WavingEmoji ? ' waving' : '')} /></h1>
 					</div>
-					<p>I’m Felix, a 21 year old fellow who’s interest has always sparked in digital content creation
-						diverse world of online entertainment and the latest technology trends of the 21st century.</p>
-					<p>My goal with this page is to have a solid web presence and a set of skills on display for
-						companies as a resource. Other than that, I use my time to write articles in the blog and update
-						the about page for others to connect with me on a social basis.</p>
+					<p>I’m Felix, a 21 year old fellow who’s interest has always sparked in digital content creation.
+						Including diverse world of online entertainment and the latest tech trends of the 21st century. <div className="hyphen"></div></p>
 				</div>
 				<div className="pictures">
 					<img src={BalconyPicture} alt="Balcony"/>

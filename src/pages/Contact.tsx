@@ -134,6 +134,17 @@ const Contact = () => {
 		});
 	}, { scope: heading });
 
+	const disclaimer = useRef<HTMLDivElement>(null);
+	useGSAP(() => {
+		gsap.fromTo('.disclaimer *', {
+			opacity: 0
+		}, {
+			opacity: 1,
+			duration: .25,
+			delay: .75
+		});
+	}, { scope: disclaimer });
+
 	return (
 		<main className="contact">
 			<div className="page-heading" ref={heading}>
@@ -167,7 +178,7 @@ const Contact = () => {
 					<img src={Picture} alt="Felix Hebgen" />
 				</div>
 			</div>
-			<div className="disclaimer container">
+			<div className="disclaimer container" ref={disclaimer}>
 				<p className="title">Contact Disclaimer</p>
 				<p>
 					To ensure efficient and timely communication, please be advised of the following:<br />

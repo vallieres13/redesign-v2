@@ -5,7 +5,6 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
 const ScrollToTop = () => {
 	const { pathname } = useLocation();
-
 	gsap.registerPlugin(ScrollToPlugin);
 
 	useEffect(() => {

@@ -7,9 +7,6 @@ body {
 	min-height: 100vh;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	font-smooth: always;
-	-webkit-font-smoothing: subpixel-antialiased;
-	moz-osx-font-smoothing: auto;
 }
 
 img {
@@ -44,7 +41,7 @@ img {
  =================================== */
 
 .logo {
-	margin: 50px 0 40px;
+	margin: 45px 0 40px;
 
 	img {
 		max-height: 45px;
@@ -65,8 +62,8 @@ img {
 		&:focus img,
 		&:active img {
 			border: 1px double #444444;
-			padding: 15px 20px 8px;
-			margin: -16px 5px -9px -21px;
+			padding: 12px 20px 8px;
+			margin: -13px 5px -9px -21px;
 			transition: none;
 		}
 	}
@@ -75,7 +72,6 @@ img {
 
 /* FONTS
  =================================== */
-
 
 /* Greycliff CF */
 
@@ -135,13 +131,6 @@ img {
 	src: url("./assets/fonts/ReadexPro-Bold.woff2") format("woff2");
 }
 
-/* Newsreader */
-
-@font-face {
-	font-family: 'Newsreader Regular';
-	src: url("./assets/fonts/Newsreader-Regular.woff2") format("woff2");
-}
-
 
 /* GRID SYSTEM
  =================================== */
@@ -185,7 +174,7 @@ nav > .desktop {
 			display: inline-block;
 
 			a {
-				display: block;
+				display: inline-block;
 				color: #2a2a2a;
 				padding: 25px;
 				text-decoration: none;
@@ -195,10 +184,8 @@ nav > .desktop {
 				font-size: 16px;
 				text-shadow: none;
 
-				&:hover sup {
-					background-color: #000000;
-					transform: translateY(-2px);
-					transition: transform .2s;
+				&.hire {
+					padding-right: 10px;
 				}
 
 				span {
@@ -245,17 +232,21 @@ nav > .desktop {
 					mix-blend-mode: difference;
 				}
 
-				sup {
-					background-color: #2d2d2d;
-					color: white;
-					font-size: 8px;
-					font-family: 'Greycliff CF Heavy', sans-serif;
-					padding: 4px 8px;
-					border-radius: 4px;
-					vertical-align: .3rem;
-					margin-left: .75rem;
-					transition: transform .15s;
-				}
+			}
+
+			sup {
+				display: inline-block;
+				position: relative;
+				background-color: #2d2d2d;
+				color: white;
+				font-size: 8px;
+				font-family: 'Greycliff CF Heavy', sans-serif;
+				padding: 4px 8px;
+				border-radius: 4px;
+				vertical-align: 0.25rem;
+				margin-left: .75rem;
+				transition: transform .15s;
+				text-transform: uppercase;
 			}
 		}
 	}
@@ -326,8 +317,19 @@ nav > .desktop {
 			height: 42rem;
 			margin-top: -12rem;
 			width: 400px;
-			border-left: 1px solid #E4E4E4;
+			transition: border-color 1s ease;
 			padding-left: 3rem;
+			--heightPseudo: 0;
+
+			&::before {
+				content: '';
+				display: block;
+				position: absolute;
+				height: var(--heightPseudo);
+				margin-left: -3rem;
+				width: 1px;
+				background-color: #D2D2D2;
+			}
 
 			h1 {
 				margin: 11.5rem 0 0;
@@ -377,7 +379,7 @@ nav > .desktop {
 				white-space: nowrap;
 				width: 2048px;
 				margin: 5rem 0 0 -10rem;
-				background-color: #E4E4E4;
+				background-color: #D2D2D2;
 			}
 		}
 	}
@@ -482,8 +484,8 @@ nav > .desktop {
 
 			.card {
 				position: relative;
-				width: 680px !important;
-				height: 375px;
+				width: 580px !important;
+				height: 325px;
 				display: flex;
 				background-color: #F5F5F5;
 				border-radius: 10px;
@@ -958,7 +960,8 @@ nav > .desktop {
 	.hello {
 		display: flex;
 		justify-content: space-between;
-		margin: 5rem auto;
+		align-items: center;
+		margin: 4.5rem auto 9rem;
 
 		.description {
 			width: 47%;
@@ -973,6 +976,15 @@ nav > .desktop {
 				font-family: "Greycliff CF Regular", sans-serif;
 				font-size: 24px;
 				color: #5C5C5C;
+
+				.hyphen {
+					display: inline-block;
+					width: 120px;
+					height: 1px;
+					margin: 0 1rem;
+					background-color: #D2D2D2;
+					vertical-align: .4rem;
+				}
 			}
 		}
 
@@ -1173,7 +1185,7 @@ nav > .desktop {
 		}
 
 		.aside {
-			border-left: 1px solid #E4E4E4;
+			border-left: 1px solid #D2D2D2;
 			padding-left: 45px;
 
 			.article {
@@ -1608,6 +1620,95 @@ footer {
 }
 
 
+/* INITIAL LOAD OVERLAY
+ =================================== */
+
+.initialLoadOverlay {
+	position: fixed;
+	z-index: 199;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+
+	&.show {
+		.bar {
+			transform: scale(1, 1)
+			translate3d(0,0,0);
+			transform-origin: 0 0;
+		}
+
+		.wrapper {
+			opacity: 1;
+			transition: .3s;
+		}
+	}
+
+	.bar {
+		position: fixed;
+		width: 10.1vw;
+		background: #f6f6f6;
+		top: 0;
+		bottom: 0;
+		transform: scale(0, 1)
+		translate3d(0,0,0);
+		transform-origin: 100% 100%;
+		transition: transform 0.5s ease-in-out;
+		&:first-of-type {
+			border-left: none;
+		}
+
+		@for $x from 1 through 10 {
+			&:nth-of-type(#{$x}) {
+				left: ($x - 1) * 10vw;
+				background: #f6f6f6;
+				transition-delay: 0.05s * $x;
+			}
+		}
+	}
+
+	.wrapper {
+		opacity: 0;
+		transition: .3s;
+		position: fixed;
+		z-index: 299;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		&.animate #logo path {
+			stroke: black;
+			stroke-width: 1;
+			stroke-dasharray: 783;
+			stroke-dashoffset: 783;
+			animation: dash 5s linear;
+			animation-fill-mode: forwards;
+		}
+
+		@keyframes dash {
+			100% {
+				stroke-dashoffset: 0;
+			}
+		}
+
+		.progress {
+			background-color: #cccccc;
+			width: 150px;
+			margin: 1rem auto 0;
+			height: 2px;
+
+			.indicator {
+				background-color: #282828;
+				height: 2px;
+				width: 0;
+				transition: width .3s;
+			}
+		}
+	}
+}
+
+
+
 /* NEWSLETTER
  =================================== */
 
@@ -1733,7 +1834,7 @@ footer {
 	.grid {
 		display: flex;
 		width: 100%;
-		gap: 22px;
+		gap: 26px;
 
 		&.justify-end {
 			justify-content: flex-end;
@@ -1774,7 +1875,7 @@ footer {
 		}
 
 		.card {
-			margin: 11px 0;
+			margin: 8px 0;
 			position: relative;
 			cursor: pointer;
 			transform-style: preserve-3d;
@@ -1965,7 +2066,7 @@ footer {
 		display: block;
 		height: 1px;
 		width: 100%;
-		background-color: #E4E4E4;
+		background-color: #D2D2D2;
 	}
 
 	&.centered {
@@ -1989,7 +2090,7 @@ footer {
 		display: inline-block;
 		height: 1px;
 		width: 170px;
-		background-color: #E4E4E4;
+		background-color: #D2D2D2;
 		transition: .2s;
 	}
 
@@ -2214,8 +2315,15 @@ a.button {
 
 /* Emojis */
 .emoji {
-	height: 1em;
-	width: 1em;
+	height: .9em;
+	width: .9em;
+	margin-bottom: -.3rem;
+
+	&.waving {
+		height: 1em;
+		width: 1em;
+		margin-bottom: 0;
+	}
 }
 
 

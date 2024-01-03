@@ -20,6 +20,7 @@ import { SplitText } from '../services/SplitText';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { Link } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Stories = () => {
 
@@ -130,7 +131,7 @@ const Stories = () => {
 					{articleItems.slice(0, 2).map((article: any, index: number) =>
 						<Link to={'/article'} key={index}>
 							<article className="article">
-								<img src={article.image} alt="Article Image" />
+								<LazyLoadImage src={article.image} alt="Article Image" />
 								<div className="meta">
 									<h2>{article.title}</h2>
 									<p>{article.extract}</p>
@@ -150,7 +151,7 @@ const Stories = () => {
 					{articleItems.slice(2, 5).map((article: any, index: number) =>
 						<Link to={'/article'} key={index}>
 							<article className="article">
-								<img src={article.image} alt="Article Image" />
+								<LazyLoadImage src={article.image} alt="Article Image" />
 								<div className="meta">
 									<h2>{article.title}</h2>
 									<p>{article.extract}</p>

@@ -80,6 +80,11 @@ const Navigation = () => {
 			colour: 'none'
 		},
 		{
+			title: 'Services',
+			url: 'services',
+			colour: 'none'
+		},
+		{
 			title: 'Hire Me',
 			url: 'hire',
 			colour: 'none'
@@ -93,9 +98,10 @@ const Navigation = () => {
 					{items.map((items, index) => {
 						return (
 							<li onMouseOver={hoverItem} onMouseLeave={unhoverItem} onClick={clickedItem} key={index}>
-								<NavLink to={'/' + items.url} className={({ isActive }) => (isActive ? 'active' : '')} data-colour={items.colour} data-hover={items.title}>
-									<span>{items.title} {items.url === 'hire' ? <sup>Looking!</sup> : <></>}</span>
+								<NavLink to={'/' + items.url} className={({ isActive }) => (isActive ? 'active' : '') + (items.url === 'hire' ? ' hire' : '')} data-colour={items.colour} data-hover={items.title}>
+									<span>{items.title}</span>
 								</NavLink>
+								{items.url === 'hire' && <sup>Looking!</sup>}
 							</li>
 						);
 					})}

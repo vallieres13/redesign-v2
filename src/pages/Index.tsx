@@ -47,7 +47,6 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import { SplitText } from "../services/SplitText";
 import TechStack from "../components/TechStack";
 
-
 const Index = () => {
 
     const spotlightItems = [
@@ -170,83 +169,92 @@ const Index = () => {
         });
     }, []);
 
+    let initDelay = 0;
+    if(document.querySelector('.initialLoadOverlay')) initDelay = .5;
+
     const introduction = useRef<HTMLDivElement>(null);
     useGSAP(() => {
+        const pseudo = document.querySelector('.introduction') as HTMLElement;
+        gsap.to(pseudo,{
+            "--heightPseudo": "675px",
+            duration: 1,
+            delay: initDelay
+        });
+
         gsap.fromTo('.separator', {
             x: 1200,
         }, {
             x: 0,
             duration: 1.5,
-            delay: .24
+            delay: .24 + initDelay
         });
 
         const headingPromo = document.querySelector('.introduction h1') as HTMLElement;
         const split = new SplitText({}).split(headingPromo);
         gsap.fromTo(split.words, {
-            x: -50,
+            x: -30,
             opacity: 0
         }, {
             x: 0,
             opacity: 1,
             duration: .2,
             stagger: .075,
-            delay: 0
+            delay: initDelay
         });
 
         gsap.fromTo('.introduction .underscore', {
-            x: -50,
+            x: -30,
             opacity: 0
         }, {
             x: 0,
             opacity: 1,
             duration: .2,
-            delay: .15
+            delay: .15 + initDelay
         });
 
         gsap.fromTo('.introduction h2', {
-            x: -50,
+            x: -30,
             opacity: 0
         }, {
             x: 0,
             opacity: 1,
             duration: .2,
-            delay: .3
+            delay: .3 + initDelay
         });
 
         gsap.fromTo('.introduction p', {
-            x: -50,
+            x: -30,
             opacity: 0
         }, {
             x: 0,
             opacity: 1,
             duration: .2,
-            delay: .35
+            delay: .35 + initDelay
         });
 
         gsap.fromTo('.introduction .actions', {
-            x: -50,
+            x: -30,
             opacity: 0
         }, {
             x: 0,
             opacity: 1,
             duration: .2,
-            delay: .4
+            delay: .4 + initDelay
         });
     }, { scope: introduction });
-
 
     return (
         <main className="home">
             <div className="promo">
                 <div className="profile">
                     <div className="picture">
-                        <img src={FelixTransparent} alt="Felix Hebgen"/>
+                        <img src={FelixTransparent} alt="Felix Hebgen" />
                     </div>
                     <div className="socials">
                         <ul>
-                            <li><Link to={'https://www.linkedin.com/in/felixhebgen/'}><img src={LinkedInLogo} alt="LinkedIn"/></Link></li>
-                            <li><Link to={'https://www.xing.com/profile/Felix_Hebgen'}><img src={XingLogo} alt="Xing"/></Link></li>
-                            <li><Link to={'https://github.com/vallieres13'}><img src={GithubLogo} alt="GitHub"/></Link></li>
+                            <li><Link to={'https://www.linkedin.com/in/felixhebgen/'}><img src={LinkedInLogo} alt="LinkedIn" /></Link></li>
+                            <li><Link to={'https://www.xing.com/profile/Felix_Hebgen'}><img src={XingLogo} alt="Xing" /></Link></li>
+                            <li><Link to={'https://github.com/vallieres13'}><img src={GithubLogo} alt="GitHub" /></Link></li>
                         </ul>
                     </div>
                 </div>
@@ -275,7 +283,7 @@ const Index = () => {
                     loop={true}
                     autoplay={{
                         delay: 2500,
-                        disableOnInteraction: false,
+                        disableOnInteraction: false
                     }}
                     pagination={{clickable: true}}
                     modules={[Autoplay, Pagination]}
@@ -311,7 +319,7 @@ const Index = () => {
                 >
                     {articleItems.slice(0, 4).map((article: any, index: number) =>
                         <SwiperSlide className="card" key={index} data-tilt data-tilt-reverse="true">
-                            <img src={article.image} alt="Article"/>
+                            <img src={article.image} alt="Article" />
                             <div className="overlay">
                                 <h2>Und wieder wird dein Blick zu Stein vor mir</h2>
                                 <ul className="details">
@@ -335,7 +343,7 @@ const Index = () => {
                 >
                     {articleItems.slice(5, 10).map((article: any, index: number) =>
                         <SwiperSlide className="card" key={index}>
-                            <img src={article.image} alt="Article"/>
+                            <img src={article.image} alt="Article" />
                             <div className="overlay">
                                 <h2>Und wieder wird dein Blick zu Stein vor mir</h2>
                                 <ul className="details">
