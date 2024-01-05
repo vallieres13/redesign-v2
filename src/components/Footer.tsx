@@ -43,9 +43,9 @@ const Footer = () => {
 				</div>
 				<div className="column">
 					<ul>
-						<li><Link to={'/about'}>What I do</Link></li>
-						<li><Link to={'/impressions'}>References</Link></li>
-						<li><Link to={'/impressions'}>Impressions</Link></li>
+						<li><Link to={'/work'}>Work</Link></li>
+						<li><Link to={'/work'}>What I do</Link></li>
+						<li><Link to={'/work'}>References</Link></li>
 					</ul>
 				</div>
 				<div className="column">

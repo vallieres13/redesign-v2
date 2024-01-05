@@ -8,7 +8,7 @@ const ScrollToTop = () => {
 	gsap.registerPlugin(ScrollToPlugin);
 
 	useEffect(() => {
-		gsap.to(window, { duration: .6, ease: 'expo.out', scrollTo: 0 });
+		gsap.to(window, { duration: .5, ease: 'expo.out', scrollTo: 0 });
 	}, [pathname]);
 
 	return null;

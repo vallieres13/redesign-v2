@@ -11,7 +11,7 @@ import Logo from './../static/logo.svg';
 
 /* Misc */
 import { Helmet } from 'react-helmet';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 
 const Layout = () => {
@@ -62,6 +62,23 @@ const Layout = () => {
 			});
 		}
 	}, [sticky]);
+
+	const location = useLocation();
+
+	useEffect(() => {
+		if(!sticky) return;
+
+		const stickyHeader = document.querySelector('header.sticky') as HTMLElement;
+		gsap.fromTo(stickyHeader, {
+			y: 0,
+			opacity: 1
+		}, {
+			y: -100,
+			opacity: 0,
+			duration: 0,
+			onComplete: () => stickyHeader.classList.remove('display')
+		});
+	}, [location.pathname]);
 
 	return (
 		<>

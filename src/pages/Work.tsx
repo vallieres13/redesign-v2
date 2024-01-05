@@ -13,6 +13,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import VanillaTilt from 'vanilla-tilt';
 import { Link } from 'react-router-dom';
+import { SplitText } from '../services/SplitText';
 
 const Work = () => {
 
@@ -53,6 +54,39 @@ const Work = () => {
 			description: 'While there are numerous other noteworthy projects I\'ve been involved in, this page is already fairly long. If you\'re interested in learning more about these projects or want a quote, feel free to get in touch with me! I\'d be happy to share further details and insights about my experiences.'
 		}
 	];
+
+	const heading = useRef<HTMLDivElement>(null);
+	useGSAP(() => {
+		gsap.fromTo('.line', {
+			x: -1800,
+		}, {
+			x: 0,
+			duration: 2,
+			ease: 'power4.out',
+			delay: .25
+		});
+
+		const pageHeading = document.querySelector('.page-heading h1') as HTMLElement;
+		const split = new SplitText({}).split(pageHeading);
+		gsap.fromTo(split.chars, {
+			x: 25,
+			opacity: 0
+		}, {
+			x: 0,
+			opacity: 1,
+			duration: .15,
+			stagger: .03,
+			delay: .25
+		});
+
+		gsap.fromTo('.underscore', {
+			opacity: 0
+		}, {
+			opacity: 1,
+			duration: .2,
+			delay: .3
+		});
+	}, { scope: heading });
 
 	const impressions = useRef<HTMLDivElement>(null);
 	useGSAP(() => {
@@ -121,7 +155,7 @@ const Work = () => {
 
 	return (
 		<main className="work">
-			<div className="page-heading">
+			<div className="page-heading" ref={heading}>
 				<div className="wrapper container">
 					<h1>Work</h1>
 					<div className="underscore"></div>
@@ -138,6 +172,7 @@ const Work = () => {
 							</div>
 							<div className="image">
 								<div className="overlay"></div>
+								{/* first pic as img tag, all others as lazyloadimage */}
 								<img src={item.image} alt={item.title}/>
 							</div>
 						</div>
