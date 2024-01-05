@@ -35,6 +35,7 @@ import NetHi from './../static/icons/net-hi.svg';
 /* Misc */
 import VanillaTilt from 'vanilla-tilt';
 import Timeline from "../components/Timeline";
+import Heading from "../components/Heading";
 
 const Index = () => {
 
@@ -230,7 +231,7 @@ const Index = () => {
 								<img src={PDFIcon} alt="PDF"/>
 							</div>
 							<div className="details">
-								<h3>Curriculum Vitae</h3>
+								<h3>Curriculum Vitae (Résumé)</h3>
 								<p>65 KB — PDF-File</p>
 							</div>
 							<div className="action">
@@ -241,10 +242,8 @@ const Index = () => {
 									<img src={InfoIcon} alt="Info"/>
 								</div>
 								<div className="description">
-									<p>A collection of projects, experiences, and qualifications in various IT fields
-										throughout several companies.</p>
-									<p>This document also includes a listing of skills, as well as the indication of
-										technical understanding through individual, self-determined measurements.</p>
+									<p>Get a closer look at my skills and experience.</p>
+									<p>Dive into my experience, projects, and passion for crafting outstanding digital solutions.</p>
 									<p className="disclaimer">Your download will start shortly &hellip;</p>
 								</div>
 							</div>
@@ -254,7 +253,7 @@ const Index = () => {
 								<img src={PDFIcon} alt="PDF"/>
 							</div>
 							<div className="details">
-								<h3>Experiences & Qualifications</h3>
+								<h3>Experience & Qualifications</h3>
 								<p>65 KB — PDF-File</p>
 							</div>
 							<div className="action">
@@ -289,8 +288,7 @@ const Index = () => {
 									<img src={InfoIcon} alt="Info"/>
 								</div>
 								<div className="description">
-									<p>A collection of projects, experiences, and qualifications in various IT fields
-										throughout several companies.</p>
+									<p>Discover my proficiency in English through my Cambridge Certificate of English C1.</p>
 									<p>This document also includes a listing of skills, as well as the indication of
 										technical understanding through individual, self-determined measurements.</p>
 									<p className="disclaimer">Your download will start shortly &hellip;</p>
@@ -301,10 +299,7 @@ const Index = () => {
 				</div>
 			</div>
 			<div className="highlights container">
-				<div className="heading">
-					<div className="lead"></div>
-					<h1>Highlights</h1>
-				</div>
+				<Heading>Highlights</Heading>
 				<div className="wrapper">
 					<h2>Techstack</h2>
 					{highlightItems.map((highlight: any, index: number) =>
@@ -330,10 +325,7 @@ const Index = () => {
 				</div>
 			</div>
 			<div className="likes container">
-				<div className="heading">
-					<div className="lead"></div>
-					<h1>Likes</h1>
-				</div>
+				<Heading>Likes</Heading>
 				<div className="wrapper">
 					{likeItems.map((like: any, index: number) =>
 						<div className="like" key={index}>

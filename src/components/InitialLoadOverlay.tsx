@@ -21,12 +21,12 @@ const InitialLoadOverlay = (props: any) => {
 		gsap.to(overlay, {
 			onComplete: () => {
 				props.hasFinished();
-				overlay.current!.classList.remove('show');
+				if(overlay.current) overlay.current.classList.remove('show');
 
 				gsap.to(overlay, {
 					onComplete: () => {
-						overlay.current!.remove();
 						localStorage.initialLoad = true;
+						if(overlay.current) overlay.current.style.visibility = 'hidden';
 					},
 					delay: .5,
 				});

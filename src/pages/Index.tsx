@@ -12,15 +12,9 @@ import XingLogo from './../static/icons/xing.svg';
 
 import DesignSpotlight from './../static/images/spotlight/design.png';
 import MarketingSpotlight from './../static/images/spotlight/marketing.png';
-import CloudSpotlight from './../static/images/spotlight/cloud.png';
 import CodeSpotlight from './../static/images/spotlight/code.png';
 import AiSpotlight from './../static/images/spotlight/ai.png';
 
-import CoffeeArticle from './../static/images/articles/coffee.png';
-import PierArticle from './../static/images/articles/pier.png';
-import GlowArticle from './../static/images/articles/glow.png';
-import MountainsArticle from './../static/images/articles/mountains.png';
-import CardArticle from './../static/images/articles/card.png';
 import CodeArticle from './../static/images/articles/code.png';
 import DroneArticle from './../static/images/articles/drone.png';
 import KotlinArticle from './../static/images/articles/kotlin.png';
@@ -36,6 +30,7 @@ import ShareIcon from './../static/icons/share.svg';
 import { Link } from 'react-router-dom';
 import VanillaTilt from 'vanilla-tilt';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 
 // Import Swiper styles
@@ -46,78 +41,45 @@ import 'swiper/css/pagination';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { SplitText } from "../services/SplitText";
 import TechStack from "../components/TechStack";
+import Heading from "../components/Heading";
 
 const Index = () => {
+
+    /* Register ScrollTrigger */
+    gsap.registerPlugin(ScrollTrigger);
 
     const spotlightItems = [
         {
             illustration: DesignSpotlight,
             title: 'Interaction Design',
-            description: '... is a striving full-stack web developer in today\'s ever so fast growing web-app economy.',
-            buttonTitle: 'About Me',
-            buttonTarget: '/about'
+            description: 'Crafting intuitive and seamless user experiences through thoughtful interaction design is my passion and expertise.',
+            buttonTitle: 'Learn more',
+            buttonTarget: '/hire'
         },
         {
             illustration: MarketingSpotlight,
-            title: 'Internet Marketing',
-            description: '... is a striving full-stack web developer in today\'s ever so fast growing web-app economy.',
-            buttonTitle: 'About Me',
-            buttonTarget: '/about'
-        },
-        {
-            illustration: CloudSpotlight,
-            title: 'Cloud Management',
-            description: '... is a striving full-stack web developer in today\'s ever so fast growing web-app economy.',
-            buttonTitle: 'About Me',
-            buttonTarget: '/about'
+            title: 'Online Marketing',
+            description: 'Driving digital success through strategic marketing initiatives to maximise reach and engagement.',
+            buttonTitle: 'Learn more',
+            buttonTarget: '/hire'
         },
         {
             illustration: CodeSpotlight,
             title: 'Web & App Development',
-            description: '... is a striving full-stack web developer in today\'s ever so fast growing web-app economy.',
-            buttonTitle: 'About Me',
-            buttonTarget: '/about'
+            description: 'Empowering digital experiences through dynamic web development and impactful solutions in the realm of the web.',
+            buttonTitle: 'Learn more',
+            buttonTarget: '/hire'
         },
         {
             illustration: AiSpotlight,
             title: 'Artificial Intelligence',
-            description: '... is a striving full-stack web developer in today\'s ever so fast growing web-app economy.',
-            buttonTitle: 'About Me',
-            buttonTarget: '/about'
+            description: 'Harnessing the power of AI, I innovate and implement solutions that redefine possibilities and elevate user experiences.',
+            buttonTitle: 'Learn more',
+            buttonTarget: '/hire'
         }
     ];
 
     const articleItems = [
-        {
-            title: 'Und wieder wird dein Blick zu Stein vor mir',
-            image: CoffeeArticle,
-            author: 'Felix Hebgen',
-            readTime: 2
-        },
-        {
-            title: 'Und wieder wird dein Blick zu Stein vor mir',
-            image: PierArticle,
-            author: 'Felix Hebgen',
-            readTime: 5
-        },
-        {
-            title: 'Und wieder wird dein Blick zu Stein vor mir',
-            image: GlowArticle,
-            author: 'Felix Hebgen',
-            readTime: 3
-        },
-        {
-            title: 'Und wieder wird dein Blick zu Stein vor mir',
-            image: CardArticle,
-            author: 'Felix Hebgen',
-            readTime: 7
-        },
-        {
-            title: 'Und wieder wird dein Blick zu Stein vor mir',
-            image: MountainsArticle,
-            author: 'Felix Hebgen',
-            readTime: 1
-        },
         {
             title: 'Und wieder wird dein Blick zu Stein vor mir',
             image: CodeArticle,
@@ -161,7 +123,7 @@ const Index = () => {
         storyCards.forEach((card: HTMLDivElement) => {
             VanillaTilt.init(card, {
                 reverse: true,
-                max: 5,
+                max: 3,
                 scale: .98,
                 perspective: 2000,
                 speed: 2000
@@ -243,6 +205,22 @@ const Index = () => {
         });
     }, { scope: introduction });
 
+    const stories = useRef<HTMLDivElement>(null);
+    useGSAP(() => {
+        gsap.fromTo('.card', {
+            marginTop: 140
+        },{
+            scrollTrigger: {
+                trigger: '.cards',
+                start: 'top bottom',
+                end: '+=800',
+                scrub: 1,
+            },
+            marginTop: 0,
+            stagger: .1
+        });
+    }, { scope: stories });
+
     return (
         <main className="home">
             <div className="promo">
@@ -262,7 +240,7 @@ const Index = () => {
                     <h1>Felix Hebgen</h1>
                     <div className="underscore"></div>
                     <h2>Web-Developer & Designer</h2>
-                    <p>... is a striving full-stack web developer in today's ever so fast growing web-app economy.</p>
+                    <p>... is a <span className="emoji">🇩🇪</span> German full-stack web developer and designer in today's ever so fast growing web-app economy.</p>
                     <div className="actions">
                         <Link to={'/about'} className="button primary">About me</Link>
                         <Link to={'/hire'} className="button">Hire me</Link>
@@ -272,10 +250,7 @@ const Index = () => {
             </div>
             <TechStack />
             <div className="spotlight">
-                <div className="heading container">
-                    <div className="lead"></div>
-                    <h1>Spotlight</h1>
-                </div>
+                <Heading container={true}>Spotlight</Heading>
                 <Swiper
                     spaceBetween={30}
                     centeredSlides={true}
@@ -305,60 +280,50 @@ const Index = () => {
                     )}
                 </Swiper>
             </div>
-            <div className="stories">
-                <div className="heading container">
-                    <div className="lead"></div>
-                    <h1>Stories</h1>
+            <div className="stories" ref={stories}>
+                <Heading container={true}>Stories</Heading>
+                <div className="cards container">
+                        <div className="card-side">
+                            {articleItems.slice(0, 2).map((article: any, index: number) =>
+                                <Link to={'/article'} key={index}>
+                                    <div className="card">
+                                        <img src={article.image} alt="Article"/>
+                                        <div className="overlay">
+                                            <h2>Und wieder wird dein Blick zu Stein vor mir</h2>
+                                            <ul className="details">
+                                                <li><img src={UserIcon} alt="User"/> {article.author}</li>
+                                                <li><img src={ClockIcon} alt="Clock"/> {article.readTime} Minutes</li>
+                                            </ul>
+                                            <ul className="details right">
+                                                <li><img src={ShareIcon} alt="Share"/> Share</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </Link>
+                            )}
+                        </div>
+                        <div className="card-side right">
+                            {articleItems.slice(2, 5).map((article: any, index: number) =>
+                                <Link to={'/article'} key={index}>
+                                    <div className="card">
+                                        <img src={article.image} alt="Article"/>
+                                        <div className="overlay">
+                                            <h2>Und wieder wird dein Blick zu Stein vor mir</h2>
+                                            <ul className="details">
+                                                <li><img src={UserIcon} alt="User"/> {article.author}</li>
+                                                <li><img src={ClockIcon} alt="Clock"/> {article.readTime} Minutes</li>
+                                            </ul>
+                                            <ul className="details right">
+                                                <li><img src={ShareIcon} alt="Share"/> Share</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </Link>
+                            )}
+                        </div>
+                    </div>
                 </div>
-                <Swiper
-                    spaceBetween={24}
-                    centeredSlides={true}
-                    slidesPerView={'auto'}
-                    loop={true}
-                    className="cards"
-                >
-                    {articleItems.slice(0, 4).map((article: any, index: number) =>
-                        <SwiperSlide className="card" key={index} data-tilt data-tilt-reverse="true">
-                            <img src={article.image} alt="Article" />
-                            <div className="overlay">
-                                <h2>Und wieder wird dein Blick zu Stein vor mir</h2>
-                                <ul className="details">
-                                    <li><img src={UserIcon} alt="User" /> {article.author}</li>
-                                    <li><img src={ClockIcon} alt="Clock" /> {article.readTime} Minutes</li>
-                                </ul>
-                                <ul className="details right">
-                                    <li><img src={ShareIcon} alt="Share" /> Share</li>
-                                </ul>
-                            </div>
-                        </SwiperSlide>
-                    )}
-                </Swiper>
-                <Swiper
-                    spaceBetween={24}
-                    slidesPerView={4}
-                    loop={true}
-                    pagination={{clickable: true}}
-                    modules={[Pagination]}
-                    className="cards second"
-                >
-                    {articleItems.slice(5, 10).map((article: any, index: number) =>
-                        <SwiperSlide className="card" key={index}>
-                            <img src={article.image} alt="Article" />
-                            <div className="overlay">
-                                <h2>Und wieder wird dein Blick zu Stein vor mir</h2>
-                                <ul className="details">
-                                    <li><img src={UserIcon} alt="User" /> {article.author}</li>
-                                    <li><img src={ClockIcon} alt="Clock" /> {article.readTime} Minutes</li>
-                                </ul>
-                                <ul className="details right">
-                                    <li><img src={ShareIcon} alt="Share" /> Share</li>
-                                </ul>
-                            </div>
-                        </SwiperSlide>
-                    )}
-                </Swiper>
-            </div>
-            <Connect />
+            <Connect/>
         </main>
     );
 }

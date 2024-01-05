@@ -7,8 +7,6 @@ const Navigation = () => {
 	const [ navigating, setNavigating ] = useState(false);
 
 	const clickedItem = (e: React.MouseEvent) => {
-		e.preventDefault();
-
 		if(navigating) return;
 		setNavigating(true);
 
@@ -28,44 +26,8 @@ const Navigation = () => {
 
 	};
 
-	const hoverItem = () => {
-		if(navigating) return;
-
-		const content = document.querySelector('main');
-		const footer = document.querySelector('footer');
-
-		gsap.to(content, {
-			autoAlpha: .5,
-			ease: 'power2',
-			duration: .3
-		});
-
-		gsap.to(footer, {
-			autoAlpha: .5,
-			ease: 'power2',
-			duration: .3
-		});
-	};
-
 	const unhoverItem = () => {
-		const content = document.querySelector('main');
-		const footer = document.querySelector('footer');
-
-		if(navigating) {
-			setNavigating(false);
-		}
-
-		gsap.to(content, {
-			autoAlpha: 1,
-			ease: 'power2',
-			duration: .3
-		});
-
-		gsap.to(footer, {
-			autoAlpha: 1,
-			ease: 'power2',
-			duration: .3
-		});
+		if(navigating) setNavigating(false);
 	};
 
 	const items = [
@@ -80,8 +42,8 @@ const Navigation = () => {
 			colour: 'none'
 		},
 		{
-			title: 'Services',
-			url: 'services',
+			title: 'Work',
+			url: 'work',
 			colour: 'none'
 		},
 		{
@@ -95,10 +57,10 @@ const Navigation = () => {
 		<nav>
 			<div className="desktop">
 				<ul>
-					{items.map((items, index) => {
+					{items.map((items: any, index: number) => {
 						return (
-							<li onMouseOver={hoverItem} onMouseLeave={unhoverItem} onClick={clickedItem} key={index}>
-								<NavLink to={'/' + items.url} className={({ isActive }) => (isActive ? 'active' : '') + (items.url === 'hire' ? ' hire' : '')} data-colour={items.colour} data-hover={items.title}>
+							<li key={index}>
+								<NavLink onMouseLeave={unhoverItem} onClick={clickedItem} to={'/' + items.url} className={({ isActive }) => (isActive ? 'active' : '') + (items.url === 'hire' ? ' hire' : '')} data-colour={items.colour} data-hover={items.title}>
 									<span>{items.title}</span>
 								</NavLink>
 								{items.url === 'hire' && <sup>Looking!</sup>}

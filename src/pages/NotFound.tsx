@@ -4,6 +4,7 @@ import React from 'react';
 import NotFoundImage from './../static/images/notfound.svg';
 
 const NotFound = () => {
+
 	return (
 		<main className="not-found">
 			<div className="page-heading centered">

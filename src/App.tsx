@@ -26,6 +26,7 @@ import './static/fonts/Newsreader-Regular.woff2';
 /* Pages */
 import Index from './pages/Index';
 import Hire from './pages/Hire';
+import Work from './pages/Work';
 import About from './pages/About';
 import Stories from './pages/Stories';
 import Article from './pages/Article';
@@ -53,39 +54,43 @@ const App = () => {
                 {
                     index: true,
                     path: '/',
-                    element: <Index/>
+                    element: <Index />
                 },
                 {
                     path: '/Hire',
-                    element: <Hire/>
+                    element: <Hire />
+                },
+                {
+                    path: '/Work',
+                    element: <Work />
                 },
                 {
                     path: '/About',
-                    element: <About/>
+                    element: <About />
                 },
                 {
                     path: '/Stories',
-                    element: <Stories/>
+                    element: <Stories />
                 },
                 {
                     path: '/Article',
-                    element: <Article/>
+                    element: <Article />
                 },
                 {
                     path: '/Contact',
-                    element: <Contact/>
+                    element: <Contact />
                 },
                 {
                     path: '/Privacy',
-                    element: <Privacy/>
+                    element: <Privacy />
                 },
                 {
                     path: '/Imprint',
-                    element: <Imprint/>
+                    element: <Imprint />
                 },
                 {
                     path: '*',
-                    element: <NotFound/>
+                    element: <NotFound />
                 }
             ]
         }

@@ -1,5 +1,8 @@
 import React from 'react';
 
+/* Components */
+import Heading from './Heading';
+
 /* Static */
 import campointLogo from './../static/icons/campoint.svg';
 import cforgLogo from './../static/icons/cforg.svg';
@@ -15,10 +18,7 @@ import feLogo from './../static/icons/fe.svg';
 const Timeline = () => {
 	return (
 		<div className="timeline container">
-			<div className="heading">
-				<div className="lead"></div>
-				<h1>Timeline</h1>
-			</div>
+			<Heading>Timeline</Heading>
 			<p>The past few years, I’ve been increasingly productive and worked with many teams, who administer and
 				maintain creative projects within the ranges of my tech-stack.</p>
 			<div className="wrapper">

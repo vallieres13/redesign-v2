@@ -27,7 +27,7 @@ const Footer = () => {
 				<div className="column">
 					<ul>
 						<li><Link to={'/stories'}>Stories (Blog)</Link></li>
-						<li><Link to={'/about'}>What I do</Link></li>
+						<li><Link to={'/about'}>About Me</Link></li>
 						<li><Link to={'/labs'}>Labs</Link></li>
 						<li><Link to={'/hire'}>Hire Me</Link></li>
 						<li><Link to={'/contact'}>Get In Touch</Link></li>
@@ -43,7 +43,6 @@ const Footer = () => {
 				</div>
 				<div className="column">
 					<ul>
-						<li><Link to={'/ai'}>AI at work</Link></li>
 						<li><Link to={'/about'}>What I do</Link></li>
 						<li><Link to={'/impressions'}>References</Link></li>
 						<li><Link to={'/impressions'}>Impressions</Link></li>
@@ -59,7 +58,7 @@ const Footer = () => {
 				</div>
 				<div className="column empty"></div>
 				<div className="column">
-					Felix Hebgen is a striving full-stack web developer in today's ever so fast growing web-app economy.
+					Felix Hebgen is a <span className="emoji">🇩🇪</span> German full-stack web developer & media designer based in Darmstadt, Hessen.
 				</div>
 			</div>
 			<div className="copyright">

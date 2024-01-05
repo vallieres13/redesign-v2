@@ -10,6 +10,7 @@ import ShareIcon from './../static/icons/share.svg';
 /* Misc */
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { Link } from 'react-router-dom';
 
 const Article = () => {
 
@@ -42,6 +43,11 @@ const Article = () => {
 		});
 	}, { scope: content });
 
+	const dropdownShare = useRef<HTMLUListElement>(null);
+	const handleShare = () => {
+		if(dropdownShare.current) dropdownShare.current.classList.toggle('display');
+	}
+
 	return (
 		<article className="article" ref={content}>
 			<div className="image container-wide">
@@ -50,11 +56,20 @@ const Article = () => {
 			<div className="container-small">
 				<h1>{article.title}</h1>
 				<ul className="details">
-					<li><a href="#!"><img src={UserIcon} alt="User" /> {article.author}</a></li>
+					<li><Link to={'/about'}><img src={UserIcon} alt="User" /> {article.author}</Link></li>
 					<li><img src={ClockIcon} alt="Clock" /> {article.readTime} Minutes</li>
 				</ul>
 				<ul className="details right">
-					<li><a href="#!"><img src={ShareIcon} alt="Share" /> Share</a></li>
+					<li>
+						<a onClick={handleShare}><img src={ShareIcon} alt="Share" /> Share</a>
+						<ul className="dropdown" ref={dropdownShare}>
+							<li><a href="#!">LinkedIn</a></li>
+							<li><a href="#!">WhatsApp</a></li>
+							<li><a href="#!">Telegram</a></li>
+							<li><a href="#!">X (Twitter)</a></li>
+							<li><a href="#!">Reddit</a></li>
+						</ul>
+					</li>
 				</ul>
 				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
