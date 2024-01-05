@@ -20,8 +20,6 @@ import './static/fonts/SpaceGrotesk-Bold.woff2';
 // Readex Pro
 import './static/fonts/ReadexPro-Regular.woff2';
 import './static/fonts/ReadexPro-Bold.woff2';
-// Newsreader
-import './static/fonts/Newsreader-Regular.woff2';
 
 /* Pages */
 import Index from './pages/Index';
