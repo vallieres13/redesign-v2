@@ -21,6 +21,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { Link } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { Helmet } from 'react-helmet';
 
 const Stories = () => {
 
@@ -119,6 +120,10 @@ const Stories = () => {
 
 	return (
 		<main className="stories">
+			<Helmet>
+				<meta name="title" content="Stories — Felix Hebgen" />
+				<title>Stories — Felix Hebgen</title>
+			</Helmet>
 			<div className="page-heading" ref={heading}>
 				<div className="wrapper container">
 					<h1>Stories</h1>

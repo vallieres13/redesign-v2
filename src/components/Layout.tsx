@@ -87,32 +87,21 @@ const Layout = () => {
 				<base href="/" />
 
 				{/* Favicon */}
-				{/*
-					<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon.png" />
-					<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
-					<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
-					<link rel="manifest" href="/favicons/site.webmanifest" />
-					<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#FFFFFF" />
-					<link rel="shortcut icon" href="/favicons/favicon.ico" />
-
-					<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
-					<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
-					<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
-					<link rel="manifest" href="/favicons/site.webmanifest">
-					<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5">
-					<link rel="shortcut icon" href="/favicons/favicon.ico">
-					<meta name="apple-mobile-web-app-title" content="Felix Hebgen">
-					<meta name="application-name" content="Felix Hebgen">
-					<meta name="theme-color" content="#ffffff">
-				*/}
+				<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png" />
+				<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#FFFFFF" />
+				<link rel="shortcut icon" href="/favicon.ico" />
+				<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+				<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+				<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+				<link rel="manifest" href="/site.webmanifest" />
+				<meta name="application-name" content="Felix Hebgen" />
 				<meta name="apple-mobile-web-app-title" content="Felix Hebgen" />
 				<meta name="application-name" content="Felix Hebgen" />
 				<meta name="theme-color" content="#FFFFFF" />
 
 				{/* Meta Tags */}
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<meta name="theme-color" content="#FFFFFF" />
-				<meta name="title" content="Felix Hebgen" />
+				<meta name="title" content="Felix Hebgen — Web-Developer & Designer from Darmstadt" />
 				<meta name="description" content="The personal website of Felix Hebgen, a German full-stack web developer in today's ever so fast growing web-app economy, based in Darmstadt, Hessen." />
 				<meta name="keywords" content="felix hebgen, portfolio, web developer, designer, web design, darmstadt web developer, darmstadt web design, höchst im odenwald, hessen, job profile, cv, felix hebgen web design, felix hebgen design" />
 				<meta name="robots" content="index, follow" />
@@ -126,7 +115,7 @@ const Layout = () => {
 				<meta name="expires" content="" />
 
 				{/* Title */}
-				<title>Felix Hebgen</title>
+				<title>Felix Hebgen — Web-Developer & Designer from Darmstadt</title>
 			</Helmet>
 			<InitialLoadOverlay hasFinished={() => setInitialLoadingHasFinished(true)} />
 			<ScrollToTop />

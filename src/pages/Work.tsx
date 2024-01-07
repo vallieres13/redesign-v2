@@ -14,6 +14,7 @@ import { useGSAP } from '@gsap/react';
 import VanillaTilt from 'vanilla-tilt';
 import { Link } from 'react-router-dom';
 import { SplitText } from '../services/SplitText';
+import { Helmet } from 'react-helmet';
 
 const Work = () => {
 
@@ -155,9 +156,13 @@ const Work = () => {
 
 	return (
 		<main className="work">
+			<Helmet>
+				<meta name="title" content="Work — Felix Hebgen" />
+				<title>Work — Felix Hebgen</title>
+			</Helmet>
 			<div className="page-heading" ref={heading}>
 				<div className="wrapper container">
-					<h1>Work</h1>
+				<h1>Work</h1>
 					<div className="underscore"></div>
 				</div>
 				<div className="line"></div>

@@ -1,8 +1,13 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 const Privacy = () => {
 	return (
 		<main className="page">
+			<Helmet>
+				<meta name="title" content="Privacy Policy — Felix Hebgen" />
+				<title>Privacy Policy — Felix Hebgen</title>
+			</Helmet>
 			<div className="page-heading">
 				<div className="wrapper container">
 					<h1>Privacy Policy</h1>

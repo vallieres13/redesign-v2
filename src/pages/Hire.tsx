@@ -36,6 +36,7 @@ import NetHi from './../static/icons/net-hi.svg';
 import VanillaTilt from 'vanilla-tilt';
 import Timeline from "../components/Timeline";
 import Heading from "../components/Heading";
+import { Helmet } from 'react-helmet';
 
 const Index = () => {
 
@@ -199,6 +200,10 @@ const Index = () => {
 
 	return (
 		<main className="hire">
+			<Helmet>
+				<meta name="title" content="Hire Me — Felix Hebgen" />
+				<title>Hire Me — Felix Hebgen</title>
+			</Helmet>
 			<div className="page-heading centered">
 				<div className="wrapper container">
 					<h1>Hire Me</h1>
@@ -337,7 +342,7 @@ const Index = () => {
 			</div>
 			<TechStack />
 			<Timeline />
-			<Connect title="Let's Talk"/>
+			<Connect title="Let's Talk" url="/contact" />
 		</main>
 	);
 }

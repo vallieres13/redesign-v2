@@ -25,6 +25,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import VanillaTilt from 'vanilla-tilt';
 import {SplitText} from "../services/SplitText";
+import { Helmet } from 'react-helmet';
 
 const About = () => {
 
@@ -153,6 +154,10 @@ const About = () => {
 
 	return (
 		<main className="about">
+			<Helmet>
+				<meta name="title" content="About Me — Felix Hebgen"/>
+				<title>About Me — Felix Hebgen</title>
+			</Helmet>
 			<div className="hello container" ref={hello}>
 				<div className="description">
 					<Heading>{headline.slug} <img src={headline.emoji} alt={headline.slug} className={'emoji' + (headline.emoji === WavingEmoji ? ' waving' : '')} /></Heading>

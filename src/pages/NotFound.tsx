@@ -2,11 +2,16 @@ import React from 'react';
 
 /* Static */
 import NotFoundImage from './../static/images/notfound.svg';
+import { Helmet } from 'react-helmet';
 
 const NotFound = () => {
 
 	return (
 		<main className="not-found">
+			<Helmet>
+				<meta name="title" content="404 Not Found — Felix Hebgen" />
+				<title>404 Not Found — Felix Hebgen</title>
+			</Helmet>
 			<div className="page-heading centered">
 				<div className="wrapper container">
 					<h1>Got Lost?</h1>

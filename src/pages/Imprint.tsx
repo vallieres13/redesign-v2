@@ -1,8 +1,13 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 const Imprint = () => {
 	return (
 		<main className="page">
+			<Helmet>
+				<meta name="title" content="Imprint — Felix Hebgen" />
+				<title>Imprint — Felix Hebgen</title>
+			</Helmet>
 			<div className="page-heading">
 				<div className="wrapper container">
 					<h1>Imprint</h1>

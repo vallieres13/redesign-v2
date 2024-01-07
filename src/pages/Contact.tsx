@@ -14,6 +14,7 @@ import { SplitText } from '../services/SplitText';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import VanillaTilt from 'vanilla-tilt';
+import { Helmet } from 'react-helmet';
 
 const Contact = () => {
 
@@ -147,6 +148,10 @@ const Contact = () => {
 
 	return (
 		<main className="contact">
+			<Helmet>
+				<meta name="title" content="Let's Talk — Felix Hebgen" />
+				<title>Let's Talk — Felix Hebgen</title>
+			</Helmet>
 			<div className="page-heading" ref={heading}>
 				<div className="wrapper container">
 					<h1>Let's Talk</h1>

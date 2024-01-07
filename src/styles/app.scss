@@ -1495,14 +1495,16 @@ header {
 				box-shadow: 0 2px 15px rgba(0,0,0,.1);
 				border-radius: 5px;
 				transition: .1s;
-				transform: translateY(-5px);
+				transform: translateY(-8px);
 				opacity: 0;
+				pointer-events: none;
 
 				&.display {
 					display: block;
 					transition: .1s;
 					transform: translateY(0);
 					opacity: 1;
+					pointer-events: all;
 				}
 
 				> li {
@@ -1510,22 +1512,28 @@ header {
 					margin: 0 !important;
 					padding: 0 !important;
 
-					&:first-child a {
+					&:first-child button {
 						border-radius: 5px 5px 0 0;
 					}
 
-					&:last-child a {
+					&:last-child button {
 						border-radius: 0 0 5px 5px;
 					}
 
-					a {
-						width: 85px;
+					button {
 						display: block;
-						padding: 8px 16px;
+						width: 165px;
+						padding: 12px 20px !important;
 						transition: 0s;
+						text-align: left;
+
+						svg {
+							vertical-align: -.26rem;
+							margin-right: 5px;
+						}
 
 						&:hover {
-							background-color: #efefef;
+							background-color: #efefef !important;
 							transition: 0s;
 						}
 					}
@@ -2651,44 +2659,81 @@ a.button {
 
 }
 
-/* -- 1620vw */
+/* -- 1620px */
 @media (max-width: 1620px) {
 
 
 }
 
-/* -- 1650vw */
+/* -- 1650px */
 @media (max-width: 1600px) {
 
 }
 
-/* -- 1400vw */
-@media (max-width: 1400px) {
-
-
+/* -- 1450px */
+@media (max-width: 1450px) {
+	.heading {
+		.lead {
+			width: 100px;
+		}
+	}
 }
 
-/* -- 1250vw */
-@media (max-width: 1250px) {
-
+/* -- 1300px */
+@media (max-width: 1300px) {
+	.heading {
+		.lead {
+			width: 50px;
+		}
+	}
 }
 
-/* -- 1080vw */
-@media (max-width: 1080px) {
-
+/* -- 1200px */
+@media (max-width: 1200px) {
+	.heading {
+		.lead {
+			display: none;
+		}
+	}
 }
 
-/* -- 800vw */
+/* -- 1100px */
+@media (max-width: 1100px) {
+	.container {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.home {
+		.spotlight {
+			.cards {
+				.card {
+					max-width: 775px;
+				}
+			}
+		}
+
+		.stories .cards {
+			gap: 15px;
+
+			.card .overlay .details.right {
+				display: none;
+			}
+		}
+	}
+}
+
+/* -- 800px */
 @media (max-width: 800px) {
 
 }
 
-/* -- 550vw Mobile Large */
+/* -- 550px Mobile Large */
 @media (max-width: 525px) {
 
 }
 
-/* -- 450vw */
+/* -- 450px */
 @media (max-width: 450px) {
 
 }

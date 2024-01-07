@@ -14,16 +14,19 @@ import GithubLogo from './../static/icons/github.svg';
 /* Misc */
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { Helmet } from 'react-helmet';
 
 interface Props {
 	title?: string;
+	url?: string;
 }
 
 const defaultProps = {
-	title: 'Connect'
+	title: 'Connect',
+	url: '/hire'
 }
 
-const Connect = ({ title = defaultProps.title }: Props) => {
+const Connect = ({ title = defaultProps.title, url = defaultProps.url }: Props) => {
 
 	const connect = useRef<HTMLDivElement>(null);
 	useGSAP(() => {
@@ -69,7 +72,7 @@ const Connect = ({ title = defaultProps.title }: Props) => {
 							<li><Link to={'https://github.com/vallieres13'}><LazyLoadImage src={GithubLogo} alt="GitHub" /></Link></li>
 						</ul>
 					</div>
-					<Link to={'/hire'} className="button primary">Get in Touch</Link><br />
+					<Link to={url} className="button primary">Get in Touch</Link><br />
 				</div>
 				<div className="messages right">
 					<div className="imessage">
