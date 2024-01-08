@@ -2,7 +2,15 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import gsap from 'gsap';
 
-const Navigation = () => {
+interface Props {
+	mobile?: boolean;
+}
+
+const defaultProps = {
+	mobile: false
+}
+
+const Navigation = ({ mobile = defaultProps.mobile }: Props) => {
 
 	const [ navigating, setNavigating ] = useState(false);
 
@@ -54,8 +62,8 @@ const Navigation = () => {
 	];
 
 	return (
-		<nav>
-			<div className="desktop">
+		<nav style={mobile ? { flexBasis: '100%' } : {}}>
+			<div className={mobile ? 'mobile' : 'desktop'}>
 				<ul>
 					{items.map((items: any, index: number) => {
 						return (

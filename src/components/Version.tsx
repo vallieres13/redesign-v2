@@ -6,11 +6,12 @@ const Version = () => {
 
 	const version = useRef<HTMLDivElement>(null);
 	useGSAP(() => {
+
 	}, { scope: version });
 
 	return (
 		<div className="version" ref={version}>
-			<p>Switch version</p>
+			<p>Switch Version</p>
 			<div className="lead"></div>
 		</div>
 	);

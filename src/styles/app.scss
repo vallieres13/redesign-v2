@@ -159,11 +159,14 @@ header {
 	justify-content: space-between;
 	position: relative;
 	z-index: 99;
+	flex-wrap: wrap;
 
 	&.sticky {
 		position: fixed;
 		z-index: 399;
 		display: none;
+		opacity: 0;
+		visibility: hidden;
 		top: 0;
 		left: 0;
 		width: 1020px;
@@ -175,6 +178,7 @@ header {
 		padding: 0 35px;
 		border-radius: 25px;
 		border: 1px solid rgba(0, 0, 0, .075);
+		transition: 0s;
 
 		&.display {
 			display: flex;
@@ -189,8 +193,43 @@ header {
 		}
 	}
 
-	nav > .desktop {
-		margin-top: 1.5rem;
+	&.mobile {
+		display: none;
+
+		.hamburger {
+			margin: 2rem 0;
+			height: 30px;
+			cursor: pointer;
+			padding: 4px 8px;
+			border-radius: 5px;
+			outline: 1px dashed transparent;
+			outline-offset: 4px;
+
+			&:hover {
+				background-color: #f3f3f3;
+			}
+
+			&:active,
+			&:focus {
+				outline-offset: 2px;
+				outline: 2px solid #cbcbcb;
+			}
+
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+
+	nav {
+		.desktop {
+			margin-top: 1.5rem;
+		}
+
+		&.mobile {
+			flex-basis: 100%;
+		}
 
 		ul {
 			list-style-type: none;
@@ -275,6 +314,35 @@ header {
 					margin-left: .75rem;
 					transition: transform .15s;
 					text-transform: uppercase;
+				}
+			}
+		}
+	}
+
+	nav > .mobile {
+		position: absolute;
+		right: 0;
+		top: 7rem;
+		text-align: right;
+
+		ul {
+			list-style-type: none;
+
+			li {
+				display: block;
+				overflow: hidden;
+
+				a {
+					font-family: "Greycliff CF Medium", sans-serif;
+					font-size: 20px;
+					padding-right: 10px;
+					pointer-events: none;
+					opacity: 0;
+					transform: translateX(200px);
+				}
+
+				sup {
+					display: none;
 				}
 			}
 		}
@@ -746,6 +814,13 @@ header {
 					padding: 32px;
 					cursor: pointer;
 					flex-wrap: wrap;
+
+					&:focus,
+					&:active,
+					&:hover {
+						outline-offset: 2px;
+						outline: 3px solid #d9d9d9;
+					}
 
 					&.open {
 						.action img {
@@ -1897,7 +1972,7 @@ footer {
 
 .initialLoadOverlay {
 	position: fixed;
-	z-index: 199;
+	z-index: 599;
 	top: 0;
 	right: 0;
 	bottom: 0;
@@ -2166,6 +2241,8 @@ footer {
 			&:focus > img,
 			&:active > img {
 				transition: .1s;
+				outline-offset: 2px;
+				outline: 3px solid #cbcbcb;
 
 				&+ .hidden {
 					opacity: .6;
@@ -2175,6 +2252,7 @@ footer {
 
 			img {
 				width: 100%;
+				border-radius: 10px;
 				transform: translateZ(20px);
 
 				&.hidden {
@@ -2457,6 +2535,12 @@ a.button {
 	&:hover {
 		background-color: #f3f3f3;
 	}
+
+	&:focus,
+	&:active {
+		outline-offset: 2px;
+		outline: 2px solid #cbcbcb;
+	}
 }
 
 
@@ -2721,11 +2805,76 @@ a.button {
 			}
 		}
 	}
+
+	.hire .promo {
+		.documents {
+			margin-left: 10rem;
+			transform: scale(0.75);
+		}
+
+		.downloads .wrapper {
+			gap: 20px;
+		}
+	}
+
+	.contact .promo {
+		.description .options .option {
+			width: 200px;
+		}
+
+		.picture img {
+			width: 300px;
+		}
+	}
+
+	.hire .likes .wrapper .like {
+		width: auto;
+
+		&:nth-child(4) {
+			margin-left: 0;
+		}
+	}
+
+	.timeline {
+		.wrapper {
+			margin-left: 2rem;
+		}
+
+		p.highschool {
+			margin-left: 0;
+		}
+	}
+
+	.work .impressions .impression .intro .image img {
+		margin-top: 0;
+	}
 }
 
-/* -- 800px */
-@media (max-width: 800px) {
+/* -- 1000px */
+/* Start Mobile Design */
+@media (max-width: 1000px) {
+	header {
+		&.desktop {
+			display: none;
+		}
 
+		&.mobile {
+			display: flex;
+		}
+
+		&.sticky.desktop {
+			display: none;
+		}
+	}
+
+	.container {
+		max-width: 900px;
+		margin: 0 2rem;
+	}
+
+	.version {
+		display: none;
+	}
 }
 
 /* -- 550px Mobile Large */

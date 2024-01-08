@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
 const InitialLoadOverlay = (props: any) => {
-	if(localStorage.initialLoad) return;
+	if(sessionStorage.initialLoad) return;
 
 	const progress = useRef<HTMLDivElement>(null);
 	useGSAP(() => {
@@ -25,7 +25,7 @@ const InitialLoadOverlay = (props: any) => {
 
 				gsap.to(overlay, {
 					onComplete: () => {
-						localStorage.initialLoad = true;
+						sessionStorage.initialLoad = true;
 						if(overlay.current) overlay.current.style.visibility = 'hidden';
 					},
 					delay: .5,
@@ -34,7 +34,6 @@ const InitialLoadOverlay = (props: any) => {
 			delay: .5
 		});
 	}, { scope: overlay });
-
 
 	return (
 		<div className="initialLoadOverlay show" ref={overlay}>

@@ -1,21 +1,19 @@
-import React, {useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 /* Components */
-import Navigation from './Navigation';
+import Header from './Header';
 import Footer from './Footer';
 import InitialLoadOverlay from './InitialLoadOverlay';
 import ScrollToTop from './ScrollToTop';
-
-/* Static */
-import Logo from './../static/logo.svg';
+import Version from './Version';
 
 /* Misc */
 import { Helmet } from 'react-helmet';
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 
 const Layout = () => {
-	const [ initialLoadingHasFinished, setInitialLoadingHasFinished ] = useState(localStorage.initialLoad);
+	const [ initialLoadingHasFinished, setInitialLoadingHasFinished ] = useState(sessionStorage.initialLoad);
 	const [ sticky, setSticky ] = useState(false);
 
 	useEffect(() => {
@@ -35,30 +33,31 @@ const Layout = () => {
 
 	useEffect(() => {
 		if(sticky) {
-			const stickyHeader = document.querySelector('header.sticky') as HTMLElement;
-			stickyHeader.classList.add('display');
+			const stickyHeaders = document.querySelectorAll('header.sticky') as NodeListOf<HTMLElement>;
 
-			gsap.fromTo(stickyHeader, {
+			stickyHeaders.forEach((stickyHeader: any) => stickyHeader.classList.add('display'));
+
+			gsap.fromTo(stickyHeaders, {
 				y: -100,
-				opacity: 0
+				autoAlpha: 0
 			}, {
 				y: 0,
-				opacity: 1,
+				autoAlpha: 1,
 				duration: .3,
 				ease: 'back.out'
 			})
 		} else {
-			const stickyHeader = document.querySelector('header.sticky') as HTMLElement;
+			const stickyHeaders = document.querySelectorAll('header.sticky') as NodeListOf<HTMLElement>;
 
-			gsap.fromTo(stickyHeader, {
+			gsap.fromTo(stickyHeaders, {
 				y: 0,
-				opacity: 1
+				autoAlpha: 1
 			}, {
 				y: -100,
-				opacity: 0,
+				autoAlpha: 0,
 				duration: .15,
 				ease: 'power4.in',
-				onComplete: () => stickyHeader.classList.remove('display')
+				onComplete: () => stickyHeaders.forEach((stickyHeader: any) => stickyHeader.classList.remove('display'))
 			});
 		}
 	}, [sticky]);
@@ -119,25 +118,11 @@ const Layout = () => {
 			</Helmet>
 			<InitialLoadOverlay hasFinished={() => setInitialLoadingHasFinished(true)} />
 			<ScrollToTop />
-			<header className="container">
-				<div className="logo">
-					<NavLink to="/">
-						<img src={Logo} alt="Logo"/>
-					</NavLink>
-				</div>
-				<Navigation/>
-			</header>
-			<header className="container sticky">
-				<div className="logo">
-					<NavLink to="/">
-						<img src={Logo} alt="Logo"/>
-					</NavLink>
-				</div>
-				<Navigation/>
-			</header>
+			<Header />
 			{initialLoadingHasFinished && <Outlet />}
 			{/* <Version /> */}
 			<Footer />
+			<Version />
 		</>
 	);
 }
