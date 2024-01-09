@@ -2913,11 +2913,39 @@ a.button {
 
 		&.mobile {
 			display: flex;
+
+			.logo {
+				margin-left: .5rem;
+			}
 		}
 
 		&.sticky.desktop {
 			display: none;
 		}
+	}
+
+	.contact {
+		.promo {
+			margin: 2.5rem 2rem 2rem;
+
+			.picture {
+				display: none;
+			}
+		}
+
+		.disclaimer {
+			margin: 0 2rem 3rem
+		}
+	}
+
+	.page .content {
+		margin-right: 1rem;
+		margin-left: 1rem;
+	}
+
+	.hire .highlights,
+	.hire .likes {
+		margin: 1rem 1rem 5rem;
 	}
 
 	.container {
@@ -2937,6 +2965,10 @@ a.button {
 		h2 {
 			font-size: 69px !important;
 		}
+	}
+
+	.hire .promo .downloads .wrapper .download {
+		width: 100%;
 	}
 
 	.techstack {
@@ -3157,6 +3189,10 @@ a.button {
 	.work .impressions .impression {
 		margin: 4rem auto 5rem;
 
+		&:last-child {
+			margin-bottom: 10rem;
+		}
+
 		.intro {
 			flex-direction: column-reverse;
 			width: 100%;
@@ -3195,6 +3231,11 @@ a.button {
 		&.rtl .description {
 			margin: 1rem 0;
 			width: 100%;
+
+			.actions .button {
+				display: inline-block;
+				margin: 0 0 1rem 0;
+			}
 
 			p {
 				margin: .5rem 0;
@@ -3319,6 +3360,37 @@ a.button {
 		margin: 0 1rem;
 	}
 
+	.hire {
+		.promo .documents {
+			margin: 0 10rem -6.5rem 0;
+			text-align: center;
+			transform: scale(.4);
+		}
+
+		.page-heading .underscore {
+			display: none;
+		}
+	}
+
+	.hire .highlights .highlight {
+		flex-wrap: wrap;
+		margin: 0 1rem;
+
+		.icon {
+			text-align: center;
+		}
+
+		.progress {
+			width: calc(75% - 50px);
+			margin-right: 0;
+		}
+
+		.related {
+			margin: 1rem 0 3rem;
+			flex-basis: 100%;
+		}
+	}
+
 	footer .partners {
 		margin-left: -.5rem;
 		width: calc(100% + 1rem);
@@ -3370,6 +3442,13 @@ a.button {
 	}
 }
 
+/* -- 600px */
+@media (max-width: 600px) {
+	.contact .promo .description .options .option {
+		width: 100%;
+	}
+}
+
 /* -- 550px */
 @media (max-width: 550px) {
 	.article {
@@ -3382,6 +3461,24 @@ a.button {
 		.details.right {
 			display: none;
 		}
+	}
+
+	.hire .promo .downloads .wrapper .download {
+		padding-left: 20px;
+		padding-right: 0;
+	}
+
+	.hire .promo .downloads .wrapper .download .collapsible {
+		margin: 2rem 0 -32px -20px;
+	}
+
+	.hire .promo .downloads .wrapper .download .action {
+		display: none;
+	}
+
+	.hire .promo .downloads .wrapper .download .icon img {
+		height: 30px;
+		width: 30px;
 	}
 }
 
@@ -3403,6 +3500,17 @@ a.button {
 		.line {
 			display: none;
 			margin-top: -2.5rem;
+		}
+	}
+
+
+	.contact {
+		.promo {
+			margin: 2.5rem 1rem 2rem;
+		}
+
+		.disclaimer {
+			margin: 0 1rem 3rem
 		}
 	}
 
