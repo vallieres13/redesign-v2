@@ -21,13 +21,14 @@ const Header = () => {
 
 	const toggleMobileNav = () => {
 		if(isMobileNavOpen) {
-			gsap.to('main, article, footer', {
+			gsap.to('main, #app > article, footer', {
 				x: 0,
 				opacity: 1,
 				duration: .4,
 				ease: 'expo.out',
 				delay: .1,
-				filter: 'none'
+				filter: 'none',
+				pointerEvents: 'all'
 			});
 			gsap.to(mobile.current!.querySelectorAll(':scope nav > .mobile ul li a'), {
 				x: 200,
@@ -39,12 +40,13 @@ const Header = () => {
 			});
 			setIsMobileNavOpen(false);
 		} else {
-			gsap.to('main, article, footer', {
-				x: -200,
-				opacity: .6,
+			gsap.to('main, #app > article, footer', {
+				x: -100,
+				opacity: .4,
 				duration: .4,
 				ease: 'expo.out',
-				filter: 'blur(8px)'
+				filter: 'blur(8px)',
+				pointerEvents: 'none'
 			});
 			gsap.to(mobile.current!.querySelectorAll(':scope nav > .mobile ul li a'), {
 				x: 0,

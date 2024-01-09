@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 
 /* Static */
 import Partners from './../static/icons/partners.svg';
+import PartnersMobile from './../static/icons/partners-mobile.svg';
 import Oracle from './../static/icons/oracle.svg';
+import GermanyEmoji from './../static/emojis/germany.png';
 
 const Footer = () => {
 
@@ -21,7 +23,8 @@ const Footer = () => {
 	return (
 		<footer className="container">
 			<div className="partners">
-				<img src={Partners} alt="Partners" />
+				<img src={Partners} className="desktop" alt="Partners" />
+				<img src={PartnersMobile} className="mobile" alt="Partners" />
 			</div>
 			<div className="grid">
 				<div className="column">
@@ -58,7 +61,8 @@ const Footer = () => {
 				</div>
 				<div className="column empty"></div>
 				<div className="column">
-					Felix Hebgen is a <span className="emoji">🇩🇪</span> German full-stack web developer & media designer based in Darmstadt, Hessen.
+					Felix Hebgen is a <span className="emoji"><img src={GermanyEmoji} alt="Germany"/></span> German full-stack web developer &
+					media designer based in Darmstadt, Hessen.
 				</div>
 			</div>
 			<div className="copyright">

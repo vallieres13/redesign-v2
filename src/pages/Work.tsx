@@ -172,7 +172,7 @@ const Work = () => {
 					<div className={`impression ${index % 2 === 0 ? '' : 'rtl'} slide-${index}`} key={index}>
 						<div className="intro">
 							<div className="title">
-								<span>{index % 2 === 0 ? '' : '<--'} .0{index + 1} {index % 2 === 0 ? '-->' : ''}</span>
+								<span><figure className="arrow">{index % 2 === 0 ? '' : '<--'}</figure> .0{index + 1} <figure className="arrow">{index % 2 === 0 ? '-->' : ''}</figure></span>
 								<h2>{item.title}</h2>
 							</div>
 							<div className="image">

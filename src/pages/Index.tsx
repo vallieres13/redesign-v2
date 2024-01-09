@@ -42,6 +42,7 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import { SplitText } from "../services/SplitText";
 import TechStack from "../components/TechStack";
 import Heading from "../components/Heading";
+import GermanyEmoji from "../static/emojis/germany.png";
 
 const Index = () => {
 
@@ -240,9 +241,10 @@ const Index = () => {
                     <h1>Felix Hebgen</h1>
                     <div className="underscore"></div>
                     <h2>Web-Developer & Designer</h2>
-                    <p>... is a <span className="emoji">🇩🇪</span> German full-stack web developer and designer in today's ever so fast growing web-app economy.</p>
+                    <p>... is a <span className="emoji"><img src={GermanyEmoji} alt="Germany"/></span> German full-stack
+                        web developer and designer in today's ever so fast growing web-app economy.</p>
                     <div className="actions">
-                        <Link to={'/about'} className="button primary">About me</Link>
+                    <Link to={'/about'} className="button primary">About me</Link>
                         <Link to={'/hire'} className="button">Hire me</Link>
                     </div>
                     <div className="separator"></div>
@@ -258,7 +260,7 @@ const Index = () => {
                     loop={true}
                     autoplay={{
                         delay: 2500,
-                        disableOnInteraction: false
+                        disableOnInteraction: true
                     }}
                     pagination={{clickable: true}}
                     modules={[Autoplay, Pagination]}
