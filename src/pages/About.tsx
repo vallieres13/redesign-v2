@@ -137,7 +137,6 @@ const About = () => {
 	const handleSelected = (ev: React.ChangeEvent<HTMLSelectElement>) => {
 		const span = document.querySelector('.hello p .select') as HTMLSpanElement;
 		const value = ev.currentTarget.value;
-		console.log('selected value: ', value);
 
 		gsap.to(span, {
 			autoAlpha: 0,

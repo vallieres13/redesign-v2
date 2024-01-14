@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 /* Components */
@@ -14,13 +14,6 @@ import DesignSpotlight from './../static/images/spotlight/design.png';
 import MarketingSpotlight from './../static/images/spotlight/marketing.png';
 import CodeSpotlight from './../static/images/spotlight/code.png';
 import AiSpotlight from './../static/images/spotlight/ai.png';
-
-import CodeArticle from './../static/images/articles/code.png';
-import DroneArticle from './../static/images/articles/drone.png';
-import KotlinArticle from './../static/images/articles/kotlin.png';
-import MacbookArticle from './../static/images/articles/macbook.png';
-import NotesArticle from './../static/images/articles/notes.png';
-import CssArticle from './../static/images/articles/css.png';
 
 import UserIcon from './../static/icons/user.svg';
 import ClockIcon from './../static/icons/clock.svg';
@@ -43,6 +36,7 @@ import { SplitText } from "../services/SplitText";
 import TechStack from "../components/TechStack";
 import Heading from "../components/Heading";
 import GermanyEmoji from "../static/emojis/germany.png";
+import Request from "../services/Request";
 
 const Index = () => {
 
@@ -77,45 +71,6 @@ const Index = () => {
             description: 'Harnessing the power of AI, I innovate and implement solutions that redefine possibilities and elevate user experiences.',
             buttonTitle: 'Learn more',
             buttonTarget: '/hire'
-        }
-    ];
-
-    const articleItems = [
-        {
-            title: 'Und wieder wird dein Blick zu Stein vor mir',
-            image: CodeArticle,
-            author: 'Felix Hebgen',
-            readTime: 5
-        },
-        {
-            title: 'Und wieder wird dein Blick zu Stein vor mir',
-            image: DroneArticle,
-            author: 'Felix Hebgen',
-            readTime: 6
-        },
-        {
-            title: 'Und wieder wird dein Blick zu Stein vor mir',
-            image: KotlinArticle,
-            author: 'Felix Hebgen',
-            readTime: 6
-        },
-        {
-            title: 'Und wieder wird dein Blick zu Stein vor mir',
-            image: MacbookArticle,
-            author: 'Felix Hebgen',
-            readTime: 6
-        },
-        {
-            title: 'Und wieder wird dein Blick zu Stein vor mir',
-            image: CssArticle,
-            author: 'Felix Hebgen',
-            readTime: 6
-        },
-        {
-            title: 'Und wieder wird dein Blick zu Stein vor mir',
-            image: NotesArticle,
-            author: 'Felix Hebgen',
-            readTime: 6
         }
     ];
 
@@ -215,12 +170,50 @@ const Index = () => {
                 trigger: '.cards',
                 start: 'top bottom',
                 end: '+=800',
-                scrub: 1,
+                scrub: 1
             },
             marginTop: 0,
             stagger: .1
         });
+
+        gsap.to(stories, {
+            scrollTrigger: {
+                trigger: stories.current!,
+                start: '-=600px bottom',
+                onEnter: loadPosts,
+                once: true
+            }
+        });
     }, { scope: stories });
+
+    const [ articleItems, setArticleItems ] = useState([...Array(5)].fill({
+        title: null,
+        thumbnail: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdj+PT5638ACY8D2iQaH6oAAAAASUVORK5CYII=',
+        author: 'Felix Hebgen',
+        slug: null,
+        readTime: 0
+    }) as any);
+
+    const loadPosts = () => {
+        Request.get('/posts?per_page=5')
+            .then(response => response.json())
+            .then(async (data) => {
+                let articles: any = [];
+                data.forEach((post: any) => {
+                    let article: any = {};
+
+                    article.title = post.title.rendered;
+                    article.thumbnail = post.jetpack_featured_media_url_thumbnail;
+                    article.readTime = post.read_time;
+                    article.slug = post.slug;
+                    article.author = 'Felix Hebgen';
+
+                    articles.push(article);
+                });
+
+                setArticleItems(articles);
+            });
+    };
 
     return (
         <main className="home">
@@ -287,13 +280,13 @@ const Index = () => {
                 <div className="cards container">
                         <div className="card-side">
                             {articleItems.slice(0, 2).map((article: any, index: number) =>
-                                <Link to={'/article'} key={index}>
+                                <Link to={'/article/' + article.slug} key={index}>
                                     <div className="card">
-                                        <img src={article.image} alt="Article"/>
+                                        <img src={article.thumbnail} alt="Article" />
                                         <div className="overlay">
-                                            <h2>Und wieder wird dein Blick zu Stein vor mir</h2>
+                                            {article.title ? <h2 dangerouslySetInnerHTML={{__html: article.title}}></h2> : <></>}
                                             <ul className="details">
-                                                <li><img src={UserIcon} alt="User"/> {article.author}</li>
+                                                <li><img src={UserIcon} alt="User"/> {article.author ?? ''}</li>
                                                 <li><img src={ClockIcon} alt="Clock"/> {article.readTime} Minutes</li>
                                             </ul>
                                             <ul className="details right">
@@ -306,13 +299,13 @@ const Index = () => {
                         </div>
                         <div className="card-side right">
                             {articleItems.slice(2, 5).map((article: any, index: number) =>
-                                <Link to={'/article'} key={index}>
+                                <Link to={'/article/' + article.slug} key={index}>
                                     <div className="card">
-                                        <img src={article.image} alt="Article"/>
+                                        <img src={article.thumbnail} alt="Article" />
                                         <div className="overlay">
-                                            <h2>Und wieder wird dein Blick zu Stein vor mir</h2>
+                                            {article.title ? <h2 dangerouslySetInnerHTML={{__html: article.title}}></h2> : <></>}
                                             <ul className="details">
-                                                <li><img src={UserIcon} alt="User"/> {article.author}</li>
+                                                <li><img src={UserIcon} alt="User"/> {article.author ?? ''}</li>
                                                 <li><img src={ClockIcon} alt="Clock"/> {article.readTime} Minutes</li>
                                             </ul>
                                             <ul className="details right">
@@ -323,8 +316,8 @@ const Index = () => {
                                 </Link>
                             )}
                         </div>
-                    </div>
                 </div>
+            </div>
             <Connect/>
         </main>
     );

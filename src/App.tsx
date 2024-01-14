@@ -71,7 +71,7 @@ const App = () => {
                     element: <Stories />
                 },
                 {
-                    path: '/Article',
+                    path: '/Article/:slug',
                     element: <Article />
                 },
                 {

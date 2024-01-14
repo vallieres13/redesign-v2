@@ -4,7 +4,7 @@ class Request {
 	static auth: string|null;
 
 	/* Base URL for API requests. */
-	static base: string = process.env.REACT_APP_API_BASE_URL + '/' + process.env.REACT_APP_API_VERSION;
+	static base: string = 'https://api.felixhebgen.de/wp-json/wp/v2';
 
 	/* Holds standard headers and cache information for every fetch call. */
 	static meta: any = {

@@ -17,6 +17,8 @@ const Header = () => {
 	const [ isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 	const mobile = useRef<HTMLDivElement>(null);
 
+	/* Mobile Nav Handler */
+
 	const handleHamburgerClick = () => toggleMobileNav();
 
 	const toggleMobileNav = () => {
@@ -60,8 +62,74 @@ const Header = () => {
 		}
 	}
 
+
+	/* Sticky Nav Handler */
+
+	const [ sticky, setSticky ] = useState(false);
+
+	useEffect(() => {
+		let lastScrollTop = 0;
+		const scrollListener = () => {
+			let currentScrollTop = window.scrollY || document.documentElement.scrollTop;
+			if(currentScrollTop > lastScrollTop || currentScrollTop < 100) {
+				setSticky(false);
+			} else {
+				setSticky(true);
+			}
+			lastScrollTop = currentScrollTop;
+		}
+		window.addEventListener('scroll', scrollListener);
+		return () => window.removeEventListener('scroll', scrollListener);
+	}, []);
+
+	useEffect(() => {
+		if(sticky) {
+			const stickyHeaders = document.querySelectorAll('header.sticky') as NodeListOf<HTMLElement>;
+
+			stickyHeaders.forEach((stickyHeader: any) => stickyHeader.classList.add('display'));
+
+			gsap.fromTo(stickyHeaders, {
+				y: -100,
+				autoAlpha: 0
+			}, {
+				y: 0,
+				autoAlpha: 1,
+				duration: .3,
+				ease: 'back.out'
+			})
+		} else {
+			const stickyHeaders = document.querySelectorAll('header.sticky') as NodeListOf<HTMLElement>;
+
+			gsap.fromTo(stickyHeaders, {
+				y: 0,
+				autoAlpha: 1
+			}, {
+				y: -100,
+				autoAlpha: 0,
+				duration: .15,
+				ease: 'power4.in',
+				onComplete: () => stickyHeaders.forEach((stickyHeader: any) => stickyHeader.classList.remove('display'))
+			});
+		}
+	}, [sticky]);
+
+
+	/* Hook */
+
 	useEffect(() => {
 		if(isMobileNavOpen) toggleMobileNav();
+
+		if(!sticky) return;
+		const stickyHeader = document.querySelector('header.sticky') as HTMLElement;
+		gsap.fromTo(stickyHeader, {
+			y: 0,
+			opacity: 1
+		}, {
+			y: -100,
+			opacity: 0,
+			duration: 0,
+			onComplete: () => stickyHeader.classList.remove('display')
+		});
 	}, [location]);
 
 	return (

@@ -1,8 +1,10 @@
-import React, { useRef } from 'react';
+import React, {useEffect, useRef, useState } from 'react';
+import { renderToString } from 'react-dom/server'
+
+/* Components */
+import Offer from '../components/Offer';
 
 /* Static */
-import DroneArticle from './../static/images/articles/drone.png';
-
 import UserIcon from './../static/icons/user.svg';
 import ClockIcon from './../static/icons/clock.svg';
 import ShareIcon from './../static/icons/share.svg';
@@ -21,25 +23,32 @@ import {
     XIcon
 } from 'react-share';
 
-
 /* Misc */
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import Request from '../services/Request';
 
 const Article = () => {
 
+	const navigate = useNavigate();
+	const params = useParams();
+	const articleSlug = params.slug as string;
 	const application = 'Felix Hebgen';
 
-	const article = {
-		title: 'Und wieder wird dein Blick zu Stein vor mir',
-		image: DroneArticle,
+	const [ endpointCalled, setEndpointCalled ] = useState(false);
+	const [ article, setArticle ] = useState({
+		title: null,
+		image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdj+PT5638ACY8D2iQaH6oAAAAASUVORK5CYII=',
 		author: 'Felix Hebgen',
-		readTime: 5,
-		excerpt: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.',
-		content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.'
-	};
+		readTime: 0,
+		excerpt: null,
+		date: null,
+		content: null,
+		tags: [],
+		skeleton: true
+	} as any);
 
 	const content = useRef<HTMLDivElement>(null);
 	useGSAP(() => {
@@ -68,17 +77,97 @@ const Article = () => {
 		if(dropdownShare.current) dropdownShare.current.classList.toggle('display');
 	}
 
+	const loadArticle = async () => {
+		await Request.get('/posts?slug=' + articleSlug)
+			.then(response => response.json())
+			.then(async (data) => {
+				if(data.length === 0) {
+					navigate('/stories');
+					return;
+				}
+
+				const result = data[0];
+				let post: any = {};
+
+				post.title = result.title.rendered;
+				post.image = result.jetpack_featured_media_url;
+				post.excerpt = result.excerpt.rendered;
+				post.readTime = result.read_time;
+				post.date = formatDate(result.date);
+				post.author = 'Felix Hebgen';
+				post.tags = result.tag_names;
+				post.content = replaceOfferShortcodes(result.content.rendered);
+				post.skeleton = false;
+
+				setArticle(post);
+			});
+	};
+
+	const replaceOfferShortcodes = (content: string): string => {
+		let shortcodes = content.match(/\[offer type=&#8221;.*?&#8221;]/g);
+		if(shortcodes) {
+			shortcodes.forEach((shortcode: string) => {
+				const params = [ 'type', 'reverse', 'splash', 'cards', 'subtitle', 'small', 'button', 'buttonUrl', 'background' ];
+				const parsed: any = {};
+				params.forEach(param => {
+					let match = shortcode.match(new RegExp(`${param}=&#8221;(.*?)&#8221;`));
+					parsed[param] = match ? match[1] : null;
+				});
+				parsed.reverse = parsed.reverse === 'true';
+
+				content = content.replaceAll(shortcode, renderToString(<Offer type={parsed.type} reverse={parsed.reverse} splash={parsed.splash} cards={parsed.cards} small={parsed.small} subtitle={parsed.subtitle} button={parsed.button} buttonUrl={parsed.buttonUrl} background={parsed.background} />));
+			});
+		}
+		return content;
+	}
+
+	useEffect(() => {
+		loadArticle().then(() => setEndpointCalled(true));
+	}, []);
+
+	useEffect(() => {
+		if(!endpointCalled) return;
+
+		gsap.fromTo('.article .image img', {
+			opacity: 0
+		}, {
+			opacity: 1,
+			duration: .15
+		});
+	}, [endpointCalled]);
+
+	const getMonthName = (month: number) => {
+		const date = new Date();
+		date.setMonth(month);
+		return date.toLocaleString('en-GB', { month: 'long' });
+	}
+
+	const formatDate = (date: string) => {
+		let newDate = new Date(date);
+		return newDate.getDate() + '. ' + getMonthName(newDate.getMonth()) + ' ' + newDate.getFullYear();
+	}
+
 	return (
 		<article className="article" ref={content}>
 			<Helmet>
-				<meta name="title" content={article.title + '— Felix Hebgen'} />
-				<title>{article.title} - Felix Hebgen</title>
+				<meta name="title" content={(article.title ?? 'Loading ...') + ' — Felix Hebgen'} />
+				<title>{article.title ?? 'Loading ...'} — Felix Hebgen</title>
+				<meta name="description" content={article.excerpt?.replace(/<\/?[^>]+(>|$)/g, '')} />
+				<meta name="keywords" content={article.tags.join(', ').toLowerCase() + ", felix hebgen, portfolio, web developer, designer, web design, darmstadt web developer, darmstadt web design, höchst im odenwald, hessen, job profile, cv, felix hebgen web design, felix hebgen design"} />
+				<meta name="revised" content={article.date} />
+
+				<meta property="og:title" content={(article.title ?? 'Loading ...') + ' — Felix Hebgen'} />
+				<meta property="og:description" content={article.excerpt?.replace(/<\/?[^>]+(>|$)/g, '')} />
+				<meta property="og:type" content="article" />
+				<meta property="og:image" content={article.image} />
+				<meta property="og:url" content={window.location.href} />
+				<meta property="og:site_name" content="Felix Hebgen" />
 			</Helmet>
 			<div className="image container-wide">
-				<img src={article.image} alt="Article Image" />
+				<img src={article.image} alt="Article Image"/>
 			</div>
 			<div className="container-small">
-				<h1>{article.title}</h1>
+				{article.title ? <h1 dangerouslySetInnerHTML={{__html: article.title}}></h1> : <SkeletonTitle /> }
 				<ul className="details">
 					<li><Link to={'/about'}><img src={UserIcon} alt="User" /> {article.author}</Link></li>
 					<li><img src={ClockIcon} alt="Clock" /> {article.readTime} Minutes read time</li>
@@ -95,12 +184,31 @@ const Article = () => {
 						</ul>
 					</li>
 				</ul>
-				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+				{article.content ? <div className="content" dangerouslySetInnerHTML={{__html: article.content}}></div> : <SkeletonBlock/> }
 			</div>
 		</article>
 	);
 }
 
 export default Article;
+
+const SkeletonTitle = () => {
+	return (
+		<>
+			<span className="skeleton-text large"></span>
+			<span className="skeleton-text large quarter-width"></span>
+		</>
+	);
+}
+
+const SkeletonBlock = () => {
+	return (
+		<div className="content">
+			<span className="skeleton-text small push-top"></span>
+			<span className="skeleton-text small huge-width"></span>
+			<span className="skeleton-text small large-width"></span>
+			<span className="skeleton-text small huge-width"></span>
+			<span className="skeleton-text small big-width push-bottom"></span>
+		</div>
+	);
+}

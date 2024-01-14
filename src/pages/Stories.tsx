@@ -1,16 +1,9 @@
-import React, { useRef } from 'react';
+import React, {useEffect, useRef, useState } from 'react';
 
 /* Components */
-import Newsletter from './../components/Newsletter';
+// import Newsletter from './../components/Newsletter';
 
 /* Static */
-import PierArticle from './../static/images/articles/pier.png';
-import CardArticle from './../static/images/articles/card.png';
-import DroneArticle from './../static/images/articles/drone.png';
-import KotlinArticle from './../static/images/articles/kotlin.png';
-import MacbookArticle from './../static/images/articles/macbook.png';
-import NotesArticle from './../static/images/articles/notes.png';
-
 import UserIcon from './../static/icons/user.svg';
 import ClockIcon from './../static/icons/clock.svg';
 import ShareIcon from './../static/icons/share.svg';
@@ -22,55 +15,13 @@ import { useGSAP } from '@gsap/react';
 import { Link } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Helmet } from 'react-helmet';
+import Request from './../services/Request';
 
 const Stories = () => {
 
-	const articleItems = [
-		{
-			title: 'Und wieder wird dein Blick zu Stein vor mir',
-			image: DroneArticle,
-			author: 'Felix Hebgen',
-			readTime: 2,
-			extract: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
-		},
-		{
-			title: 'Und wieder wird dein Blick zu Stein vor mir',
-			image: MacbookArticle,
-			author: 'Felix Hebgen',
-			readTime: 5,
-			extract: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
-		},
-		{
-			title: 'Und wieder wird dein Blick zu Stein vor mir',
-			image: NotesArticle,
-			author: 'Felix Hebgen',
-			readTime: 3,
-			extract: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
-		},
-		{
-			title: 'Und wieder wird dein Blick zu Stein vor mir',
-			image: KotlinArticle,
-			author: 'Felix Hebgen',
-			readTime: 7,
-			extract: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
-		},
-		{
-			title: 'Und wieder wird dein Blick zu Stein vor mir',
-			image: PierArticle,
-			author: 'Felix Hebgen',
-			readTime: 1,
-			extract: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
-		},
-		{
-			title: 'Und wieder wird dein Blick zu Stein vor mir',
-			image: CardArticle,
-			author: 'Felix Hebgen',
-			readTime: 5,
-			extract: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
-		}
-	];
-
 	const heading = useRef<HTMLDivElement>(null);
+	const articles = useRef<HTMLDivElement>(null);
+
 	useGSAP(() => {
 		gsap.fromTo('.line', {
 			x: -1800,
@@ -103,7 +54,6 @@ const Stories = () => {
 		});
 	}, { scope: heading });
 
-	const articles = useRef<HTMLDivElement>(null);
 	useGSAP(() => {
 		gsap.fromTo('.article', {
 			y: 25,
@@ -117,11 +67,66 @@ const Stories = () => {
 		});
 	}, { scope: articles });
 
+	const [ endpointCalled, setEndpointCalled ] = useState(false);
+	const [ articleItems, setArticleItems ] = useState([...Array(5)].fill({
+		title: null,
+		thumbnail: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdj+PT5638ACY8D2iQaH6oAAAAASUVORK5CYII=',
+		excerpt: null,
+		author: 'Felix Hebgen',
+		slug: null,
+		readTime: 0,
+		skeleton: true
+	}) as any);
+
+	const loadPosts = async () => {
+		await Request.get('/posts?per_page=5')
+			.then(response => response.json())
+			.then(async (data) => {
+
+				let articles: any = [];
+
+				data.forEach((post: any) => {
+					let article: any = {};
+
+					article.title = post.title.rendered;
+					article.thumbnail = post.jetpack_featured_media_url_thumbnail;
+					article.excerpt = post.excerpt.rendered.replace('[&hellip;]', '&hellip;');
+					article.readTime = post.read_time;
+					article.slug = post.slug;
+					article.author = 'Felix Hebgen';
+					article.skeleton = false;
+
+					articles.push(article);
+				});
+
+				setArticleItems(articles);
+			});
+	};
+
+	useEffect(() => {
+		loadPosts().then(() => setEndpointCalled(true));
+	}, []);
+
+	useEffect(() => {
+		if(!endpointCalled) return;
+
+		gsap.fromTo('.article .preview img', {
+			opacity: 0
+		}, {
+			opacity: 1,
+			duration: .1,
+			stagger: .1
+		});
+	}, [endpointCalled]);
+
+	const truncate = (string: string, maxlength: number): string => {
+		return string.length > maxlength ? string.slice(0, maxlength).split(' ').slice(0, -1).join(' ') + ' &hellip;' : string;
+	}
 
 	return (
 		<main className="stories">
 			<Helmet>
-				<meta name="title" content="Stories — Felix Hebgen" />
+				<meta name="title" content="Stories — Felix Hebgen"/>
 				<title>Stories — Felix Hebgen</title>
 			</Helmet>
 			<div className="page-heading" ref={heading}>
@@ -131,50 +136,73 @@ const Stories = () => {
 				</div>
 				<div className="line"></div>
 			</div>
-			<div className="articles container" ref={articles}>
-				<div className="featured">
-					{articleItems.slice(0, 2).map((article: any, index: number) =>
-						<Link to={'/article'} key={index}>
-							<article className="article">
-								<LazyLoadImage src={article.image} alt="Article Image" />
-								<div className="meta">
-									<h2>{article.title}</h2>
-									<p>{article.extract}</p>
-									<ul className="details">
-										<li><img src={UserIcon} alt="User" /> {article.author}</li>
-										<li><img src={ClockIcon} alt="Clock" /> {article.readTime} Minutes</li>
-									</ul>
-									<ul className="details right">
-										<li><img src={ShareIcon} alt="Share" /> Share</li>
-									</ul>
-								</div>
-							</article>
-						</Link>
-					)}
+				<div className="articles container" ref={articles}>
+					<div className="featured">
+						{articleItems.slice(0, 2).map((article: any, index: number) =>
+							<Link to={'/article/' + article.slug} key={index}>
+								<article className={'article' + (article.skeleton ? ' skeleton' : '')}>
+									<div className="preview"><LazyLoadImage src={article.thumbnail} alt="Article Image" /></div>
+									<div className="meta">
+										{article.title ? <h2 dangerouslySetInnerHTML={{__html: article.title}}></h2> : <SkeletonTitle />}
+										{article.excerpt ? <p dangerouslySetInnerHTML={{__html: article.excerpt}}></p> : <SkeletonBlock />}
+										<ul className="details">
+											<li><img src={UserIcon} alt="User" /> {article.author}</li>
+											<li><img src={ClockIcon} alt="Clock" /> {article.readTime} Minutes</li>
+										</ul>
+										<ul className="details right">
+											<li><img src={ShareIcon} alt="Share" /> Share</li>
+										</ul>
+									</div>
+								</article>
+							</Link>
+						)}
+					</div>
+					<div className="aside">
+						{articleItems.slice(2, 5).map((article: any, index: number) =>
+							<Link to={'/article/' + article.slug} key={index}>
+								<article className={'article' + (article.skeleton ? ' skeleton' : '')}>
+									<div className="preview"><LazyLoadImage src={article.thumbnail} alt="Article Image" /></div>
+									<div className="meta">
+										{article.title ? <h2 dangerouslySetInnerHTML={{__html: article.title}}></h2> : <SkeletonTitle />}
+										{article.excerpt ? <p dangerouslySetInnerHTML={{__html: truncate(article.excerpt, 170)}}></p> : <SkeletonBlock />}
+										<ul className="details">
+											<li><img src={UserIcon} alt="User" /> {article.author}</li>
+											<li><img src={ClockIcon} alt="Clock" /> {article.readTime} Minutes</li>
+										</ul>
+									</div>
+								</article>
+							</Link>
+						)}
+					</div>
 				</div>
-				<div className="aside">
-					{articleItems.slice(2, 5).map((article: any, index: number) =>
-						<Link to={'/article'} key={index}>
-							<article className="article">
-								<LazyLoadImage src={article.image} alt="Article Image" />
-								<div className="meta">
-									<h2>{article.title}</h2>
-									<p>{article.extract}</p>
-									<ul className="details">
-										<li><img src={UserIcon} alt="User" /> {article.author}</li>
-										<li><img src={ClockIcon} alt="Clock" /> {article.readTime} Minutes</li>
-									</ul>
-								</div>
-							</article>
-						</Link>
-					)}
-				</div>
-			</div>
-			<div style={{ margin: '1rem auto 5rem' }}>
-				<Newsletter />
-			</div>
+				{/*
+					<div style={{margin: '1rem auto 5rem'}}>
+						<Newsletter/>
+					</div>
+				*/}
 		</main>
 	);
 }
 
 export default Stories;
+
+const SkeletonTitle = () => {
+	return (
+		<>
+			<span className="skeleton-text"></span>
+			<span className="skeleton-text quarter-width"></span>
+		</>
+	);
+}
+
+const SkeletonBlock = () => {
+	return (
+		<>
+			<span className="skeleton-text small push-top"></span>
+			<span className="skeleton-text small"></span>
+			<span className="skeleton-text small"></span>
+			<span className="skeleton-text small"></span>
+			<span className="skeleton-text small half-width push-bottom"></span>
+		</>
+	);
+}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 /* Components */
 import Header from './Header';
@@ -9,75 +9,10 @@ import Version from './Version';
 
 /* Misc */
 import { Helmet } from 'react-helmet';
-import { Outlet, useLocation } from 'react-router-dom';
-import gsap from 'gsap';
+import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
 	const [ initialLoadingHasFinished, setInitialLoadingHasFinished ] = useState(sessionStorage.initialLoad);
-	const [ sticky, setSticky ] = useState(false);
-
-	useEffect(() => {
-		let lastScrollTop = 0;
-		const scrollListener = () => {
-			let currentScrollTop = window.scrollY || document.documentElement.scrollTop;
-			if(currentScrollTop > lastScrollTop || currentScrollTop < 100) {
-				setSticky(false);
-			} else {
-				setSticky(true);
-			}
-			lastScrollTop = currentScrollTop;
-		}
-		window.addEventListener('scroll', scrollListener);
-		return () => window.removeEventListener('scroll', scrollListener);
-	}, []);
-
-	useEffect(() => {
-		if(sticky) {
-			const stickyHeaders = document.querySelectorAll('header.sticky') as NodeListOf<HTMLElement>;
-
-			stickyHeaders.forEach((stickyHeader: any) => stickyHeader.classList.add('display'));
-
-			gsap.fromTo(stickyHeaders, {
-				y: -100,
-				autoAlpha: 0
-			}, {
-				y: 0,
-				autoAlpha: 1,
-				duration: .3,
-				ease: 'back.out'
-			})
-		} else {
-			const stickyHeaders = document.querySelectorAll('header.sticky') as NodeListOf<HTMLElement>;
-
-			gsap.fromTo(stickyHeaders, {
-				y: 0,
-				autoAlpha: 1
-			}, {
-				y: -100,
-				autoAlpha: 0,
-				duration: .15,
-				ease: 'power4.in',
-				onComplete: () => stickyHeaders.forEach((stickyHeader: any) => stickyHeader.classList.remove('display'))
-			});
-		}
-	}, [sticky]);
-
-	const location = useLocation();
-
-	useEffect(() => {
-		if(!sticky) return;
-
-		const stickyHeader = document.querySelector('header.sticky') as HTMLElement;
-		gsap.fromTo(stickyHeader, {
-			y: 0,
-			opacity: 1
-		}, {
-			y: -100,
-			opacity: 0,
-			duration: 0,
-			onComplete: () => stickyHeader.classList.remove('display')
-		});
-	}, [location.pathname]);
 
 	return (
 		<>
@@ -104,7 +39,7 @@ const Layout = () => {
 				<meta name="description" content="The personal website of Felix Hebgen, a German full-stack web developer in today's ever so fast growing web-app economy, based in Darmstadt, Hessen." />
 				<meta name="keywords" content="felix hebgen, portfolio, web developer, designer, web design, darmstadt web developer, darmstadt web design, höchst im odenwald, hessen, job profile, cv, felix hebgen web design, felix hebgen design" />
 				<meta name="robots" content="index, follow" />
-				<meta name="author" content="Felix Hebgen, hire@felixhebgen.de" />
+				<meta name="author" content="Felix Hebgen, mail@felixhebgen.de" />
 				<meta name="designer" content="Felix Hebgen" />
 				<meta name="url" content="https://www.felixhebgen.de" />
 				<meta name="identifier-URL" content="https://www.felixhebgen.de" />
@@ -122,7 +57,6 @@ const Layout = () => {
 			{initialLoadingHasFinished && <Outlet />}
 			{/* <Version /> */}
 			<Footer />
-			<Version />
 		</>
 	);
 }
