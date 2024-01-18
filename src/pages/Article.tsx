@@ -107,15 +107,16 @@ const Article = () => {
 		let shortcodes = content.match(/\[offer type=&#8221;.*?&#8221;]/g);
 		if(shortcodes) {
 			shortcodes.forEach((shortcode: string) => {
-				const params = [ 'type', 'reverse', 'splash', 'cards', 'subtitle', 'small', 'button', 'buttonUrl', 'background' ];
+				const params = [ 'type', 'promo', 'reverse', 'splash', 'cards', 'subtitle', 'small', 'button', 'buttonUrl', 'background' ];
 				const parsed: any = {};
 				params.forEach(param => {
 					let match = shortcode.match(new RegExp(`${param}=&#8221;(.*?)&#8221;`));
 					parsed[param] = match ? match[1] : null;
 				});
+				parsed.promo = parsed.promo !== 'false';
 				parsed.reverse = parsed.reverse === 'true';
 
-				content = content.replaceAll(shortcode, renderToString(<Offer type={parsed.type} reverse={parsed.reverse} splash={parsed.splash} cards={parsed.cards} small={parsed.small} subtitle={parsed.subtitle} button={parsed.button} buttonUrl={parsed.buttonUrl} background={parsed.background} />));
+				content = content.replaceAll(shortcode, renderToString(<Offer type={parsed.type} promo={parsed.promo} reverse={parsed.reverse} splash={parsed.splash} cards={parsed.cards} small={parsed.small} subtitle={parsed.subtitle} button={parsed.button} buttonUrl={parsed.buttonUrl} background={parsed.background} />));
 			});
 		}
 		return content;

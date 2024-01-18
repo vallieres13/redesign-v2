@@ -1,19 +1,17 @@
 import React, { useRef } from 'react';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
+import { Link } from 'react-router-dom';
 
 const Version = () => {
 
 	const version = useRef<HTMLDivElement>(null);
-	useGSAP(() => {
-
-	}, { scope: version });
 
 	return (
-		<div className="version" ref={version}>
-			<p>Switch Version</p>
-			<div className="lead"></div>
-		</div>
+		<Link to={'/article/open-source-repository'}>
+			<div className="version" ref={version}>
+				<p>Open-Source Repo <span>↗</span></p>
+				<div className="lead"></div>
+			</div>
+		</Link>
 	);
 }
 

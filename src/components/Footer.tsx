@@ -72,7 +72,7 @@ const Footer = () => {
 				</div>
 				<div className="host">
 					<Link to={'https://www.oracle.com/cloud/'} target="_blank">
-						Hosted on
+						_ deployed on
 						<img src={Oracle} alt="Oracle Cloud" />
 					</Link>
 				</div>

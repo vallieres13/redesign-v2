@@ -55,7 +55,7 @@ const Layout = () => {
 			<ScrollToTop />
 			<Header />
 			{initialLoadingHasFinished && <Outlet />}
-			{/* <Version /> */}
+			<Version />
 			<Footer />
 		</>
 	);

@@ -67,13 +67,15 @@ img {
 				opacity: 1;
 			}
 		}
-
+		
 		&:focus img,
 		&:active img {
-			border: 1px double #444444;
-			padding: 12px 20px 8px;
+			padding: 13px 21px 9px;
 			margin: -13px 5px -9px -21px;
 			transition: none;
+			border-radius: 10px;
+			outline-offset: 2px;
+			outline: 2px solid #cbcbcb;
 		}
 	}
 }
@@ -1531,6 +1533,7 @@ header {
 	.image {
 		background-color: #F2F3F5;
 		border-radius: 25px;
+		height: 650px;
 
 		img {
 			width: 100%;
@@ -1685,11 +1688,12 @@ header {
 			font-family: "Greycliff CF Regular", sans-serif;
 			font-size: 20px;
 			color: #5C5C5C;
+			margin: 0 0 .5rem;
 		}
 	}
 
 	figure {
-		margin: 1rem 0 1.5rem;
+		margin: 3rem 0 -1rem;
 
 		img {
 			width: 120%;
@@ -1708,6 +1712,15 @@ header {
 			text-align: center;
 			margin: 1rem 0 0;
 		}
+	}
+
+	/* Separator */
+	hr {
+		width: 130px;
+		height: 5px;
+		margin: 5rem auto;
+		border: none;
+		background: radial-gradient(circle closest-side, #DCDCDC 98%,#0000) 0 / calc(100% / 3) 100%;
 	}
 
 	/* Code */
@@ -2321,33 +2334,35 @@ footer {
  =================================== */
 
 .offer {
-	margin: 3rem -15% 6rem;
-	width: 130%;
+	margin: 3rem -2rem 6rem;
+	width: calc(100% + 4rem);
 
 	.wrapper {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 		border-radius: 18px;
-		background: #9B9B9B;
+		background: #F6F6F6;
 
 		.showcase {
 			position: relative;
 
 			img {
-				position: absolute;
-				left: 2rem;
-				bottom: -3.5rem;
-				height: 115%;
+				position: relative;
+				left: 1rem;
+				bottom: auto;
+				top: 0;
+				height: auto;
+				margin: 1.75rem;
 			}
 		}
 
 		.action {
-			padding: 32px 40px;
+			padding: 60px 45px 45px;
 
 			.logo {
+				display: none;
 				margin: auto 0 1.5rem auto;
-				display: block;
 				max-height: 40px;
 				max-width: 120px;
 			}
@@ -2356,7 +2371,7 @@ footer {
 			small {
 				text-align: right;
 				display: block;
-				color: white;
+				color: #4D4D4D;
 				font-family: "Greycliff CF Bold", sans-serif;
 				font-size: 19px;
 
@@ -2387,6 +2402,7 @@ footer {
 
 		.showcase {
 			img {
+				position: absolute;
 				right: 2rem;
 				left: auto;
 				bottom: -3.5rem;
@@ -2407,8 +2423,51 @@ footer {
 		}
 	}
 
-	&.miles-more .showcase img {
-		transform: scale(.9);
+
+	&.promo {
+		margin: 3rem -15% 6rem;
+		width: 130%;
+
+		.wrapper {
+			.showcase {
+				img {
+					position: absolute;
+					left: 2rem;
+					top: auto;
+					bottom: -3.5rem;
+					height: 115%;
+					margin: auto;
+				}
+			}
+
+			.action {
+				padding: 32px 40px 32px;
+
+				.logo {
+					display: block;
+				}
+
+				.splash,
+				span,
+				small {
+					color: white;
+				}
+			}
+		}
+
+		&.reverse .wrapper {
+			.showcase {
+				img {
+					right: 2rem;
+					left: auto;
+					bottom: -3.5rem;
+				}
+			}
+		}
+
+		&.miles-more .showcase img {
+			transform: scale(.9);
+		}
 	}
 }
 
@@ -2923,8 +2982,16 @@ footer {
 		color: #A0A0A0;
 		text-transform: uppercase;
 		transform: rotate(90deg);
-		margin: 0 0 4rem -3.5rem;
+		margin: 0 0 5rem -4.65rem;
 		transition: .2s;
+		letter-spacing: .005rem;
+
+		span {
+			vertical-align: .05rem;
+			font-size: 12px;
+			margin-left: 2px;
+			opacity: .7;
+		}
 	}
 
 	&:hover {
@@ -2964,7 +3031,9 @@ a.button {
 		color: white;
 		background-color: #292929;
 
-		&:hover {
+		&:hover,
+		&:active,
+		&:focus {
 			background-color: black;
 		}
 	}
@@ -2979,7 +3048,9 @@ a.button {
 		vertical-align: .07rem;
 	}
 
-	&:hover {
+	&:hover,
+	&:focus,
+	&:active {
 		background-color: #f3f3f3;
 	}
 
@@ -3275,6 +3346,7 @@ a.button {
 @media (max-width: 1250px) {
 	.article .image {
 		margin: 0 2rem;
+		height: 550px;
 
 		img {
 			height: 550px;
@@ -3839,6 +3911,7 @@ a.button {
 	.article .image {
 		margin: 0;
 		border-radius: 0;
+		height: 300px;
 
 		img {
 			height: 300px;

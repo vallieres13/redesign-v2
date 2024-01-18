@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 
 interface Props {
@@ -13,6 +13,7 @@ const defaultProps = {
 const Navigation = ({ mobile = defaultProps.mobile }: Props) => {
 
 	const [ navigating, setNavigating ] = useState(false);
+	const { pathname } = useLocation();
 
 	const clickedItem = (e: React.MouseEvent) => {
 		if(navigating) return;
@@ -68,7 +69,7 @@ const Navigation = ({ mobile = defaultProps.mobile }: Props) => {
 					{items.map((items: any, index: number) => {
 						return (
 							<li key={index}>
-								<NavLink onMouseLeave={unhoverItem} onClick={clickedItem} to={'/' + items.url} className={({ isActive }) => (isActive ? 'active' : '') + (items.url === 'hire' ? ' hire' : '')} data-colour={items.colour} data-hover={items.title}>
+								<NavLink onMouseLeave={unhoverItem} onClick={clickedItem} to={'/' + items.url} className={({ isActive }) => (isActive || (items.url === 'stories' && pathname.includes('/article')) ? 'active' : '') + (items.url === 'hire' ? ' hire' : '')} data-colour={items.colour} data-hover={items.title}>
 									<span>{items.title}</span>
 								</NavLink>
 								{items.url === 'hire' && <sup>Looking!</sup>}
