@@ -2,6 +2,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 let settings = {
     entry: {
@@ -35,7 +36,7 @@ let settings = {
                     loader: 'file-loader',
                     options: {
                         name: '[name].[ext]',
-                        outputPath: 'assets/fonts/',
+                        outputPath: '/assets/fonts/'
                     }
                 }
             },
@@ -55,7 +56,8 @@ let settings = {
                     {
                         loader: 'url-loader',
                         options: {
-                            limit: 10000
+                            limit: 10000,
+                            outputPath: '/assets/static/'
                         }
                     },
                     'image-webpack-loader'
@@ -67,7 +69,8 @@ let settings = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'app.js',
-        clean: true
+        clean: true,
+        assetModuleFilename: 'assets/fonts/[hash][ext][query]'
     },
     plugins: [
         new CleanWebpackPlugin(),
@@ -79,6 +82,22 @@ let settings = {
             template: './public/index.html',
             inject: 'body',
             filename: 'index.html'
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'public/*.png', to({ context, absoluteFilename }) {
+                    return '[name][ext]';
+                }},
+                { from: 'public/*.txt', to({ context, absoluteFilename }) {
+                    return '[name][ext]';
+                }},
+                { from: 'public/*.svg', to({ context, absoluteFilename }) {
+                    return '[name][ext]';
+                }},
+                { from: 'public/*.ico', to({ context, absoluteFilename }) {
+                    return '[name][ext]';
+                }}
+            ]
         })
     ]
 };

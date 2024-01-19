@@ -81,9 +81,17 @@ const Index = () => {
 		});
 	}, { scope: promo });
 
-	const handleOpenCollapsible = (ev: React.MouseEvent) => {
+	const handleOpenCollapsible = (ev: React.MouseEvent, file: string) => {
 		const target = ev.currentTarget as HTMLDivElement;
 		target.classList.toggle('open');
+
+		if(target.classList.contains('open')) {
+			const link = document.createElement('a');
+			link.href = file;
+			link.setAttribute('download', file);
+			link.target = '_blank';
+			link.click();
+		}
 	}
 
 	useEffect(() => {
@@ -99,6 +107,44 @@ const Index = () => {
 			});
 		});
 	}, []);
+
+	const downloadItems = [
+		{
+			name: 'Curriculum Vitae (Résumé)',
+			icon: PDFIcon,
+			size: '65 KB',
+			file: 'https://api.felixhebgen.de/wp-content/uploads/Lebenslauf.pdf',
+			description: <>
+				<p>Get a closer look at my skills and experience.</p>
+				<p>Dive into my experience, projects, and passion for crafting outstanding digital solutions.</p>
+			</>
+		},
+		{
+			name: 'Experience & Qualifications',
+			icon: PDFIcon,
+			size: '65 KB',
+			file: 'https://api.felixhebgen.de/wp-content/uploads/Erfahrungen-Qualifikationen-Felix-Hebgen.pdf',
+			description: <>
+				<p>A collection of projects, experiences, and qualifications in various IT fields
+					throughout several companies.</p>
+				<p>This document also includes a listing of skills, as well as the indication of
+					technical understanding through individual, self-determined measurements.</p>
+			</>
+		},
+		/*
+		{
+			name: 'C1 English Cambridge University',
+			icon: PDFIcon,
+			size: '65 KB',
+			file: 'https://api.felixhebgen.de/downloads/certificate.pdf',
+			description: <>
+				<p>Discover my proficiency in English through my Cambridge Certificate of English C1.</p>
+				<p>This document also includes a listing of skills, as well as the indication of
+					technical understanding through individual, self-determined measurements.</p>
+			</>
+		}
+		*/
+	];
 
 	const highlightItems = [
 		{
@@ -231,75 +277,29 @@ const Index = () => {
 				<div className="downloads">
 					<h2>Downloads</h2>
 					<div className="wrapper">
-						<div className="download" onClick={handleOpenCollapsible}>
-							<div className="icon">
-								<img src={PDFIcon} alt="PDF"/>
-							</div>
-							<div className="details">
-								<h3>Curriculum Vitae (Résumé)</h3>
-								<p>65 KB — PDF-File</p>
-							</div>
-							<div className="action">
-								<img src={ChevronRightIcon} alt="Open"/>
-							</div>
-							<div className="collapsible">
+						{downloadItems.map((download: any, index: number) =>
+							<div className="download" key={index} onClick={(e: React.MouseEvent) => handleOpenCollapsible(e, download.file)}>
 								<div className="icon">
-									<img src={InfoIcon} alt="Info"/>
+									<img src={download.icon} alt="PDF"/>
 								</div>
-								<div className="description">
-									<p>Get a closer look at my skills and experience.</p>
-									<p>Dive into my experience, projects, and passion for crafting outstanding digital solutions.</p>
-									<p className="disclaimer">Your download will start shortly &hellip;</p>
+								<div className="details">
+									<h3>{download.name}</h3>
+									<p>{download.size} — PDF-File</p>
 								</div>
-							</div>
-						</div>
-						<div className="download" onClick={handleOpenCollapsible}>
-							<div className="icon">
-								<img src={PDFIcon} alt="PDF"/>
-							</div>
-							<div className="details">
-								<h3>Experience & Qualifications</h3>
-								<p>65 KB — PDF-File</p>
-							</div>
-							<div className="action">
-								<img src={ChevronRightIcon} alt="Open"/>
-							</div>
-							<div className="collapsible">
-								<div className="icon">
-									<img src={InfoIcon} alt="Info"/>
+								<div className="action">
+									<img src={ChevronRightIcon} alt="Open"/>
 								</div>
-								<div className="description">
-									<p>A collection of projects, experiences, and qualifications in various IT fields
-										throughout several companies.</p>
-									<p>This document also includes a listing of skills, as well as the indication of
-										technical understanding through individual, self-determined measurements.</p>
-									<p className="disclaimer">Your download will start shortly &hellip;</p>
+								<div className="collapsible">
+									<div className="icon">
+										<img src={InfoIcon} alt="Info"/>
+									</div>
+									<div className="description">
+										{download.description}
+										<p className="disclaimer">Your download will start shortly &hellip;</p>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div className="download" onClick={handleOpenCollapsible}>
-							<div className="icon">
-								<img src={PDFIcon} alt="PDF"/>
-							</div>
-							<div className="details">
-								<h3>C1 English Cambridge University</h3>
-								<p>65 KB — PDF-File</p>
-							</div>
-							<div className="action">
-								<img src={ChevronRightIcon} alt="Open"/>
-							</div>
-							<div className="collapsible">
-								<div className="icon">
-									<img src={InfoIcon} alt="Info"/>
-								</div>
-								<div className="description">
-									<p>Discover my proficiency in English through my Cambridge Certificate of English C1.</p>
-									<p>This document also includes a listing of skills, as well as the indication of
-										technical understanding through individual, self-determined measurements.</p>
-									<p className="disclaimer">Your download will start shortly &hellip;</p>
-								</div>
-							</div>
-						</div>
+						)}
 					</div>
 				</div>
 			</div>

@@ -14,10 +14,11 @@ const Footer = () => {
 	const devNotes: any[] = [
 		<>Cooked up with <span>🍳</span> as coding is my secret recipe.</>,
 		<>Built with <span>🚀</span> because I love to launch great stuff.</>,
-		<>Assembled with <span>🤖</span> as robots get creative too.</>,
+		// <>Assembled with <span>🤖</span> as robots get creative too.</>,
 		<>Brewed with <span>☕️</span> for that perfect blend.</>,
-		<>Forged with <span>⚒️</span> for a site that's tough as nails.</>,
-		<>Assembled with <span>🧲</span> to attract the best UX.</>
+		// <>Forged with <span>⚒️</span> for a site that's tough as nails.</>,
+		// <>Assembled with <span>🧲</span> to attract the best UX.</>,
+		<>Built with <span>⚛️</span> React.js.</>
 	];
 
 	return (
