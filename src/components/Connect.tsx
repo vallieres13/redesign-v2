@@ -5,11 +5,11 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 /* Components */
 import Heading from './Heading';
 
-/* Static */
-import FelixTransparent from './../static/images/promos/felix-transparent.png';
-import LinkedInLogo from './../static/icons/linkedin.svg';
-import XingLogo from './../static/icons/xing.svg';
-import GithubLogo from './../static/icons/github.svg';
+/* Assets */
+import FelixTransparent from '../assets/images/promos/felix-transparent.png';
+import LinkedInLogo from '../assets/icons/linkedin.svg';
+import XingLogo from '../assets/icons/xing.svg';
+import GithubLogo from '../assets/icons/github.svg';
 
 /* Misc */
 import gsap from 'gsap';

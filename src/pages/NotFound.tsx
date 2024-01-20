@@ -1,9 +1,8 @@
 import React from 'react';
 
-/* Static */
-import NotFoundImage from './../static/images/notfound.svg';
+/* Assets */
+import NotFoundImage from '../assets/images/notfound.svg';
 import { Helmet } from 'react-helmet';
-
 const NotFound = () => {
 
 	return (

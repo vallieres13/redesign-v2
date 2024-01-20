@@ -3,10 +3,10 @@ import React, {useEffect, useRef, useState } from 'react';
 /* Components */
 // import Newsletter from './../components/Newsletter';
 
-/* Static */
-import UserIcon from './../static/icons/user.svg';
-import ClockIcon from './../static/icons/clock.svg';
-import ShareIcon from './../static/icons/share.svg';
+/* Assets */
+import UserIcon from '../assets/icons/user.svg';
+import ClockIcon from '../assets/icons/clock.svg';
+import ShareIcon from '../assets/icons/share.svg';
 
 /* Misc */
 import { SplitText } from '../services/SplitText';

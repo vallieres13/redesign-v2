@@ -4,9 +4,9 @@ import { NavLink, useLocation } from 'react-router-dom';
 /* Components */
 import Navigation from "./Navigation";
 
-/* Static */
-import Logo from './../static/logo.svg';
-import Hamburger from './../static/icons/hamburger.svg';
+/* Assets */
+import Logo from '../assets/logo.svg';
+import Hamburger from '../assets/icons/hamburger.svg';
 
 /* Misc */
 import gsap from 'gsap';

@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 
-/* Static */
-import Picture from './../static/images/contact/picture.png';
-import NumberPad from './../static/icons/numberpad.svg';
-import Mail from './../static/icons/mail.svg';
-import LinkedIn from './../static/icons/linkedin-contact.svg';
-import Xing from './../static/icons/xing-contact.svg';
-import Schedule from './../static/icons/schedule.svg';
-import Postal from './../static/icons/postal.svg';
+/* Assets */
+import Picture from '../assets/images/contact/picture.png';
+import NumberPad from '../assets/icons/numberpad.svg';
+import Mail from '../assets/icons/mail.svg';
+import LinkedIn from '../assets/icons/linkedin-contact.svg';
+import Xing from '../assets/icons/xing-contact.svg';
+import Schedule from '../assets/icons/schedule.svg';
+import Postal from '../assets/icons/postal.svg';
 
 /* Misc */
 import { SplitText } from '../services/SplitText';
@@ -15,7 +15,6 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import VanillaTilt from 'vanilla-tilt';
 import { Helmet } from 'react-helmet';
-
 const Contact = () => {
 
 	const contactItems = [
