@@ -72,7 +72,7 @@ const Navigation = ({ mobile = defaultProps.mobile }: Props) => {
 								<NavLink onMouseLeave={unhoverItem} onClick={clickedItem} to={'/' + items.url} className={({ isActive }) => (isActive || (items.url === 'stories' && pathname.includes('/article')) ? 'active' : '') + (items.url === 'hire' ? ' hire' : '')} data-colour={items.colour} data-hover={items.title}>
 									<span>{items.title}</span>
 								</NavLink>
-								{items.url === 'hire' && <sup>Looking!</sup>}
+								{items.url === 'hire' && <sup>Busy &mdash; No offers</sup>}
 							</li>
 						);
 					})}

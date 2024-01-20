@@ -4,20 +4,20 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 /* Components */
 import Connect from './../components/Connect';
 
-/* Static */
-import FelixTransparent from './../static/images/promos/felix-transparent.png';
-import GithubLogo from './../static/icons/github.svg';
-import LinkedInLogo from './../static/icons/linkedin.svg';
-import XingLogo from './../static/icons/xing.svg';
+/* Assets */
+import FelixTransparent from '../assets/images/promos/felix-transparent.png';
+import GithubLogo from '../assets/icons/github.svg';
+import LinkedInLogo from '../assets/icons/linkedin.svg';
+import XingLogo from '../assets/icons/xing.svg';
 
-import DesignSpotlight from './../static/images/spotlight/design.png';
-import MarketingSpotlight from './../static/images/spotlight/marketing.png';
-import CodeSpotlight from './../static/images/spotlight/code.png';
-import AiSpotlight from './../static/images/spotlight/ai.png';
+import DesignSpotlight from '../assets/images/spotlight/design.png';
+import MarketingSpotlight from '../assets/images/spotlight/marketing.png';
+import CodeSpotlight from '../assets/images/spotlight/code.png';
+import AiSpotlight from '../assets/images/spotlight/ai.png';
 
-import UserIcon from './../static/icons/user.svg';
-import ClockIcon from './../static/icons/clock.svg';
-import ShareIcon from './../static/icons/share.svg';
+import UserIcon from '../assets/icons/user.svg';
+import ClockIcon from '../assets/icons/clock.svg';
+import ShareIcon from '../assets/icons/share.svg';
 
 /* Misc */
 import { Link } from 'react-router-dom';
@@ -35,7 +35,7 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import { SplitText } from "../services/SplitText";
 import TechStack from "../components/TechStack";
 import Heading from "../components/Heading";
-import GermanyEmoji from "../static/emojis/germany.png";
+import GermanyEmoji from "../assets/emojis/germany.png";
 import Request from "../services/Request";
 
 const Index = () => {

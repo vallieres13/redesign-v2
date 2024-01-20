@@ -1,21 +1,20 @@
 import React from 'react';
 
-/* Static */
-import AmexLogo from './../static/images/offers/amex.svg';
-import AmexCards from './../static/images/offers/amex-cards.png';
-import AmexPlat from './../static/images/offers/amex-plat.png';
-import AmexGold from './../static/images/offers/amex-gold.png';
-import AmexGreen from './../static/images/offers/amex-green.png';
-import AmexPlatPlain from './../static/images/offers/amex-plat-plain.png';
-import AmexGoldPlain from './../static/images/offers/amex-gold-plain.png';
-import AmexGreenPlain from './../static/images/offers/amex-green-plain.png';
-import MilesMoreLogo from './../static/images/offers/milesmore.svg';
-import MilesMoreCards from './../static/images/offers/milesmore-cards.png';
-import MilesBlue from './../static/images/offers/amex-plat.png';
-import MilesGold from './../static/images/offers/amex-plat.png';
-import MilesBluePlain from './../static/images/offers/milesmore-blue-plain.png';
-import MilesGoldPlain from './../static/images/offers/milesmore-gold-plain.png';
-
+/* Assets */
+import AmexLogo from '../assets/images/offers/amex.svg';
+import AmexCards from '../assets/images/offers/amex-cards.png';
+import AmexPlat from '../assets/images/offers/amex-plat.png';
+import AmexGold from '../assets/images/offers/amex-gold.png';
+import AmexGreen from '../assets/images/offers/amex-green.png';
+import AmexPlatPlain from '../assets/images/offers/amex-plat-plain.png';
+import AmexGoldPlain from '../assets/images/offers/amex-gold-plain.png';
+import AmexGreenPlain from '../assets/images/offers/amex-green-plain.png';
+import MilesMoreLogo from '../assets/images/offers/milesmore.svg';
+import MilesMoreCards from '../assets/images/offers/milesmore-cards.png';
+import MilesBlue from '../assets/images/offers/amex-plat.png';
+import MilesGold from '../assets/images/offers/amex-plat.png';
+import MilesBluePlain from '../assets/images/offers/milesmore-blue-plain.png';
+import MilesGoldPlain from '../assets/images/offers/milesmore-gold-plain.png';
 interface Props {
 	type: string;
 	promo?: boolean;

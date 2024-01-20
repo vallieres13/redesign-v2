@@ -3,17 +3,17 @@ import React from 'react';
 /* Components */
 import Heading from './Heading';
 
-/* Static */
-import campointLogo from './../static/icons/campoint.svg';
-import cforgLogo from './../static/icons/cforg.svg';
-import deineitLogo from './../static/icons/deineit.svg';
-import visualstaticLogo from './../static/icons/visualstatic.svg';
-import ragbitLogo from './../static/icons/ragbit.svg';
-import ladadiLogo from './../static/icons/ladadi.svg';
-import odwLogo from './../static/icons/odw.svg';
-import friendelloLogo from './../static/icons/friendello.svg';
-import egsLogo from './../static/icons/egs.svg';
-import feLogo from './../static/icons/fe.svg';
+/* Assets */
+import campointLogo from '../assets/icons/campoint.svg';
+import cforgLogo from '../assets/icons/cforg.svg';
+import deineitLogo from '../assets/icons/deineit.svg';
+import visualstaticLogo from '../assets/icons/visualstatic.svg';
+import ragbitLogo from '../assets/icons/ragbit.svg';
+import ladadiLogo from '../assets/icons/ladadi.svg';
+import odwLogo from '../assets/icons/odw.svg';
+import friendelloLogo from '../assets/icons/friendello.svg';
+import egsLogo from '../assets/icons/egs.svg';
+import feLogo from '../assets/icons/fe.svg';
 
 const Timeline = () => {
 	return (

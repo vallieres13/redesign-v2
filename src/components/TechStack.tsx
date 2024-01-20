@@ -3,30 +3,30 @@ import React, { useEffect, useRef } from 'react';
 /* Components */
 import Heading from './Heading';
 
-/* Static */
-import Php from './../static/icons/php.svg';
-import PhpStack from './../static/icons/php-stack.svg';
+/* Assets */
+import Php from '../assets/icons/php.svg';
+import PhpStack from '../assets/icons/php-stack.svg';
 
-import Git from './../static/icons/git.svg';
-import GitStack from './../static/icons/git-stack.svg';
+import Git from '../assets/icons/git.svg';
+import GitStack from '../assets/icons/git-stack.svg';
 
-import Html from './../static/icons/html.svg';
-import HtmlStack from './../static/icons/html-stack.svg';
+import Html from '../assets/icons/html.svg';
+import HtmlStack from '../assets/icons/html-stack.svg';
 
-import Cc from './../static/icons/cc.svg';
-import CcStack from './../static/icons/cc-stack.svg';
+import Cc from '../assets/icons/cc.svg';
+import CcStack from '../assets/icons/cc-stack.svg';
 
-import Java from './../static/icons/java.svg';
-import JavaStack from './../static/icons/java-stack.svg';
+import Java from '../assets/icons/java.svg';
+import JavaStack from '../assets/icons/java-stack.svg';
 
-import Database from './../static/icons/database.svg';
-import DatabaseStack from './../static/icons/database-stack.svg';
+import Database from '../assets/icons/database.svg';
+import DatabaseStack from '../assets/icons/database-stack.svg';
 
-import Js from './../static/icons/js.svg';
-import JsStack from './../static/icons/js-stack.svg';
+import Js from '../assets/icons/js.svg';
+import JsStack from '../assets/icons/js-stack.svg';
 
-import Cloud from './../static/icons/cloud.svg';
-import CloudStack from './../static/icons/cloud-stack.svg';
+import Cloud from '../assets/icons/cloud.svg';
+import CloudStack from '../assets/icons/cloud-stack.svg';
 
 /* Misc */
 import VanillaTilt from 'vanilla-tilt';

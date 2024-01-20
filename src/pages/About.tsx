@@ -4,21 +4,21 @@ import React, { useEffect, useRef } from 'react';
 import Timeline from './../components/Timeline';
 import Heading from './../components/Heading';
 
-/* Static */
-import BalconyPicture from './../static/images/about/balcony.png';
-import TowerPicture from './../static/images/about/tower.png';
-import NewYearsPicture from './../static/images/about/newyears.png';
+/* Assets */
+import BalconyPicture from '../assets/images/about/balcony.png';
+import TowerPicture from '../assets/images/about/tower.png';
+import NewYearsPicture from '../assets/images/about/newyears.png';
 
-import StarCitizen from './../static/images/about/sc.png';
-import WorldOfWarships from './../static/images/about/wows.png';
-import Eco from './../static/images/about/eco.png';
+import StarCitizen from '../assets/images/about/sc.png';
+import WorldOfWarships from '../assets/images/about/wows.png';
+import Eco from '../assets/images/about/eco.png';
 
-import WavingEmoji from './../static/emojis/waving.gif';
-import SmileyEmoji from './../static/emojis/smiley.gif';
-import WinkingEmoji from './../static/emojis/wink.gif';
-import CoolEmoji from './../static/emojis/cool.gif';
-import CoffeeEmoji from './../static/emojis/coffee.gif';
-import RocketEmoji from './../static/emojis/rocket.gif';
+import WavingEmoji from '../assets/emojis/waving.gif';
+import SmileyEmoji from '../assets/emojis/smiley.gif';
+import WinkingEmoji from '../assets/emojis/wink.gif';
+import CoolEmoji from '../assets/emojis/cool.gif';
+import CoffeeEmoji from '../assets/emojis/coffee.gif';
+import RocketEmoji from '../assets/emojis/rocket.gif';
 
 /* Misc */
 import gsap from 'gsap';

@@ -1,10 +1,10 @@
 import React from 'react';
 
-/* Static */
-import NewsletterTop from './../static/images/newsletter/newsletter-top.png';
-import NewsletterBottom from './../static/images/newsletter/newsletter-bottom.png';
-import InputForm from './../static/icons/form.svg';
-import EnvelopeForm from './../static/icons/envelope.svg';
+/* Assets */
+import NewsletterTop from '../assets/images/newsletter/newsletter-top.png';
+import NewsletterBottom from '../assets/images/newsletter/newsletter-bottom.png';
+import InputForm from '../assets/icons/form.svg';
+import EnvelopeForm from '../assets/icons/envelope.svg';
 
 const Newsletter = () => {
 	return (

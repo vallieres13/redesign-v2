@@ -8,29 +8,29 @@ import gsap from 'gsap';
 import Connect from './../components/Connect';
 import TechStack from './../components/TechStack';
 
-/* Static */
-import Scroll from './../static/icons/scroll.gif';
+/* Assets */
+import Scroll from '../assets/icons/scroll.gif';
 
-import Curriculum from './../static/images/hire/curriculum.png';
-import Qualification from './../static/images/hire/qualification.png';
-import Motivation from './../static/images/hire/motivation.png';
+import Curriculum from '../assets/images/hire/curriculum.png';
+import Qualification from '../assets/images/hire/qualification.png';
+import Motivation from '../assets/images/hire/motivation.png';
 
-import PDFIcon from './../static/icons/pdf.svg';
-import InfoIcon from './../static/icons/info.svg';
-import ChevronRightIcon from './../static/icons/chevron.svg';
+import PDFIcon from '../assets/icons/pdf.svg';
+import InfoIcon from '../assets/icons/info.svg';
+import ChevronRightIcon from '../assets/icons/chevron.svg';
 
-import CoffeeLike from './../static/images/hire/coffee.svg';
-import TeamLike from './../static/images/hire/team.svg';
-import HardwareLike from './../static/images/hire/hardware.svg';
-import JavaLike from './../static/images/hire/java.svg';
-import SalaryLike from './../static/images/hire/salary.svg';
-import HybridLike from './../static/images/hire/hybrid.svg';
+import CoffeeLike from '../assets/images/hire/coffee.svg';
+import TeamLike from '../assets/images/hire/team.svg';
+import HardwareLike from '../assets/images/hire/hardware.svg';
+import JavaLike from '../assets/images/hire/java.svg';
+import SalaryLike from '../assets/images/hire/salary.svg';
+import HybridLike from '../assets/images/hire/hybrid.svg';
 
-import PhpHi from './../static/icons/php-hi.svg';
-import JsHi from './../static/icons/js-hi.svg';
-import JavaHi from './../static/icons/java-hi.svg';
-import CcHi from './../static/icons/cc-hi.svg';
-import NetHi from './../static/icons/net-hi.svg';
+import PhpHi from '../assets/icons/php-hi.svg';
+import JsHi from '../assets/icons/js-hi.svg';
+import JavaHi from '../assets/icons/java-hi.svg';
+import CcHi from '../assets/icons/cc-hi.svg';
+import NetHi from '../assets/icons/net-hi.svg';
 
 /* Misc */
 import VanillaTilt from 'vanilla-tilt';

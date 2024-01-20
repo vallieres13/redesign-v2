@@ -88,58 +88,58 @@ img {
 
 @font-face {
 	font-family: 'Greycliff CF Regular';
-	src: url("./assets/fonts/GreycliffCF-Regular.woff2") format("woff2");
+	src: url("./fonts/GreycliffCF-Regular.woff2") format("woff2");
 }
 
 @font-face {
 	font-family: 'Greycliff CF Bold';
-	src: url("./assets/fonts/GreycliffCF-Bold.woff2") format("woff2");
+	src: url("./fonts/GreycliffCF-Bold.woff2") format("woff2");
 }
 
 @font-face {
 	font-family: 'Greycliff CF Medium';
-	src: url("./assets/fonts/GreycliffCF-Medium.woff2") format("woff2");
+	src: url("./fonts/GreycliffCF-Medium.woff2") format("woff2");
 }
 
 @font-face {
 	font-family: 'Greycliff CF Heavy';
-	src: url("./assets/fonts/GreycliffCF-Heavy.woff2") format("woff2");
+	src: url("./fonts/GreycliffCF-Heavy.woff2") format("woff2");
 }
 
 @font-face {
 	font-family: 'Greycliff CF ExtraBold';
-	src: url("./assets/fonts/GreycliffCF-ExtraBold.woff2") format("woff2");
+	src: url("./fonts/GreycliffCF-ExtraBold.woff2") format("woff2");
 }
 
 /* JetBrains Mono */
 
 @font-face {
 	font-family: 'JetBrains Mono Bold';
-	src: url("./assets/fonts/JetBrainsMono-Bold.woff2") format("woff2");
+	src: url("./fonts/JetBrainsMono-Bold.woff2") format("woff2");
 }
 
 /* Space Grotesk */
 
 @font-face {
 	font-family: 'Space Grotesk Medium';
-	src: url("./assets/fonts/SpaceGrotesk-Medium.woff2") format("woff2");
+	src: url("./fonts/SpaceGrotesk-Medium.woff2") format("woff2");
 }
 
 @font-face {
 	font-family: 'Space Grotesk Bold';
-	src: url("./assets/fonts/SpaceGrotesk-Bold.woff2") format("woff2");
+	src: url("./fonts/SpaceGrotesk-Bold.woff2") format("woff2");
 }
 
 /* Readex Pro */
 
 @font-face {
 	font-family: 'Readex Pro Regular';
-	src: url("./assets/fonts/ReadexPro-Regular.woff2") format("woff2");
+	src: url("./fonts/ReadexPro-Regular.woff2") format("woff2");
 }
 
 @font-face {
 	font-family: 'Readex Pro Bold';
-	src: url("./assets/fonts/ReadexPro-Bold.woff2") format("woff2");
+	src: url("./fonts/ReadexPro-Bold.woff2") format("woff2");
 }
 
 
@@ -259,7 +259,7 @@ header {
 					padding: 25px;
 					text-decoration: none;
 					text-transform: uppercase;
-					font-family: 'Greycliff CF Regular', serif;
+					font-family: 'Greycliff CF Regular', sans-serif;
 					letter-spacing: .8px;
 					font-size: 16px;
 					text-shadow: none;
@@ -936,7 +936,7 @@ header {
 		margin: 1rem auto 5rem;
 
 		h2 {
-			font-family: "JetBrains Mono Bold", sans-serif;
+			font-family: "JetBrains Mono Bold", monospace;
 			color: black;
 			text-transform: uppercase;
 			margin: 2.5rem 0 1rem;
@@ -3020,7 +3020,7 @@ footer {
 
 a.button {
 	text-decoration: none;
-	font-family: 'JetBrains Mono Bold', sans-serif;
+	font-family: 'JetBrains Mono Bold', monospace;
 	font-size: 18px;
 	color: #292929;
 	background-color: white;

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-/* Static */
-import Partners from './../static/icons/partners.svg';
-import PartnersMobile from './../static/icons/partners-mobile.svg';
-import Oracle from './../static/icons/oracle.svg';
-import GermanyEmoji from './../static/emojis/germany.png';
+/* Assets */
+import Partners from '../assets/icons/partners.svg';
+import PartnersMobile from '../assets/icons/partners-mobile.svg';
+import Oracle from '../assets/icons/oracle.svg';
+import GermanyEmoji from '../assets/emojis/germany.png';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Footer = () => {
