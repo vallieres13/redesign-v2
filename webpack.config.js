@@ -57,7 +57,7 @@ let settings = {
                         loader: 'url-loader',
                         options: {
                             limit: 10000,
-                            outputPath: '/assets/static/'
+                            outputPath: 'assets/static/'
                         }
                     },
                     'image-webpack-loader'

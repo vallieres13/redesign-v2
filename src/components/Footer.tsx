@@ -6,6 +6,7 @@ import Partners from './../static/icons/partners.svg';
 import PartnersMobile from './../static/icons/partners-mobile.svg';
 import Oracle from './../static/icons/oracle.svg';
 import GermanyEmoji from './../static/emojis/germany.png';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Footer = () => {
 
@@ -24,8 +25,8 @@ const Footer = () => {
 	return (
 		<footer className="container">
 			<div className="partners">
-				<img src={Partners} className="desktop" alt="Partners" />
-				<img src={PartnersMobile} className="mobile" alt="Partners" />
+				<LazyLoadImage src={Partners} className="desktop" alt="Partners" />
+				<LazyLoadImage src={PartnersMobile} className="mobile" alt="Partners" />
 			</div>
 			<div className="grid">
 				<div className="column">
