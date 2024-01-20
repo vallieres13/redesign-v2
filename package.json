@@ -30,7 +30,6 @@
     "sass": "^1.69.5",
     "swiper": "^11.0.5",
     "typescript": "^5.2.2",
-    "url-loader": "^4.1.1",
     "vanilla-tilt": "^1.8.1"
   },
   "devDependencies": {
