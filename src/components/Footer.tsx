@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Partners from '../assets/icons/partners.svg';
 import PartnersMobile from '../assets/icons/partners-mobile.svg';
 import Oracle from '../assets/icons/oracle.svg';
-import GermanyEmoji from '../assets/emojis/germany.png';
+import GermanyEmoji from '../assets/emojis/germany.png?format=avif';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Footer = () => {

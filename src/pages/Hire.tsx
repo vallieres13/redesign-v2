@@ -11,9 +11,9 @@ import TechStack from './../components/TechStack';
 /* Assets */
 import Scroll from '../assets/icons/scroll.gif';
 
-import Curriculum from '../assets/images/hire/curriculum.png';
-import Qualification from '../assets/images/hire/qualification.png';
-import Motivation from '../assets/images/hire/motivation.png';
+import Curriculum from '../assets/images/hire/curriculum.png?format=avif';
+import Qualification from '../assets/images/hire/qualification.png?format=avif';
+import Motivation from '../assets/images/hire/motivation.png?format=avif';
 
 import PDFIcon from '../assets/icons/pdf.svg';
 import InfoIcon from '../assets/icons/info.svg';

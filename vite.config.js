@@ -1,4 +1,5 @@
 import { defineConfig, splitVendorChunkPlugin } from 'vite';
+import { imagetools } from 'vite-imagetools'
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
@@ -10,9 +11,10 @@ export default defineConfig({
 	},
 	plugins: [
 		react({
-			include: '**/*.{jsx,tsx}'
+			include: '**/*.tsx'
 		}),
-		splitVendorChunkPlugin()
+		splitVendorChunkPlugin(),
+		imagetools()
 	],
 	publicDir: 'static'
 });

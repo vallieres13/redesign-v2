@@ -1,11 +1,11 @@
 import React, {useEffect, useRef, useState } from 'react';
 
 /* Assets */
-import First from '../assets/images/impressions/first.png';
-import Second from '../assets/images/impressions/second.png';
-import Third from '../assets/images/impressions/third.png';
-import Fourth from '../assets/images/impressions/fourth.png';
-import Misc from '../assets/images/impressions/misc.png';
+import First from '../assets/images/impressions/first.png?format=avif';
+import Second from '../assets/images/impressions/second.png?format=avif';
+import Third from '../assets/images/impressions/third.png?format=avif';
+import Fourth from '../assets/images/impressions/fourth.png?format=avif';
+import Misc from '../assets/images/impressions/misc.png?format=avif';
 
 /* Misc */
 import gsap from 'gsap';

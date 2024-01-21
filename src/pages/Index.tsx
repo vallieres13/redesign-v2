@@ -5,15 +5,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Connect from './../components/Connect';
 
 /* Assets */
-import FelixTransparent from '../assets/images/promos/felix-transparent.png';
+import FelixTransparent from '../assets/images/promos/felix-transparent.png?format=avif';
 import GithubLogo from '../assets/icons/github.svg';
 import LinkedInLogo from '../assets/icons/linkedin.svg';
 import XingLogo from '../assets/icons/xing.svg';
 
-import DesignSpotlight from '../assets/images/spotlight/design.png';
-import MarketingSpotlight from '../assets/images/spotlight/marketing.png';
-import CodeSpotlight from '../assets/images/spotlight/code.png';
-import AiSpotlight from '../assets/images/spotlight/ai.png';
+import DesignSpotlight from '../assets/images/spotlight/design.png?format=avif';
+import MarketingSpotlight from '../assets/images/spotlight/marketing.png?format=avif';
+import CodeSpotlight from '../assets/images/spotlight/code.png?format=avif';
+import AiSpotlight from '../assets/images/spotlight/ai.png?format=avif';
 
 import UserIcon from '../assets/icons/user.svg';
 import ClockIcon from '../assets/icons/clock.svg';
@@ -35,7 +35,7 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import { SplitText } from "../services/SplitText";
 import TechStack from "../components/TechStack";
 import Heading from "../components/Heading";
-import GermanyEmoji from "../assets/emojis/germany.png";
+import GermanyEmoji from "../assets/emojis/germany.png?format=avif";
 import Request from "../services/Request";
 
 const Index = () => {
@@ -237,7 +237,7 @@ const Index = () => {
                     <p>... is a <span className="emoji"><img src={GermanyEmoji} alt="Germany"/></span> German full-stack
                         web developer and designer in today's ever so fast growing web-app economy.</p>
                     <div className="actions">
-                    <Link to={'/about'} className="button primary">About me</Link>
+                        <Link to={'/about'} className="button primary">About me</Link>
                         <Link to={'/hire'} className="button">Hire me</Link>
                     </div>
                     <div className="separator"></div>

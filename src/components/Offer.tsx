@@ -2,19 +2,19 @@ import React from 'react';
 
 /* Assets */
 import AmexLogo from '../assets/images/offers/amex.svg';
-import AmexCards from '../assets/images/offers/amex-cards.png';
-import AmexPlat from '../assets/images/offers/amex-plat.png';
-import AmexGold from '../assets/images/offers/amex-gold.png';
-import AmexGreen from '../assets/images/offers/amex-green.png';
-import AmexPlatPlain from '../assets/images/offers/amex-plat-plain.png';
-import AmexGoldPlain from '../assets/images/offers/amex-gold-plain.png';
-import AmexGreenPlain from '../assets/images/offers/amex-green-plain.png';
+import AmexCards from '../assets/images/offers/amex-cards.png?format=avif';
+import AmexPlat from '../assets/images/offers/amex-plat.png?format=avif';
+import AmexGold from '../assets/images/offers/amex-gold.png?format=avif';
+import AmexGreen from '../assets/images/offers/amex-green.png?format=avif';
+import AmexPlatPlain from '../assets/images/offers/amex-plat-plain.png?format=avif';
+import AmexGoldPlain from '../assets/images/offers/amex-gold-plain.png?format=avif';
+import AmexGreenPlain from '../assets/images/offers/amex-green-plain.png?format=avif';
 import MilesMoreLogo from '../assets/images/offers/milesmore.svg';
-import MilesMoreCards from '../assets/images/offers/milesmore-cards.png';
-import MilesBlue from '../assets/images/offers/amex-plat.png';
-import MilesGold from '../assets/images/offers/amex-plat.png';
-import MilesBluePlain from '../assets/images/offers/milesmore-blue-plain.png';
-import MilesGoldPlain from '../assets/images/offers/milesmore-gold-plain.png';
+import MilesMoreCards from '../assets/images/offers/milesmore-cards.png?format=avif';
+import MilesBlue from '../assets/images/offers/amex-plat.png?format=avif';
+import MilesGold from '../assets/images/offers/amex-plat.png?format=avif';
+import MilesBluePlain from '../assets/images/offers/milesmore-blue-plain.png?format=avif';
+import MilesGoldPlain from '../assets/images/offers/milesmore-gold-plain.png?format=avif';
 interface Props {
 	type: string;
 	promo?: boolean;

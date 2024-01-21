@@ -28,12 +28,14 @@
     "react-router-dom": "^6.18.0",
     "react-share": "^5.0.3",
     "sass": "^1.69.5",
+    "sharp": "^0.33.2",
     "swiper": "^11.0.5",
     "typescript": "^5.2.2",
     "vanilla-tilt": "^1.8.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",
-    "vite": "^5.0.12"
+    "vite": "^5.0.12",
+    "vite-imagetools": "^6.2.9"
   }
 }

@@ -5,13 +5,13 @@ import Timeline from './../components/Timeline';
 import Heading from './../components/Heading';
 
 /* Assets */
-import BalconyPicture from '../assets/images/about/balcony.png';
-import TowerPicture from '../assets/images/about/tower.png';
-import NewYearsPicture from '../assets/images/about/newyears.png';
+import BalconyPicture from '../assets/images/about/balcony.png?format=avif';
+import TowerPicture from '../assets/images/about/tower.png?format=avif';
+import NewYearsPicture from '../assets/images/about/newyears.png?format=avif';
 
-import StarCitizen from '../assets/images/about/sc.png';
-import WorldOfWarships from '../assets/images/about/wows.png';
-import Eco from '../assets/images/about/eco.png';
+import StarCitizen from '../assets/images/about/sc.png?format=avif';
+import WorldOfWarships from '../assets/images/about/wows.png?format=avif';
+import Eco from '../assets/images/about/eco.png?format=avif';
 
 import WavingEmoji from '../assets/emojis/waving.gif';
 import SmileyEmoji from '../assets/emojis/smiley.gif';

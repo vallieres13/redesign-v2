@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 
 /* Assets */
-import Picture from '../assets/images/contact/picture.png';
+import Picture from '../assets/images/contact/picture.png?format=avif';
+
 import NumberPad from '../assets/icons/numberpad.svg';
 import Mail from '../assets/icons/mail.svg';
 import LinkedIn from '../assets/icons/linkedin-contact.svg';
