@@ -36,10 +36,9 @@ jobs:
 
       - name: Prepare dist for deployment
         run: |
-          mkdir deploy
-          cp -r dist deploy
-          rm -rf !("deploy")
-          cp -r deploy/* .
+          rm -rf !(dist)
+          mv dist/* .
+          rm dist
 
       - name: Commit and push to deploy branch
         run: |
