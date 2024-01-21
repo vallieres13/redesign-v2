@@ -1,0 +1,49 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [21.1.0]
+        pnpm-version: [8.14.1]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: ${{ matrix.pnpm-version }}
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build Vite app
+        run: pnpm live
+
+      - name: Prepare dist for deployment
+        run: |
+          mkdir deploy
+          cp -r dist deploy
+          rm -rf !("deploy")
+          cp -r deploy/* .
+
+      - name: Commit and push to deploy branch
+        run: |
+          git checkout -b deploy
+          git add -A
+          git commit -m "Deploy app"
+          git push origin deploy
