@@ -39,7 +39,7 @@ jobs:
           shopt -s extglob
           rm -rf !(dist)
           mv dist/* .
-          rm dist
+          rm -r dist
 
       - name: Commit and push to deploy branch
         run: |
