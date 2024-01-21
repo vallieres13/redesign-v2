@@ -48,4 +48,4 @@ jobs:
           git checkout -b deploy
           git add -A
           git commit -m "Deploy app"
-          git push origin deploy
+          git push -f origin deploy
