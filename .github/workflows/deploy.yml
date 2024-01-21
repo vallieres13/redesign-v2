@@ -36,6 +36,7 @@ jobs:
 
       - name: Prepare dist for deployment
         run: |
+          shopt -s extglob
           rm -rf !(dist)
           mv dist/* .
           rm dist
