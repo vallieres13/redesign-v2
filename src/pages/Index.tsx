@@ -88,7 +88,8 @@ const Index = () => {
     }, []);
 
     let initDelay = 0;
-    if(document.querySelector('.initialLoadOverlay')) initDelay = .5;
+    const overlay = document.querySelector('.initialLoadOverlay') as HTMLDivElement|null;
+    if(overlay && overlay.style.visibility !== 'hidden') initDelay = .5;
 
     const introduction = useRef<HTMLDivElement>(null);
     useGSAP(() => {
