@@ -3991,6 +3991,10 @@ a.button {
 		margin-left: -1rem;
 		border-radius: 0 !important;
 		width: calc(100% + 2rem);
+
+		img {
+			border-radius: 0 !important;
+		}
 	}
 
 	.container-small {
@@ -4082,6 +4086,13 @@ a.button {
 /* -- 600px */
 @media (max-width: 600px) {
 	.contact .promo .description .options .option {
+		width: 100%;
+	}
+}
+
+/* -- 500px */
+@media (max-width: 500px) {
+	.hire .likes .wrapper .like {
 		width: 100%;
 	}
 }
