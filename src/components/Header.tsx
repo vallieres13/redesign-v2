@@ -40,6 +40,13 @@ const Header = () => {
 				pointerEvents: 'none',
 				ease: 'power4.in'
 			});
+			gsap.to(mobile.current!.querySelector(':scope nav > .mobile ul li sup'), {
+				x: 15,
+				opacity: 0,
+				duration: .15,
+				pointerEvents: 'none',
+				ease: 'power4.in'
+			});
 			setIsMobileNavOpen(false);
 		} else {
 			gsap.to('main, #app > article, footer', {
@@ -55,6 +62,14 @@ const Header = () => {
 				opacity: 1,
 				duration: .25,
 				stagger: .025,
+				pointerEvents: 'all',
+				ease: 'power4.out'
+			});
+			gsap.to(mobile.current!.querySelector(':scope nav > .mobile ul li sup'), {
+				x: 0,
+				opacity: 1,
+				delay: .16,
+				duration: .025,
 				pointerEvents: 'all',
 				ease: 'power4.out'
 			});

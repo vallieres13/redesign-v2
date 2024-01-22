@@ -344,7 +344,8 @@ header {
 			pointer-events: none;
 
 			li {
-				display: block;
+				display: flex;
+				flex-direction: row-reverse;
 				overflow: hidden;
 				pointer-events: none;
 
@@ -358,7 +359,11 @@ header {
 				}
 
 				sup {
-					display: none;
+					display: grid;
+					opacity: 0;
+					margin: auto auto 1.8rem;
+					height: 10px;
+					transform: translateX(15px);
 				}
 			}
 		}
