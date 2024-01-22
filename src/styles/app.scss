@@ -2905,7 +2905,6 @@ footer {
 			display: inline-block;
 			padding: 0 3rem;
 			margin: 0 -3rem;
-
 		}
 
 		.underscore {
@@ -3805,6 +3804,72 @@ a.button {
 
 		&.rtl .intro {
 			flex-direction: column-reverse;
+		}
+	}
+}
+
+/* -- 900px Mobile Large */
+@media (max-width: 900px) {
+	.offer {
+		.wrapper {
+			flex-direction: column;
+			border-radius: 0;
+
+			.showcase img {
+				position: relative;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				display: block;
+				margin: 1.5rem auto 0;
+				width: 80%;
+				padding: .5rem 10px;
+				max-width: 400px;
+			}
+
+			.action {
+				padding: 32px 10px 32px;
+
+				.logo {
+					margin: 0 auto 1.5rem;
+				}
+
+				span, small {
+					display: block;
+					text-align: center;
+				}
+
+				a, .button {
+					display: table;
+					margin: 1rem auto;
+					float: none;
+				}
+			}
+		}
+	}
+
+	.offer.promo {
+		margin: 3rem -1rem 6rem;
+		width: calc(100% + 2rem);
+
+		.wrapper {
+			background-color: cornflowerblue !important;
+
+			.showcase img {
+				position: relative;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				padding: 0;
+				display: block;
+				margin: 1.5rem auto 0;
+				width: 100%;
+				max-width: 400px;
+			}
+
+			.action {
+				padding: 32px 10px 32px;
+			}
 		}
 	}
 }
