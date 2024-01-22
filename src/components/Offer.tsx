@@ -104,6 +104,9 @@ const Offer = ({
 
 	if(!promo) background = '#F6F6F6';
 
+	console.log(buttonUrl!);
+	console.log(window.location.hostname);
+
 	return (
 		<>
 			{offer &&
@@ -117,7 +120,7 @@ const Offer = ({
 							<span className="splash">{splash ?? offer.splash}</span>
 							<span>{subtitle ?? offer.subtitle}</span>
 							<small>{small ?? offer.small}</small>
-							<a href={buttonUrl ?? offer.buttonUrl} className="button">{button ?? offer.button}</a>
+							<a href={buttonUrl ?? offer.buttonUrl} className="button" type={buttonUrl!.includes(window.location.hostname) ? '' : '_blank'}>{button ?? offer.button}</a>
 						</div>
 					</div>
 				</div>
