@@ -231,7 +231,7 @@ const Index = () => {
 			icon: HardwareLike
 		},
 		{
-			name: 'Java / Kotlin Environment',
+			name: 'Kotlin & TypeScript',
 			icon: JavaLike
 		},
 		{

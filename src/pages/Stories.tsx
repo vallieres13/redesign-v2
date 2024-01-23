@@ -55,6 +55,7 @@ const Stories = () => {
 	}, { scope: heading });
 
 	useGSAP(() => {
+		gsap.to('.articles a', { pointerEvents: 'none' });
 		gsap.fromTo('.article', {
 			y: 25,
 			opacity: 0
@@ -104,12 +105,19 @@ const Stories = () => {
 	};
 
 	useEffect(() => {
-		loadPosts().then(() => setEndpointCalled(true));
+		if(!sessionStorage.getItem('articles')) {
+			loadPosts().then(() => setEndpointCalled(true));
+		} else {
+			setArticleItems(JSON.parse(sessionStorage.getItem('articles') || '[]'));
+			setEndpointCalled(true);
+		}
 	}, []);
 
 	useEffect(() => {
 		if(!endpointCalled) return;
 
+		// Cache in the browser
+		gsap.to('.articles a', { pointerEvents: 'all' });
 		gsap.fromTo('.article .preview img', {
 			opacity: 0
 		}, {
@@ -118,6 +126,14 @@ const Stories = () => {
 			stagger: .1
 		});
 	}, [endpointCalled]);
+
+	useEffect(() => {
+		if(articleItems.length === 0) return;
+		// Cache in sessionStorage if not already cached
+		if(sessionStorage.getItem('articles')) return;
+		if(!articleItems[0].title) return;
+		sessionStorage.setItem('articles', JSON.stringify(articleItems));
+	}, [articleItems]);
 
 	const truncate = (string: string, maxlength: number): string => {
 		return string.length > maxlength ? string.slice(0, maxlength).split(' ').slice(0, -1).join(' ') + ' &hellip;' : string;
