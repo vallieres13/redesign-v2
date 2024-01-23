@@ -2003,6 +2003,16 @@ header {
 			border-radius: 5px;
 		}
 	}
+
+	.content .wp-block-image a {
+		&::after {
+			content: none;
+		}
+
+		&:hover:after {
+			content: none;
+		}
+	}
 }
 
 

@@ -112,7 +112,7 @@ const Index = () => {
 		{
 			name: 'Curriculum Vitae (Résumé)',
 			icon: PDFIcon,
-			size: '65 KB',
+			size: '3 MB',
 			file: 'https://api.felixhebgen.de/wp-content/uploads/Lebenslauf.pdf',
 			description: <>
 				<p>Get a closer look at my skills and experience.</p>
@@ -122,7 +122,7 @@ const Index = () => {
 		{
 			name: 'Experience & Qualifications',
 			icon: PDFIcon,
-			size: '65 KB',
+			size: '260 KB',
 			file: 'https://api.felixhebgen.de/wp-content/uploads/Erfahrungen-Qualifikationen-Felix-Hebgen.pdf',
 			description: <>
 				<p>A collection of projects, experiences, and qualifications in various IT fields
