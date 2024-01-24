@@ -1,5 +1,5 @@
-import React, {useEffect, useRef, useState } from 'react';
-import { renderToString } from 'react-dom/server'
+import React, {useEffect, useRef, useState} from 'react';
+import {renderToString} from 'react-dom/server'
 
 /* Components */
 import Offer from '../components/Offer';
@@ -15,19 +15,19 @@ import {
 	EmailShareButton,
 	LinkedinIcon,
 	LinkedinShareButton,
-	RedditShareButton,
 	RedditIcon,
+	RedditShareButton,
 	TwitterShareButton,
 	WhatsappIcon,
 	WhatsappShareButton,
-    XIcon
+	XIcon
 } from 'react-share';
 
 /* Misc */
 import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import {useGSAP} from '@gsap/react';
+import {Link, useNavigate, useParams} from 'react-router-dom';
+import {Helmet} from 'react-helmet';
 import Request from '../services/Request';
 
 const Article = () => {
@@ -176,17 +176,33 @@ const Article = () => {
 		return newDate.getDate() + '. ' + getMonthName(newDate.getMonth()) + ' ' + newDate.getFullYear();
 	}
 
+	const decodeEntities = (() => {
+		const element = document.createElement('div');
+
+		return (str: string) => {
+			if(str) {
+				// strip script/html tags
+				str = str.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
+				str = str.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
+				element.innerHTML = str;
+				str = element.textContent!;
+				element.textContent = '';
+			}
+			return str;
+		};
+	})();
+
 	return (
 		<article className="article" ref={content}>
 			<Helmet>
-				<meta name="title" content={(article.title ?? 'Loading ...') + ' — Felix Hebgen'} />
-				<title>{article.title ?? 'Loading ...'} — Felix Hebgen</title>
-				<meta name="description" content={article.excerpt?.replace(/<\/?[^>]+(>|$)/g, '')} />
+				<meta name="title" content={(decodeEntities(article.title) ?? 'Loading ...') + ' — Felix Hebgen'} />
+				<title>{decodeEntities(article.title) ?? 'Loading ...'} — Felix Hebgen</title>
+				<meta name="description" content={decodeEntities(article.excerpt?.replace(/<\/?[^>]+(>|$)/g, ''))} />
 				<meta name="keywords" content={article.tags.join(', ').toLowerCase() + ", felix hebgen, portfolio, web developer, designer, web design, darmstadt web developer, darmstadt web design, höchst im odenwald, hessen, job profile, cv, felix hebgen web design, felix hebgen design"} />
 				<meta name="revised" content={article.date} />
 
-				<meta property="og:title" content={(article.title ?? 'Loading ...') + ' — Felix Hebgen'} />
-				<meta property="og:description" content={article.excerpt?.replace(/<\/?[^>]+(>|$)/g, '')} />
+				<meta property="og:title" content={(decodeEntities(article.title) ?? 'Loading ...') + ' — Felix Hebgen'} />
+				<meta property="og:description" content={decodeEntities(article.excerpt?.replace(/<\/?[^>]+(>|$)/g, ''))} />
 				<meta property="og:type" content="article" />
 				<meta property="og:image" content={article.image} />
 				<meta property="og:url" content={window.location.href} />
