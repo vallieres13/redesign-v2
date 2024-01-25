@@ -1432,6 +1432,10 @@ header {
 					transform-style: preserve-3d;
 					transform: perspective(1000px);
 
+					&.disabled {
+						cursor: not-allowed;
+					}
+
 					> * {
 						transform: translateZ(20px);
 					}

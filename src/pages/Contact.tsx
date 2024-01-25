@@ -22,32 +22,44 @@ const Contact = () => {
 		{
 			icon: NumberPad,
 			title: 'Start A Call',
-			preferred: false
+			preferred: false,
+			disabled: true,
+			action: () => {}
 		},
 		{
 			icon: Mail,
 			title: 'Send An E-Mail',
-			preferred: true
+			preferred: true,
+			disabled: false,
+			action: () => window.location.href = 'mailto:hire@felixhebgen.de?subject=Hi%20Felix,%20let\'s%20work%20together!'
 		},
 		{
 			icon: LinkedIn,
 			title: 'Message me on LinkedIn',
-			preferred: true
+			preferred: true,
+			disabled: false,
+			action: () => window.location.href = 'https://www.linkedin.com/in/felixhebgen/'
 		},
 		{
 			icon: Xing,
 			title: <>Message me on<br />XING</>,
-			preferred: false
+			preferred: false,
+			disabled: false,
+			action: () => window.location.href = 'https://www.xing.com/profile/Felix_Hebgen'
 		},
 		{
 			icon: Schedule,
 			title: 'Schedule A Call',
-			preferred: false
+			preferred: false,
+			disabled: true,
+			action: () => {}
 		},
 		{
 			icon: Postal,
 			title: 'Postal Address',
-			preferred: false
+			preferred: false,
+			disabled: false,
+			action: () => alert('Postal address:\n\nFelix Hebgen\nElisabethenstraße 68A\n64283 Darmstadt\nGermany')
 		}
 	];
 
@@ -167,7 +179,7 @@ const Contact = () => {
 					</p>
 					<div className="options">
 						{contactItems.map((option: any, index: number) =>
-							<div className="option" key={index}>
+							<div className={'option' + (option.disabled ? ' disabled' : '')} key={index} onClick={option.action}>
 								<img src={option.icon} alt={option.title} />
 								<span>{option.title}</span>
 								{option.preferred &&
