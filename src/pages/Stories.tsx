@@ -180,7 +180,7 @@ const Stories = () => {
 									<div className="preview"><LazyLoadImage src={article.thumbnail} alt="Article Image" /></div>
 									<div className="meta">
 										{article.title ? <h2 dangerouslySetInnerHTML={{__html: article.title}}></h2> : <SkeletonTitle />}
-										{article.excerpt ? <p dangerouslySetInnerHTML={{__html: truncate(article.excerpt, 170)}}></p> : <SkeletonBlock />}
+										{article.excerpt ? <p dangerouslySetInnerHTML={{__html: truncate(article.excerpt, 127)}}></p> : <SkeletonBlock />}
 										<ul className="details">
 											<li><img src={UserIcon} alt="User" /> {article.author}</li>
 											<li><img src={ClockIcon} alt="Clock" /> {article.readTime} Minutes</li>
