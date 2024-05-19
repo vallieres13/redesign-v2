@@ -5,3 +5,4 @@ declare module '*.svg' {
 declare module "*.png?format=avif"
 declare module "*.svg";
 declare module "*.gif";
+declare module "*.png";

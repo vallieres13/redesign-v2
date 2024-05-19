@@ -10,6 +10,7 @@ import Index from './pages/Index';
 import Hire from './pages/Hire';
 import Work from './pages/Work';
 import About from './pages/About';
+import Services from './pages/Services';
 import Stories from './pages/Stories';
 import Article from './pages/Article';
 import Contact from './pages/Contact';
@@ -45,6 +46,10 @@ const App = () => {
                 {
                     path: '/Work',
                     element: <Work />
+                },
+                {
+                    path: '/Webdesign',
+                    element: <Services />
                 },
                 {
                     path: '/About',

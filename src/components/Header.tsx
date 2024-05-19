@@ -32,6 +32,11 @@ const Header = () => {
 				filter: 'none',
 				pointerEvents: 'all'
 			});
+			gsap.to('svg', {
+				top: '-13rem',
+				duration: 0,
+				delay: 0
+			});
 			gsap.to(mobile.current!.querySelectorAll(':scope nav > .mobile ul li a'), {
 				x: 200,
 				opacity: 0,
@@ -56,6 +61,11 @@ const Header = () => {
 				ease: 'expo.out',
 				filter: 'blur(8px)',
 				pointerEvents: 'none'
+			});
+			gsap.to('svg', {
+				top: '-13rem',
+				duration: 0,
+				delay: 0
 			});
 			gsap.to(mobile.current!.querySelectorAll(':scope nav > .mobile ul li a'), {
 				x: 0,

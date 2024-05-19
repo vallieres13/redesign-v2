@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 /* Assets */
 import First from '../assets/images/impressions/first.png?format=avif';

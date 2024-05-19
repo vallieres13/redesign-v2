@@ -227,11 +227,11 @@ const Index = () => {
 			icon: TeamLike
 		},
 		{
-			name: 'Company Hardware',
+			name: 'Latest Hardware',
 			icon: HardwareLike
 		},
 		{
-			name: 'Kotlin & TypeScript',
+			name: 'Kotlin, php, TypeScript',
 			icon: JavaLike
 		},
 		{
@@ -335,7 +335,7 @@ const Index = () => {
 					{likeItems.map((like: any, index: number) =>
 						<div className="like" key={index}>
 							<img src={like.icon} alt={like.name}/>
-							<h2>{like.name}</h2>
+							<h2>{like.name.replaceAll('%n', '<br />')}</h2>
 						</div>
 					)}
 				</div>

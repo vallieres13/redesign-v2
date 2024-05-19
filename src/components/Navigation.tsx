@@ -21,6 +21,9 @@ const Navigation = ({ mobile = defaultProps.mobile }: Props) => {
 
 		(e.target as HTMLElement).classList.add('active');
 
+		/* Don't apply flicker to highlight element */
+		if((e.target as HTMLElement).classList.contains('highlight')) return;
+
 		gsap.to(e.target, {
 			autoAlpha: 0,
 			repeat: 2,
@@ -42,23 +45,20 @@ const Navigation = ({ mobile = defaultProps.mobile }: Props) => {
 	const items = [
 		{
 			title: 'Stories',
-			url: 'stories',
-			colour: 'none'
+			url: 'stories'
 		},
 		{
 			title: 'About Me',
-			url: 'about',
-			colour: 'none'
+			url: 'about'
 		},
 		{
 			title: 'Work',
-			url: 'work',
-			colour: 'none'
+			url: 'work'
 		},
 		{
-			title: 'Hire Me',
-			url: 'hire',
-			colour: 'none'
+			title: 'Services',
+			url: 'webdesign',
+			highlight: true
 		}
 	];
 
@@ -69,10 +69,10 @@ const Navigation = ({ mobile = defaultProps.mobile }: Props) => {
 					{items.map((items: any, index: number) => {
 						return (
 							<li key={index}>
-								<NavLink onMouseLeave={unhoverItem} onClick={clickedItem} to={'/' + items.url} className={({ isActive }) => (isActive || (items.url === 'stories' && pathname.includes('/article')) ? 'active' : '') + (items.url === 'hire' ? ' hire' : '')} data-colour={items.colour} data-hover={items.title}>
+								<NavLink onMouseLeave={unhoverItem} onClick={clickedItem} to={'/' + items.url} className={({ isActive }) => (isActive || (items.url === 'stories' && pathname.includes('/article')) ? 'active' : '') + /* (items.url === 'hire' ? ' hire' : '') + */ (items.highlight ? ' highlight' : '')} data-hover={items.title}>
 									<span>{items.title}</span>
 								</NavLink>
-								{items.url === 'hire' && <sup>Busy &mdash; No offers</sup>}
+								{/* {items.url === 'hire' && <sup>Busy &mdash; No offers</sup>} */}
 							</li>
 						);
 					})}

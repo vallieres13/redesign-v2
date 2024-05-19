@@ -1,19 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
 
 /* Components */
 import Connect from './../components/Connect';
+import Spotlight from './../components/Spotlight';
 
 /* Assets */
 import FelixTransparent from '../assets/images/promos/felix-transparent.png?format=avif';
 import GithubLogo from '../assets/icons/github.svg';
 import LinkedInLogo from '../assets/icons/linkedin.svg';
 import XingLogo from '../assets/icons/xing.svg';
-
-import DesignSpotlight from '../assets/images/spotlight/design.png?format=avif';
-import MarketingSpotlight from '../assets/images/spotlight/marketing.png?format=avif';
-import CodeSpotlight from '../assets/images/spotlight/code.png?format=avif';
-import AiSpotlight from '../assets/images/spotlight/ai.png?format=avif';
 
 import UserIcon from '../assets/icons/user.svg';
 import ClockIcon from '../assets/icons/clock.svg';
@@ -26,12 +21,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-
 // import required modules
-import { Autoplay, Pagination } from 'swiper/modules';
 import { SplitText } from "../services/SplitText";
 import TechStack from "../components/TechStack";
 import Heading from "../components/Heading";
@@ -42,37 +32,6 @@ const Index = () => {
 
     /* Register ScrollTrigger */
     gsap.registerPlugin(ScrollTrigger);
-
-    const spotlightItems = [
-        {
-            illustration: DesignSpotlight,
-            title: 'Interaction Design',
-            description: 'Crafting intuitive and seamless user experiences through thoughtful interaction design is my passion and expertise.',
-            buttonTitle: 'Learn more',
-            buttonTarget: '/hire'
-        },
-        {
-            illustration: MarketingSpotlight,
-            title: 'Online Marketing',
-            description: 'Driving digital success through strategic marketing initiatives to maximise reach and engagement.',
-            buttonTitle: 'Learn more',
-            buttonTarget: '/hire'
-        },
-        {
-            illustration: CodeSpotlight,
-            title: 'Web & App Development',
-            description: 'Empowering digital experiences through dynamic web development and impactful solutions in the realm of the web.',
-            buttonTitle: 'Learn more',
-            buttonTarget: '/hire'
-        },
-        {
-            illustration: AiSpotlight,
-            title: 'Artificial Intelligence',
-            description: 'Harnessing the power of AI, I innovate and implement solutions that redefine possibilities and elevate user experiences.',
-            buttonTitle: 'Learn more',
-            buttonTarget: '/hire'
-        }
-    ];
 
     useEffect(() => {
         const storyCards: NodeListOf<HTMLDivElement> = document.querySelectorAll('.stories .card');
@@ -245,37 +204,7 @@ const Index = () => {
                 </div>
             </div>
             <TechStack />
-            <div className="spotlight">
-                <Heading container={true}>Spotlight</Heading>
-                <Swiper
-                    spaceBetween={30}
-                    centeredSlides={true}
-                    slidesPerView={'auto'}
-                    loop={true}
-                    autoplay={{
-                        delay: 2500,
-                        disableOnInteraction: true
-                    }}
-                    pagination={{clickable: true}}
-                    modules={[Autoplay, Pagination]}
-                    className="cards"
-                >
-                    {spotlightItems.map((item: any, index: number) =>
-                        <SwiperSlide className="card" key={index}>
-                            <div className="illustration">
-                                <img src={item.illustration} alt={item.title}/>
-                            </div>
-                            <div className="description">
-                                <h2>{item.title}</h2>
-                                <p>{item.description}</p>
-                                <div className="actions">
-                                    <Link to={item.buttonTarget} className="button primary">{item.buttonTitle}</Link>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                    )}
-                </Swiper>
-            </div>
+            <Spotlight />
             <div className="stories" ref={stories}>
                 <Heading container={true}>Stories</Heading>
                 <div className="cards container">
