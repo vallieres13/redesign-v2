@@ -135,7 +135,7 @@ const Services = () => {
 						surroundings.</p>
 					<div className="actions">
 						<Link to={'/contact'} className="button primary">Get in Touch</Link>
-						<Link to={'/work'} className="button">My Work</Link>
+						<Link to={'/work'} className="button">Work</Link>
 					</div>
 					<img src={DotsVector} alt="Dots"/>
 				</div>

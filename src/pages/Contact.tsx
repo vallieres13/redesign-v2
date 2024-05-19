@@ -16,6 +16,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import VanillaTilt from 'vanilla-tilt';
 import { Helmet } from 'react-helmet';
+
 const Contact = () => {
 
 	const contactItems = [
@@ -23,8 +24,8 @@ const Contact = () => {
 			icon: NumberPad,
 			title: 'Start A Call',
 			preferred: false,
-			disabled: true,
-			action: () => {}
+			disabled: false,
+			action: () => { window.location.href = 'tel:+4915159132500' }
 		},
 		{
 			icon: Mail,
