@@ -181,7 +181,7 @@ const Header = () => {
 						<img src={Logo} alt="Logo" />
 					</NavLink>
 				</div>
-				<div className="hamburger" onClick={handleHamburgerClick}><img src={Hamburger} alt="Menu" /></div>
+				<div className="hamburger" onClick={handleHamburgerClick}><img src={Hamburger} alt="Menü" /></div>
 				<Navigation mobile={true} />
 			</header>
 		</>

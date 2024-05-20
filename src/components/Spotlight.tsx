@@ -24,30 +24,30 @@ const Spotlight = () => {
 		{
 			illustration: DesignSpotlight,
 			title: 'Interaction Design',
-			description: 'Crafting intuitive and seamless user experiences through thoughtful interaction design is my passion and expertise.',
-			buttonTitle: 'Learn more',
-			buttonTarget: '/hire'
+			description: 'Die Gestaltung intuitiver und nahtloser Benutzererfahrungen durch durchdachtes Interaktionsdesign ist meine Leidenschaft.',
+			buttonTitle: 'Mein Profil',
+			buttonTarget: '/profile'
 		},
 		{
 			illustration: MarketingSpotlight,
 			title: 'Online Marketing',
-			description: 'Driving digital success through strategic marketing initiatives to maximise reach and engagement.',
-			buttonTitle: 'Learn more',
-			buttonTarget: '/hire'
+			description: 'Digitale Erfolge durch strategische Marketinginitiativen vorantreiben, um Kunden-Engagement zu maximieren.',
+			buttonTitle: 'Mein Profil',
+			buttonTarget: '/profile'
 		},
 		{
 			illustration: CodeSpotlight,
-			title: 'Web & App Development',
-			description: 'Empowering digital experiences through dynamic web development and impactful solutions in the realm of the web.',
-			buttonTitle: 'Learn more',
-			buttonTarget: '/hire'
+			title: 'Web & App Entwicklung',
+			description: 'Digitale Erlebnisse durch dynamische Webentwicklung und wirkungsvolle Lösungen im Bereich des Webs stärken.',
+			buttonTitle: 'Mein Profil',
+			buttonTarget: '/profile'
 		},
 		{
 			illustration: AiSpotlight,
-			title: 'Artificial Intelligence',
-			description: 'Harnessing the power of AI, I innovate and implement solutions that redefine possibilities and elevate user experiences.',
-			buttonTitle: 'Learn more',
-			buttonTarget: '/hire'
+			title: 'Künstliche Intelligenz',
+			description: 'Durch die Nutzung von KI schaffe ich Innovationen und setze Lösungen um, die die Grenzen neu definieren und aufwerten.',
+			buttonTitle: 'Mein Profil',
+			buttonTarget: '/profile'
 		}
 	];
 

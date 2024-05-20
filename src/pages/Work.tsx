@@ -28,31 +28,31 @@ const Work = () => {
 			title: 'Marketing Schäferei Stapp',
 			image: First,
 			launched: 2021,
-			description: 'The company DeineIT and I collaborated on “Wanderschäfer Stapp”—a site promoting modern shepherding. With lively design, marketing, and branding, we showcased a shepherds\' vital role and their connection to the land. Our goal was to make the significant role of shepherding accessible and appreciated by all.'
+			description: 'Die Firma DeineIT und ich haben mit "Wanderschäfer Stapp" zusammengearbeitet - eine Website, die moderne Schafhaltung bewirbt. Mit lebendigem Design, Marketing und Branding haben wir die wichtige Rolle der Schäfer und ihre Verbindung zum Land präsentiert. Unser Ziel war es, die bedeutende Rolle der Schafhaltung für alle zugänglich und geschätzt zu machen.'
 		},
 		{
 			title: 'Friendello Social Media Metaverse',
 			image: Second,
 			launched: 2019,
-			description: 'Friendello was a German social media hub reminiscent of Facebook but tailored for a vibrant online community where members role-played fictional characters. By immersive character design and storytelling, thousands of users engaged with shared messages and posts, creating a rich, interactive digital landscape.'
+			description: 'Friendello war ein deutscher Social-Media-Hub, der an Facebook erinnerte, aber für eine lebendige Online-Community maßgeschneidert war, in der Mitglieder fiktive Charaktere verkörperten. Durch immersives Charakterdesign und Storytelling interagierten Tausende von Benutzern mit gemeinsamen Nachrichten und Beiträgen und schufen eine reiche, interaktive digitale Landschaft.'
 		},
 		{
 			title: 'Branding & Marken-Illustration',
 			image: Third,
 			launched: 2022,
-			description: 'Effective branding involves a standout logo, carefully chosen colors, and consistent design. These elements create instant recognition. A well-crafted strategy ensures these visuals, along with engaging content, tell a compelling story that resonates with your audience, leaving a lasting impression.'
+			description: 'Effektives Branding umfasst ein auffälliges Logo, sorgfältig ausgewählte Farben und konsistentes Design. Diese Elemente schaffen sofortige Wiedererkennung. Eine durchdachte Strategie gewährleistet, dass diese visuellen Elemente zusammen mit ansprechenden Inhalten eine überzeugende Geschichte erzählen, die bei Ihrem Publikum Anklang findet und einen bleibenden Eindruck hinterlässt.'
 		},
 		{
-			title: 'Web-Design Mentoring in Schools',
+			title: 'Web-Design Mentor in Schulen',
 			image: Fourth,
 			launched: 2020,
-			description: 'For a few months, I mentored a web-design workshop at a school in Roßdorf, Darmstadt-Dieburg. Together, we explored new ideas, honed skills, and fostered creativity. Witnessing my student\'s growth in knowledge and enthusiasm was truly rewarding.'
+			description: 'Für einige Monate habe ich ein Webdesign-Workshop an einer Schule in Roßdorf, Darmstadt-Dieburg, betreut. Gemeinsam haben wir neue Ideen erkundet, Fähigkeiten verfeinert und Kreativität gefördert. Es war wirklich erfüllend, das Wachstum meiner Schülerinnen und Schüler in Wissen und Enthusiasmus zu beobachten.'
 		},
 		{
-			title: 'Many other noteworthy projects',
+			title: 'Viel mehr einzigartige Projekte',
 			image: Misc,
 			launched: '2016 — 2019',
-			description: 'While there are numerous other noteworthy projects I\'ve been involved in, this page is already fairly long. If you\'re interested in learning more about these projects or want a quote, feel free to get in touch with me! I\'d be happy to share further details and insights about my experiences.'
+			description: 'Während es noch zahlreiche weitere bemerkenswerte Projekte gibt, an denen ich beteiligt war, ist diese Seite bereits recht lang. Wenn Sie mehr über diese Projekte erfahren möchten oder ein Angebot wünschen, zögern Sie nicht mich zu kontaktieren! Ich teile sehr gerne weitere Details und Einblicke über meine Erfahrungen.'
 		}
 	];
 
@@ -157,12 +157,12 @@ const Work = () => {
 	return (
 		<main className="work">
 			<Helmet>
-				<meta name="title" content="Work — Felix Hebgen" />
-				<title>Work — Felix Hebgen</title>
+				<meta name="title" content="Impressionen — Felix Hebgen" />
+				<title>Impressionen — Felix Hebgen</title>
 			</Helmet>
 			<div className="page-heading" ref={heading}>
 				<div className="wrapper container">
-				<h1>Work</h1>
+				<h1>Impressionen</h1>
 					<div className="underscore"></div>
 				</div>
 				<div className="line"></div>
@@ -186,8 +186,8 @@ const Work = () => {
 							<p>{item.description}</p>
 							{index + 1 === impressionItems.length &&
 								<div className="actions container">
-									<Link to={'/hire'} className="button primary">Get in Touch</Link>
-									<Link to={'/contact'} className="button">Contact</Link>
+									<Link to={'/profile'} className="button primary">Mein Profil</Link>
+									<Link to={'/contact'} className="button">Kontakt</Link>
 								</div>
 							}
 						</div>

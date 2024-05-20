@@ -38,7 +38,7 @@ const Preloader = (props: componentProps = defaultProps) => {
 	return (
 		<div className="preloader" style={{ padding: verticalPadding + 'vh 0' }}>
 			<div className="spinner"></div>
-			<p>Loading ...</p>
+			<p>Laden ...</p>
 		</div>
 	);
 

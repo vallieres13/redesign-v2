@@ -157,16 +157,16 @@ const Stories = () => {
 						{articleItems.slice(0, 2).map((article: any, index: number) =>
 							<Link to={'/article/' + article.slug} key={index}>
 								<article className={'article' + (article.skeleton ? ' skeleton' : '')}>
-									<div className="preview"><LazyLoadImage src={article.thumbnail} alt="Article Image" /></div>
+									<div className="preview"><LazyLoadImage src={article.thumbnail} alt="Beitragsbild" /></div>
 									<div className="meta">
 										{article.title ? <h2 dangerouslySetInnerHTML={{__html: article.title}}></h2> : <SkeletonTitle />}
 										{article.excerpt ? <p dangerouslySetInnerHTML={{__html: article.excerpt}}></p> : <SkeletonBlock />}
 										<ul className="details">
-											<li><img src={UserIcon} alt="User" /> {article.author}</li>
-											<li><img src={ClockIcon} alt="Clock" /> {article.readTime} Minutes</li>
+											<li><img src={UserIcon} alt="Autor" /> {article.author}</li>
+											<li><img src={ClockIcon} alt="Lesezeit" /> {article.readTime} Minuten</li>
 										</ul>
 										<ul className="details right">
-											<li><img src={ShareIcon} alt="Share" /> Share</li>
+											<li><img src={ShareIcon} alt="Teilen" /> Teilen</li>
 										</ul>
 									</div>
 								</article>
@@ -177,13 +177,13 @@ const Stories = () => {
 						{articleItems.slice(2, 5).map((article: any, index: number) =>
 							<Link to={'/article/' + article.slug} key={index}>
 								<article className={'article' + (article.skeleton ? ' skeleton' : '')}>
-									<div className="preview"><LazyLoadImage src={article.thumbnail} alt="Article Image" /></div>
+									<div className="preview"><LazyLoadImage src={article.thumbnail} alt="Beitragsbild" /></div>
 									<div className="meta">
 										{article.title ? <h2 dangerouslySetInnerHTML={{__html: article.title}}></h2> : <SkeletonTitle />}
 										{article.excerpt ? <p dangerouslySetInnerHTML={{__html: truncate(article.excerpt, 127)}}></p> : <SkeletonBlock />}
 										<ul className="details">
-											<li><img src={UserIcon} alt="User" /> {article.author}</li>
-											<li><img src={ClockIcon} alt="Clock" /> {article.readTime} Minutes</li>
+											<li><img src={UserIcon} alt="Autor" /> {article.author}</li>
+											<li><img src={ClockIcon} alt="Lesezeit" /> {article.readTime} Minuten</li>
 										</ul>
 									</div>
 								</article>

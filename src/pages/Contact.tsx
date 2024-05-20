@@ -22,45 +22,45 @@ const Contact = () => {
 	const contactItems = [
 		{
 			icon: NumberPad,
-			title: 'Start A Call',
+			title: 'Anruf starten',
 			preferred: false,
 			disabled: false,
 			action: () => { window.location.href = 'tel:+4915159132500' }
 		},
 		{
 			icon: Mail,
-			title: 'Send An E-Mail',
+			title: 'E-Mail versenden',
 			preferred: true,
 			disabled: false,
-			action: () => window.location.href = 'mailto:hire@felixhebgen.de?subject=Hi%20Felix,%20let\'s%20work%20together!'
+			action: () => window.location.href = 'mailto:mail@felixhebgen.de?subject=Hi%20Felix,%20let\'s%20work%20together!'
 		},
 		{
 			icon: LinkedIn,
-			title: 'Message me on LinkedIn',
+			title: 'Nachricht auf LinkedIn',
 			preferred: true,
 			disabled: false,
 			action: () => window.location.href = 'https://www.linkedin.com/in/felixhebgen/'
 		},
 		{
 			icon: Xing,
-			title: <>Message me on<br />XING</>,
+			title: <>Nachricht auf<br />XING</>,
 			preferred: false,
 			disabled: false,
 			action: () => window.location.href = 'https://www.xing.com/profile/Felix_Hebgen'
 		},
 		{
 			icon: Schedule,
-			title: 'Schedule A Call',
+			title: 'Anruf vereinbaren',
 			preferred: false,
 			disabled: true,
 			action: () => {}
 		},
 		{
 			icon: Postal,
-			title: 'Postal Address',
+			title: 'Postanschrift',
 			preferred: false,
 			disabled: false,
-			action: () => alert('Postal address:\n\nFelix Hebgen\nElisabethenstraße 68A\n64283 Darmstadt\nGermany')
+			action: () => alert('Postanschrift:\n\nFelix Hebgen\nElisabethenstraße 68A\n64283 Darmstadt\nDeutschland')
 		}
 	];
 
@@ -162,12 +162,12 @@ const Contact = () => {
 	return (
 		<main className="contact">
 			<Helmet>
-				<meta name="title" content="Let's Talk — Felix Hebgen" />
-				<title>Let's Talk — Felix Hebgen</title>
+				<meta name="title" content="Kontakt — Felix Hebgen" />
+				<title>Kontakt — Felix Hebgen</title>
 			</Helmet>
 			<div className="page-heading" ref={heading}>
 				<div className="wrapper container">
-					<h1>Let's Talk</h1>
+					<h1>Kontakt</h1>
 					<div className="underscore"></div>
 				</div>
 				<div className="line"></div>
@@ -175,8 +175,8 @@ const Contact = () => {
 			<div className="promo container" ref={promo}>
 				<div className="description">
 					<p>
-						Ready to talk? Let’s go for a coffee together.<br />
-						Please select one of the currently available contact methods.
+						Bereit für ein Gespräch? Treffen wir uns auf einen Kaffee.<br />
+						Wählen Sie eine der derzeit verfügbaren Kontaktmethoden aus.
 					</p>
 					<div className="options">
 						{contactItems.map((option: any, index: number) =>
@@ -197,14 +197,10 @@ const Contact = () => {
 				</div>
 			</div>
 			<div className="disclaimer container" ref={disclaimer}>
-				<p className="title">Contact Disclaimer</p>
+				<p className="title">Hinweis</p>
 				<p>
-					To ensure efficient and timely communication, please be advised of the following:<br />
-					I will get back to you from Monday through Tuesday, Thursday through Saturday. Regrettably, I cannot guarantee to answer phone calls on Wednesdays and Sundays.
-				</p>
-				<p>
-					For a more prompt and organised response, I encourage you to contact me via email. This method allows me to address your inquiries with the attention they deserve and maintain a comprehensive record of our communication.<br />
-					Please select “Send an E-Mail” for an address to direct your messages. I aim to respond to all emails as soon as possible during my regular business hours.
+					Um eine effiziente und zeitnahe Antwort zu erhalten, möchten ich Sie auf Folgendes hinweisen:<br />
+					Ich stehe Ihnen von Montag bis Dienstag sowie Donnerstag bis Samstag zur Verfügung. Bedauerlicherweise kann ich am Mittwoch und Sonntag keine Anrufe entgegennehmen.
 				</p>
 			</div>
 		</main>

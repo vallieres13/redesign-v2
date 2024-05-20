@@ -48,15 +48,15 @@ const Navigation = ({ mobile = defaultProps.mobile }: Props) => {
 			url: 'stories'
 		},
 		{
-			title: 'About Me',
-			url: 'about'
+			title: 'Profil',
+			url: 'profile'
 		},
 		{
-			title: 'Work',
+			title: 'Referenzen',
 			url: 'work'
 		},
 		{
-			title: 'Services',
+			title: 'Web Design',
 			url: 'webdesign',
 			highlight: true
 		}

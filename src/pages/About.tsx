@@ -107,15 +107,15 @@ const About = () => {
 
 	const headlines = [
 		{
-			slug: 'Hello!',
+			slug: 'Guude!',
 			emoji: WavingEmoji
 		},
 		{
-			slug: 'Hello!',
+			slug: 'Hallo!',
 			emoji: SmileyEmoji
 		},
 		{
-			slug: 'Hey!',
+			slug: 'Guude!',
 			emoji: WinkingEmoji
 		},
 		{
@@ -123,11 +123,11 @@ const About = () => {
 			emoji: CoolEmoji
 		},
 		{
-			slug: 'Hello!',
+			slug: 'Hallo!',
 			emoji: CoffeeEmoji
 		},
 		{
-			slug: 'Hello!',
+			slug: 'Hallo!',
 			emoji: RocketEmoji
 		}
 	];
@@ -154,58 +154,56 @@ const About = () => {
 	return (
 		<main className="about">
 			<Helmet>
-				<meta name="title" content="About Me — Felix Hebgen"/>
-				<title>About Me — Felix Hebgen</title>
+				<meta name="title" content="Über mich — Felix Hebgen"/>
+				<title>Über mich — Felix Hebgen</title>
 			</Helmet>
 			<div className="hello container" ref={hello}>
 				<div className="description">
 					<Heading>{headline.slug} <img src={headline.emoji} alt={headline.slug} className={'emoji' + (headline.emoji === WavingEmoji ? ' waving' : '')} /></Heading>
 					<p>
-						I’m Felix, a 21-year-old web dev from Odenwald, Germany. <span className="emoji" style={{ paddingRight: '6px' }}>🌳</span>
-						Since my first blog in 2012 launched, I kept delving further<br />into digital content creation.
+						Ich bin Felix, ein 22-jähriger Entwickler aus dem Odenwald, Hessen. <span className="emoji" style={{ paddingRight: '6px' }}>🌳</span>
+						Seit meinem ersten Blog in 2012, bin ich immer weiter in die digitale Content Creation gestürzt! <span className="emoji" style={{ paddingLeft: '6px' }}>🚀</span>
 					</p>
 					<p>
-						I'm
+						Angetrieben durch
 						<span className="select">
 							<select onChange={handleSelected}>
-								<option value="inspired">inspired</option>
-								<option value="propelled">propelled</option>
-								<option value="motivated">motivated</option>
-								<option value="powered">powered</option>
-								<option value="driven">driven</option>
-								<option value="led">led</option>
+								<option value="Inspiration.">Inspiration</option>
+								<option value="Kreativität.">Kreativität</option>
+								<option value="Motivation.">Motivation</option>
+								<option value="steigende Zahlen.">steigende Zahlen</option>
+								<option value="Kunden.">Kunden</option>
+								<option value="Teamarbeit.">Teamarbeit</option>
 							</select>
-						</span> by passion. <span className="hyphen"></span>
+						</span> <span className="hyphen"></span>
 					</p>
 				</div>
 				<div className="pictures">
-					<img src={BalconyPicture} alt="Balcony"/>
-					<img src={TowerPicture} alt="Tower"/>
-					<img src={NewYearsPicture} alt="New Years"/>
+					<img src={BalconyPicture} alt="Auf dem Balkon"/>
+					<img src={TowerPicture} alt="Auf einem Turm"/>
+					<img src={NewYearsPicture} alt="Silvester 2023"/>
 				</div>
 			</div>
 			<div className="interests container">
 				<div className="music">
-					<Heading>Music</Heading>
-					<p>A small selection of songs I currently enjoy. Have a listen! My favourites frequently change over
-						time.</p>
+					<Heading>Musik</Heading>
+					<p>Eine kleine Auswahl von Songs, die mir gefallen. Mal reinhören?</p>
 					<iframe allow="autoplay *; encrypted-media *;" frameBorder="0"
 							sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
-							src="https://embed.music.apple.com/de/album/sharp-dressed-man/655184882?i=655185090&l=en-GB"></iframe>
+							src="https://embed.music.apple.com/de/album/take-it-easy/635791801?i=635791802"></iframe>
 					<iframe allow="autoplay *; encrypted-media *;" frameBorder="0"
 							sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
-							src="https://embed.music.apple.com/de/album/take-it-easy/635791801?i=635791802&l=en-GB"></iframe>
+							src="https://embed.music.apple.com/de/album/all-or-nothing/396455030?i=396455031"></iframe>
 					<iframe allow="autoplay *; encrypted-media *;" frameBorder="0"
 							sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
-							src="https://embed.music.apple.com/de/album/the-logical-song/1440756022?i=1440756472&l=en-GB"></iframe>
+							src="https://embed.music.apple.com/de/album/the-logical-song/1440756022?i=1440756472"></iframe>
 					<iframe allow="autoplay *; encrypted-media *;" frameBorder="0"
 							sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
-							src="https://embed.music.apple.com/de/album/a-horse-with-no-name/63820303?i=63820146&l=en-GB"></iframe>
+							src="https://embed.music.apple.com/de/album/a-horse-with-no-name/63820303?i=63820146"></iframe>
 				</div>
 				<div className="games">
 					<Heading right={true}>Games</Heading>
-					<p>There’s going to be the time where Star Citizen will get its release date. Just give it a few
-						more years and ...! — Delayed.</p>
+					<p>Die Zeit wird kommen, an dem Star Citizen ein Veröffentlichungsdatum erhält.</p>
 					<div className="game" title="Star Citizen">
 						<img src={StarCitizen} alt="Star Citizen"/>
 					</div>

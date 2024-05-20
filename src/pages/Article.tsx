@@ -195,13 +195,13 @@ const Article = () => {
 	return (
 		<article className="article" ref={content}>
 			<Helmet>
-				<meta name="title" content={(decodeEntities(article.title) ?? 'Loading ...') + ' — Felix Hebgen'} />
-				<title>{decodeEntities(article.title) ?? 'Loading ...'} — Felix Hebgen</title>
+				<meta name="title" content={(decodeEntities(article.title) ?? 'Laden ...') + ' — Felix Hebgen'} />
+				<title>{decodeEntities(article.title) ?? 'Laden ...'} — Felix Hebgen</title>
 				<meta name="description" content={decodeEntities(article.excerpt?.replace(/<\/?[^>]+(>|$)/g, ''))} />
 				<meta name="keywords" content={article.tags.join(', ').toLowerCase() + ", felix hebgen, portfolio, web developer, designer, web design, darmstadt web developer, darmstadt web design, höchst im odenwald, hessen, job profile, cv, felix hebgen web design, felix hebgen design"} />
 				<meta name="revised" content={article.date} />
 
-				<meta property="og:title" content={(decodeEntities(article.title) ?? 'Loading ...') + ' — Felix Hebgen'} />
+				<meta property="og:title" content={(decodeEntities(article.title) ?? 'Laden ...') + ' — Felix Hebgen'} />
 				<meta property="og:description" content={decodeEntities(article.excerpt?.replace(/<\/?[^>]+(>|$)/g, ''))} />
 				<meta property="og:type" content="article" />
 				<meta property="og:image" content={article.image} />
@@ -209,23 +209,23 @@ const Article = () => {
 				<meta property="og:site_name" content="Felix Hebgen" />
 			</Helmet>
 			<div className="image container-wide">
-				<img src={article.image} alt="Article Image"/>
+				<img src={article.image} alt="Beitragsbild"/>
 			</div>
 			<div className="container-small">
 				{article.title ? <h1 dangerouslySetInnerHTML={{__html: article.title}}></h1> : <SkeletonTitle /> }
 				<ul className="details">
 					<li><Link to={'/about'}><img src={UserIcon} alt="User" /> {article.author}</Link></li>
-					<li><img src={ClockIcon} alt="Clock" /> {article.readTime} Minutes read time</li>
+					<li><img src={ClockIcon} alt="Clock" /> {article.readTime} Minuten Lesezeit</li>
 				</ul>
 				<ul className="details right">
 					<li>
-						<a onClick={handleShare}><img src={ShareIcon} alt="Share" /> Share</a>
+						<a onClick={handleShare}><img src={ShareIcon} alt="Teilen" /> Teilen</a>
 						<ul className="dropdown" ref={dropdownShare}>
 							<li><LinkedinShareButton url={window.location.href} title={article.title} summary={article.excerpt} source={application}><LinkedinIcon round={true} size={20} /> LinkedIn</LinkedinShareButton></li>
 							<li><WhatsappShareButton url={window.location.href} title={article.title}><WhatsappIcon round={true} size={20} /> WhatsApp</WhatsappShareButton></li>
 							<li><RedditShareButton url={window.location.href} title={article.title}><RedditIcon round={true} size={20} /> Reddit</RedditShareButton></li>
 							<li><TwitterShareButton url={window.location.href} title={article.title}><XIcon round={true} size={20} /> X (Twitter)</TwitterShareButton></li>
-							<li><EmailShareButton url={window.location.href} title={'Check out "' + article.title + '"'}><EmailIcon round={true} size={20} /> as E-Mail</EmailShareButton></li>
+							<li><EmailShareButton url={window.location.href} title={'Check out "' + article.title + '"'}><EmailIcon round={true} size={20} /> als E-Mail</EmailShareButton></li>
 						</ul>
 					</li>
 				</ul>

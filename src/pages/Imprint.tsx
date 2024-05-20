@@ -5,45 +5,72 @@ const Imprint = () => {
 	return (
 		<main className="page">
 			<Helmet>
-				<meta name="title" content="Imprint — Felix Hebgen" />
-				<title>Imprint — Felix Hebgen</title>
+				<meta name="title" content="Impressum — Felix Hebgen" />
+				<title>Impressum — Felix Hebgen</title>
 			</Helmet>
 			<div className="page-heading">
 				<div className="wrapper container">
-					<h1>Imprint</h1>
+					<h1>Impressum</h1>
 					<div className="underscore"></div>
 				</div>
 				<div className="line"></div>
 			</div>
 			<div className="content container">
 				<p>
-					Required information by § 5 German Telemediengesetz.<br />
-					This website is administered in Darmstadt, Germany.
+					Erforderliche Informationen gemäß § 5 des deutschen Telemediengesetzes.
 				</p>
 				<p>
-					Felix Hebgen<br />
-					Elisabethenstraße 68 A<br />
+					Felix Hebgen<br/>
+					Elisabethenstraße 68 A<br/>
 					64283 Darmstadt
 				</p>
 				<p>
-					Technical Contact<br />
+					Technischer Kontakt<br/>
 					webmaster@felixhebgen.de
 				</p>
-				<h2>Accountability for Content</h2>
-				<p>The content of our website was created with the utmost care. However, we cannot guarantee that the content is current, reliable or complete. In accordance with the statutory provisions, we are responsible for the content we have created ourselves. In this context, we would like to clarify that we are not responsible for information provided by or collected by third parties. We do not control the information that is sent, nor do we prosecute for possible illegal activities. If illegal activities are detected, we follow our obligation to block or delete the relevant content, in accordance with paragraphs 8 to 10 of the Telemedia Acts (TMG).</p>
-				<h2>Responsibility for Links</h2>
-				<p>Responsibility for the content of third-party links (external content) lies with the respective website operators. At the time the links used were included on our website, no illegal activities were found in them. As soon as we become aware of illegal activities or violations, we will remove the relevant link.</p>
-				<h2>Copyright</h2>
-				<p>My websites and their content (text, photos, graphics, design) are subject to German copyright law. Unless otherwise agreed by law, the use, reproduction, copy or modification of the content is subject to copyright. Exceptions must be approved and digitally signed by the website operators or rights holders. Individual copies are only permitted for private use, they may not be used directly or indirectly for commercial purposes. Unauthorized use of copyrighted material is punishable by § 106 German copyright law.</p>
-				<h2>Usage Limitation</h2>
-				<p>I will not be hold accountable for any damages that will arise with the use or inability to use the materials on this website, even if I or an authorized representative has been notified, orally or written, of the possibility of such damage. Some jurisdiction does not allow limitations on implied warranties or limitations of liability for incidental damages, these limitations may not apply to you.</p>
-				<h2>Revisions and Errata</h2>
-				<p>The materials appearing on my website may include technical, typographical, or photographic errors. I will not promise that any of the materials in this website are accurate, complete, or current. I may change the materials contained on its website at any time without notice. I do not make any commitment to update the materials.</p>
+				<h2>Verantwortlichkeit für den Inhalt</h2>
+				<p>Der Inhalt unserer Website wurde mit größtmöglicher Sorgfalt erstellt. Wir können jedoch nicht
+					garantieren, dass der Inhalt aktuell, zuverlässig oder vollständig ist. Gemäß den gesetzlichen
+					Bestimmungen sind wir für den von uns selbst erstellten Inhalt verantwortlich. In diesem
+					Zusammenhang möchten wir klarstellen, dass wir nicht für Informationen verantwortlich sind, die von
+					Dritten bereitgestellt oder gesammelt wurden. Wir kontrollieren nicht die Informationen, die
+					gesendet werden, noch verfolgen wir mögliche illegale Aktivitäten. Wenn illegale Aktivitäten
+					festgestellt werden, folgen wir unserer Verpflichtung, den betreffenden Inhalt zu sperren oder zu
+					löschen, gemäß den Paragraphen 8 bis 10 des Telemediengesetzes (TMG).</p>
+				<h2>Verantwortung für Links</h2>
+				<p>Die Verantwortung für den Inhalt von Links zu Drittanbietern (externer Inhalt) liegt bei den
+					jeweiligen Website-Betreibern. Zum Zeitpunkt der Einbindung der Links auf unserer Website wurden in
+					ihnen keine illegalen Aktivitäten festgestellt. Sobald wir von illegalen Aktivitäten oder Verstößen
+					erfahren, werden wir den entsprechenden Link entfernen.</p>
+				<h2>Urheberrecht</h2>
+				<p>Meine Websites und deren Inhalt (Text, Fotos, Grafiken, Design) unterliegen dem deutschen
+					Urheberrecht. Sofern nicht gesetzlich anders vereinbart, ist die Verwendung, Vervielfältigung, Kopie
+					oder Modifikation des Inhalts urheberrechtlich geschützt. Ausnahmen müssen von den
+					Website-Betreibern oder Rechteinhabern genehmigt und digital signiert werden. Einzelkopien sind nur
+					für den privaten Gebrauch gestattet, sie dürfen nicht direkt oder indirekt für kommerzielle Zwecke
+					verwendet werden. Die unbefugte Nutzung urheberrechtlich geschützten Materials wird nach § 106 des
+					deutschen Urheberrechtsgesetzes bestraft.</p>
+				<h2>Nutzungsbeschränkung</h2>
+				<p>Wir übernehmen keine Haftung für Schäden, die durch die Nutzung oder Unmöglichkeit der Nutzung der
+					Materialien auf dieser Website entstehen, auch wenn wir oder ein bevollmächtigter Vertreter über die
+					Möglichkeit solcher Schäden informiert wurden, sei es mündlich oder schriftlich. Einige
+					Rechtsordnungen gestatten keine Einschränkungen implizierter Garantien oder Haftungsbeschränkungen
+					für zufällige Schäden, diese Einschränkungen gelten möglicherweise nicht für Sie.</p>
+				<h2>Überarbeitungen und Fehlerberichtigungen</h2>
+				<p>Die auf meiner Website erscheinenden Materialien können technische, typografische oder fotografische
+					Fehler enthalten. Ich verspreche nicht, dass alle Materialien auf dieser Website korrekt,
+					vollständig oder aktuell sind. Ich kann die auf seiner Website enthaltenen Materialien jederzeit
+					ohne vorherige Ankündigung ändern. Ich verpflichte mich nicht zur Aktualisierung der
+					Materialien.</p>
 				<h2>Links</h2>
-				<p>I have not reviewed all of the sites linked to this website and am not responsible for the contents of any such linked site. The presence of any link does not imply endorsement by me of the site. The use of any linked websites is at the user’s own risk.</p>
-				<h2>Site Terms of Use Modifications</h2>
-				<p>I may revise these Terms of Use at any time without prior notice. By using this website, you are agreeing to be bound by the current version of these Terms and Conditions of Use.</p>
-			</div>
+				<p>Ich habe nicht alle Websites überprüft, die mit dieser Website verlinkt sind, und bin nicht für den
+					Inhalt einer solchen verlinkten Website verantwortlich. Die Anwesenheit eines Links bedeutet nicht,
+					dass ich die Website befürworte. Die Nutzung aller verlinkten Websites erfolgt auf eigenes Risiko
+					des Benutzers.</p>
+				<h2>Änderungen der Nutzungsbedingungen für die Website</h2>
+				<p>Ich kann diese Nutzungsbedingungen jederzeit ohne vorherige Ankündigung überarbeiten. Durch die
+					Nutzung dieser Website erklären Sie sich mit der aktuellen Version dieser Nutzungsbedingungen
+					einverstanden.</p></div>
 		</main>
 	);
 }

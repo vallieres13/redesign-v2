@@ -38,7 +38,7 @@ import Timeline from "../components/Timeline";
 import Heading from "../components/Heading";
 import { Helmet } from 'react-helmet';
 
-const Index = () => {
+const Profile = () => {
 
 	const promo = useRef<HTMLDivElement>(null);
 	useGSAP(() => {
@@ -48,7 +48,7 @@ const Index = () => {
 			opacity: 0
 		}, {
 			opacity: 1,
-			stagger: .02
+			stagger: .005
 		});
 
 		gsap.fromTo('.promo .actions', {
@@ -85,13 +85,15 @@ const Index = () => {
 		const target = ev.currentTarget as HTMLDivElement;
 		target.classList.toggle('open');
 
-		if(target.classList.contains('open')) {
-			const link = document.createElement('a');
-			link.href = file;
-			link.setAttribute('download', file);
-			link.target = '_blank';
-			link.click();
-		}
+		setTimeout(() => {
+			if(target.classList.contains('open')) {
+				const link = document.createElement('a');
+				link.href = file;
+				link.setAttribute('download', file);
+				link.target = '_blank';
+				link.click();
+			}
+		}, 800);
 	}
 
 	useEffect(() => {
@@ -110,39 +112,35 @@ const Index = () => {
 
 	const downloadItems = [
 		{
-			name: 'Curriculum Vitae (Résumé)',
+			name: 'Lebenslauf (Résumé)',
 			icon: PDFIcon,
 			size: '3 MB',
 			file: 'https://api.felixhebgen.de/wp-content/uploads/Lebenslauf.pdf',
 			description: <>
-				<p>Get a closer look at my skills and experience.</p>
-				<p>Dive into my experience, projects, and passion for crafting outstanding digital solutions.</p>
+				<p>Erhalte einen tieferen Einblick in meine Fähigkeiten.</p>
+				<p>Werfe einen Blick auf meine Erfahrungen, Projekte und Leidenschaft für die Entwicklung herausragender digitaler Lösungen.</p>
 			</>
 		},
 		{
-			name: 'Experience & Qualifications',
+			name: 'Erfahrungen & Qualifikationen',
 			icon: PDFIcon,
 			size: '260 KB',
 			file: 'https://api.felixhebgen.de/wp-content/uploads/Erfahrungen-Qualifikationen-Felix-Hebgen.pdf',
 			description: <>
-				<p>A collection of projects, experiences, and qualifications in various IT fields
-					throughout several companies.</p>
-				<p>This document also includes a listing of skills, as well as the indication of
-					technical understanding through individual, self-determined measurements.</p>
+				<p>Eine Sammlung von Projekten, Erfahrungen und Qualifikationen in verschiedenen IT-Bereichen bei verschiedenen Unternehmen.</p>
+				<p>Dieses Dokument enthält auch eine Liste von Fähigkeiten sowie die Angabe des technischen Verständnisses durch individuelle, selbst bestimmte Messungen.</p>
 			</>
 		},
 		/*
-		{
-			name: 'C1 English Cambridge University',
-			icon: PDFIcon,
-			size: '65 KB',
-			file: 'https://api.felixhebgen.de/downloads/certificate.pdf',
-			description: <>
-				<p>Discover my proficiency in English through my Cambridge Certificate of English C1.</p>
-				<p>This document also includes a listing of skills, as well as the indication of
-					technical understanding through individual, self-determined measurements.</p>
-			</>
-		}
+			{
+				name: 'Englisch Cambridge University',
+				icon: PDFIcon,
+				size: '65 KB',
+				file: 'https://api.felixhebgen.de/downloads/certificate.pdf',
+				description: <>
+					<p>Mein Cambridge Certificate of English mit CEFR Level C1.</p>
+				</>
+			}
 		*/
 	];
 
@@ -192,7 +190,7 @@ const Index = () => {
 			projects: 8
 		},
 		{
-			name: 'Creative Cloud & other creative platforms',
+			name: 'Creative Cloud & andere Plattformen',
 			icon: CcHi,
 			progress: 73,
 			related: [
@@ -219,15 +217,15 @@ const Index = () => {
 
 	const likeItems = [
 		{
-			name: 'Good Coffee!',
+			name: 'Guter Kaffee!',
 			icon: CoffeeLike
 		},
 		{
-			name: 'Experienced Tech-Team',
+			name: 'Erfahrenes Tech-Team',
 			icon: TeamLike
 		},
 		{
-			name: 'Latest Hardware',
+			name: 'Neueste Hardware',
 			icon: HardwareLike
 		},
 		{
@@ -235,7 +233,7 @@ const Index = () => {
 			icon: JavaLike
 		},
 		{
-			name: 'Fair Salary',
+			name: 'Faires Gehalt',
 			icon: SalaryLike
 		},
 		{
@@ -247,23 +245,23 @@ const Index = () => {
 	return (
 		<main className="hire">
 			<Helmet>
-				<meta name="title" content="Hire Me — Felix Hebgen" />
-				<title>Hire Me — Felix Hebgen</title>
+				<meta name="title" content="Profil — Felix Hebgen" />
+				<title>Profil — Felix Hebgen</title>
 			</Helmet>
 			<div className="page-heading centered">
 				<div className="wrapper container">
-					<h1>Hire Me</h1>
+					<h1>Felix' Profil</h1>
 					<div className="underscore"></div>
 				</div>
 				<div className="line"></div>
 			</div>
 			<div className="promo container" ref={promo}>
 				<p>
-					Get to know me before we talk.<br/>
-					Or schedule a call.
+					Erfahren Sie mehr über mich, bevor wir in Kontakt treten.<br/>
+					&hellip; oder vereinbaren Sie einen Telefonat.
 				</p>
 				<div className="actions">
-					<Link to={'/contact'} className="button primary">Schedule a call</Link>
+					<Link to={'/contact'} className="button primary">Anruf vereinbaren</Link>
 				</div>
 				<div className="scroll">
 					<p>Scroll</p>
@@ -284,7 +282,7 @@ const Index = () => {
 								</div>
 								<div className="details">
 									<h3>{download.name}</h3>
-									<p>{download.size} — PDF-File</p>
+									<p>{download.size} — PDF-Datei</p>
 								</div>
 								<div className="action">
 									<img src={ChevronRightIcon} alt="Open"/>
@@ -295,7 +293,7 @@ const Index = () => {
 									</div>
 									<div className="description">
 										{download.description}
-										<p className="disclaimer">Your download will start shortly &hellip;</p>
+										<p className="disclaimer">Download beginnt in Kürze &hellip;</p>
 									</div>
 								</div>
 							</div>
@@ -342,9 +340,9 @@ const Index = () => {
 			</div>
 			<TechStack />
 			<Timeline />
-			<Connect title="Let's Talk" url="/contact" />
+			<Connect title="Kontakt" url="/contact" />
 		</main>
 	);
 }
 
-export default Index;
+export default Profile;

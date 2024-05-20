@@ -51,7 +51,7 @@ const TechStack = () => {
 				speed: 2000
 			});
 
-			const redirectHire = () => navigate('/hire');
+			const redirectHire = () => navigate('/profile');
 			card.addEventListener('click', redirectHire);
 			return () => card.removeEventListener('click', redirectHire);
 		});
@@ -108,8 +108,8 @@ const TechStack = () => {
 							<img src={JavaStack} alt="Java" className="hidden" />
 						</div>
 						<div className="column large-and-a-half-column card">
-							<img src={Database} alt="Database" />
-							<img src={DatabaseStack} alt="Database" className="hidden" />
+							<img src={Database} alt="Datenbanken" />
+							<img src={DatabaseStack} alt="Datenbanken" className="hidden" />
 						</div>
 					</div>
 					<div className="grid">

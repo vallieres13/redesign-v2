@@ -7,7 +7,7 @@ import './styles/app.scss';
 
 /* Pages */
 import Index from './pages/Index';
-import Hire from './pages/Hire';
+import Profile from './pages/Profile';
 import Work from './pages/Work';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -40,8 +40,8 @@ const App = () => {
                     element: <Index />
                 },
                 {
-                    path: '/Hire',
-                    element: <Hire />
+                    path: '/Profile',
+                    element: <Profile />
                 },
                 {
                     path: '/Work',

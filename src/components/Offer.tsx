@@ -15,6 +15,7 @@ import MilesBlue from '../assets/images/offers/amex-plat.png?format=avif';
 import MilesGold from '../assets/images/offers/amex-plat.png?format=avif';
 import MilesBluePlain from '../assets/images/offers/milesmore-blue-plain.png?format=avif';
 import MilesGoldPlain from '../assets/images/offers/milesmore-gold-plain.png?format=avif';
+
 interface Props {
 	type: string;
 	promo?: boolean;
@@ -62,8 +63,8 @@ const Offer = ({
 			cards: AmexCards,
 			splash: '+30.000 Extra',
 			subtitle: 'Membership Rewards',
-			small: '+20.000 for the Gold Card',
-			button: 'Card Details',
+			small: '+20.000 für die Gold Card',
+			button: 'Mehr erfahren',
 			buttonUrl: '#!',
 			background: 'linear-gradient(265deg, #016FD0 19.83%, rgba(1, 111, 208, 0.05) 88.25%)',
 			reverse: false
@@ -74,9 +75,9 @@ const Offer = ({
 			logo: MilesMoreLogo,
 			cards: MilesMoreCards,
 			splash: '+4.000 Miles',
-			subtitle: 'By adding me as a referrer',
-			small: 'Referral Offer',
-			button: 'Card Details',
+			subtitle: 'Indem du mich als Weiterempfehlung angibst',
+			small: 'Empfehlungs-Angebot',
+			button: 'Mehr erfahren',
 			buttonUrl: '#!',
 			background: 'linear-gradient(130deg, #162458 19.83%, rgba(22, 36, 88, 0.05) 88.25%)',
 			reverse: true

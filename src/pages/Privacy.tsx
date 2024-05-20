@@ -5,12 +5,12 @@ const Privacy = () => {
 	return (
 		<main className="page">
 			<Helmet>
-				<meta name="title" content="Privacy Policy — Felix Hebgen" />
-				<title>Privacy Policy — Felix Hebgen</title>
+				<meta name="title" content="Datenschutzbestimmungen — Felix Hebgen" />
+				<title>Datenschutzbestimmungen — Felix Hebgen</title>
 			</Helmet>
 			<div className="page-heading">
 				<div className="wrapper container">
-					<h1>Privacy Policy</h1>
+					<h1>Datenschutzbestimmungen</h1>
 					<div className="underscore"></div>
 				</div>
 				<div className="line"></div>
@@ -147,7 +147,7 @@ const Privacy = () => {
 					European Union and other provisions related to data protection is:
 				</p>
 				<p>
-					<b>www.visualstatic.net</b><br/>Breubergstraße 2<br/>64750 Lützelbach<br/>Germany<br/>Email:
+					<b>www.visualstatic.net</b><br/>Elisabethenstraße 68a<br/>64283 Darmstadt<br/>Germany<br/>Email:
 					administrative@visualstatic.net<br/>Website: www.visualstatic.net
 				</p>
 				<p><b>Represented
@@ -157,8 +157,8 @@ const Privacy = () => {
 				<p>The
 					Data Protection Officer of the controller is:
 				</p>
-				<p><b>Mr. Felix Hebgen</b><br/>www.visualstatic.net<br/>Breubergstraße
-					2<br/>64750 Lützelbach<br/>Germany<br/>Email: administrative@visualstatic.net<br/>Website:
+				<p><b>Mr. Felix Hebgen</b><br/>www.visualstatic.net<br/>Elisabethenstraße
+					68a<br/>64283 Darmstadt<br/>Germany<br/>Email: administrative@visualstatic.net<br/>Website:
 					www.visualstatic.net
 				</p>
 				<p>Any data subject may, at any time, contact our Data Protection

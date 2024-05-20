@@ -14,7 +14,6 @@ import GithubLogo from '../assets/icons/github.svg';
 /* Misc */
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { Helmet } from 'react-helmet';
 
 interface Props {
 	title?: string;
@@ -23,7 +22,7 @@ interface Props {
 
 const defaultProps = {
 	title: 'Connect',
-	url: '/hire'
+	url: '/profile'
 }
 
 const Connect = ({ title = defaultProps.title, url = defaultProps.url }: Props) => {
@@ -54,8 +53,8 @@ const Connect = ({ title = defaultProps.title, url = defaultProps.url }: Props) 
 			<div className="wrapper">
 				<div className="messages left">
 					<div className="imessage">
-						<p className="from-them green">AI Research</p>
-						<p className="from-them blue">Video Production</p>
+						<p className="from-them green">KI Forschung</p>
+						<p className="from-them blue">Video Produktion</p>
 						<p className="from-them">Online Marketing</p>
 					</div>
 				</div>
@@ -72,13 +71,13 @@ const Connect = ({ title = defaultProps.title, url = defaultProps.url }: Props) 
 							<li><Link to={'https://github.com/vallieres13'}><LazyLoadImage src={GithubLogo} alt="GitHub" /></Link></li>
 						</ul>
 					</div>
-					<Link to={url} className="button primary">Get in Touch</Link><br />
+					<Link to={url} className="button primary">Schreibe mir</Link><br />
 				</div>
 				<div className="messages right">
 					<div className="imessage">
-						<p className="from-me">Web Development</p>
-						<p className="from-me green">UX & UI Design</p>
-						<p className="from-me blue">Full-Stack Development</p>
+						<p className="from-me">Web Entwicklung</p>
+						<p className="from-me green">System-Administration</p>
+						<p className="from-me blue">UX & UI Design</p>
 					</div>
 				</div>
 			</div>

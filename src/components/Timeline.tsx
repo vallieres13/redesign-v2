@@ -19,8 +19,7 @@ const Timeline = () => {
 	return (
 		<div className="timeline container">
 			<Heading>Timeline</Heading>
-			<p>The past few years, I’ve been increasingly productive and worked with many teams, who administer and
-				maintain creative projects within the ranges of my tech-stack.</p>
+			<p>In den letzten Jahren war ich zunehmend produktiv und habe in vielen Teams gearbeitet, die kreative Projekte innerhalb meines Tech-Stacks verwalten und pflegen.</p>
 			<div className="wrapper">
 				<div className="year">
 					<div className="heading">
@@ -102,7 +101,7 @@ const Timeline = () => {
 					</div>
 				</div>
 			</div>
-			<p className="highschool">Highschool</p>
+			<p className="highschool">dt. Abitur</p>
 		</div>
 	);
 }

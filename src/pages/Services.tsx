@@ -115,12 +115,12 @@ const Services = () => {
 				<p>
 					<img className="da-icon" src={DarmstadtIcon} alt="Based in Wissenschaftsstadt Darmstadt"
 						 title="Based in Wissenschaftsstadt Darmstadt"/>
-					<span>Elevate Your Business with an Interactive Website</span>
+					<span>Optimieren Sie Ihr Online-Marketing mit einer interaktiven Website</span>
 				</p>
-				<h2>We're Crafting<br/>Digital Experiences.</h2>
+				<h2>Wir Gestalten<br/>Digitale Erlebnisse.</h2>
 				<div className="actions">
-					<Link to={'/work'} className="button primary big">Get started</Link>
-					<Link to={'/hire'} className="button big">Get a Quote</Link>
+					<Link to={'/work'} className="button primary big">Kontaktieren</Link>
+					<Link to={'/profile'} className="button big">Leistungen</Link>
 				</div>
 			</div>
 			<div className="intro container">
@@ -130,49 +130,44 @@ const Services = () => {
 				</div>
 				<div className="content">
 					<h1>Web-Design &mdash;<br/>Made in Darmstadt</h1>
-					<p>We combine interaction design, online marketing and web development, seamlessly into one
-						comprehensive service for customers in and around Darmstadt-Dieburg, Odenwald, Offenbach and
-						surroundings.</p>
+					<p>Wir vereinen Interaktionsdesign, Online-Marketing und Webentwicklung nahtlos zu einem umfassenden Service für Kunden in und um Darmstadt-Dieburg, Odenwald, Offenbach und Umgebung.</p>
 					<div className="actions">
-						<Link to={'/contact'} className="button primary">Get in Touch</Link>
-						<Link to={'/work'} className="button">Work</Link>
+						<Link to={'/contact'} className="button primary">Kontakt</Link>
+						<Link to={'/work'} className="button">Impressionen</Link>
 					</div>
 					<img src={DotsVector} alt="Dots"/>
 				</div>
 			</div>
 			<div className="feature rtl container">
 				<div className="content">
-					<h1>The Heart of Darmstadt</h1>
-					<p>Located in Elisabethenstraße, this place used to be the home of Wilhelm Klein’s
-						architectural enterprise. Together with his family, he helped to reconstruct and paint
-						70% of Darmstadt’s destroyed buildings, transforming the city like never before.</p>
+					<h1>Im Herzen Darmstadts</h1>
+					<p>Gelegen in der Elisabethenstraße, war dieser Ort einst das Zuhause von Wilhelm Kleins Architekturfirma. Gemeinsam mit seiner Familie half er dabei, 70% der zerstörten Gebäude in Darmstadt wieder aufzubauen und zu renovieren, und verwandelte die Stadt wie nie zuvor.</p>
 					<div className="actions">
-						<Link to={'/contact'} className="button primary">Get in Touch</Link>
-						<Link to={'/work'} className="button">References</Link>
+						<Link to={'/contact'} className="button primary">Kontakt</Link>
+						<Link to={'/work'} className="button">Referenzen</Link>
 					</div>
 				</div>
 				<div className="graphic">
-					<img src={HoefeGraphic} alt="Located in a Historic Place"/>
+					<img src={HoefeGraphic} alt="Im Herzen Darmstadts"/>
 					<div className="overlay"></div>
 				</div>
 			</div>
 			<div className="feature container">
 				<div className="graphic">
-					<img src={ProjectGraphic} alt="Let’s Plan Your Project"/>
+					<img src={ProjectGraphic} alt="Kaffee beim Erstgespräch?"/>
 					<div className="overlay"></div>
 				</div>
 				<div className="content">
-					<h1>Let’s Plan Your Project</h1>
-					<p>Ready to make your online vision a reality? From concept to launch, I’ll
-						guide you every step of the way and deliver a product that exceeds your expectations.</p>
+					<h1>Kaffee beim Erstgespräch?</h1>
+					<p>Bereit, Ihre Online-Vision Wirklichkeit werden zu lassen? Vom Konzept bis zum Start werde ich Sie jeden Schritt auf dem Weg begleiten und ein Produkt liefern, das Ihre Erwartungen übertrifft.</p>
 					<div className="actions">
-						<Link to={'/contact'} className="button primary">Get in Touch</Link>
-						<Link to={'/work'} className="button">References</Link>
+						<Link to={'/contact'} className="button primary">Kontakt</Link>
+						<Link to={'/work'} className="button">Leistungen</Link>
 					</div>
 				</div>
 			</div>
 			<Spotlight/>
-			<Connect title="Let's Talk" url="/contact" />
+			<Connect title="Kontakt" url="/contact" />
 		</main>
 	);
 }

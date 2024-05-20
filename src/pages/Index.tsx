@@ -193,12 +193,12 @@ const Index = () => {
                 <div className="introduction" ref={introduction}>
                     <h1>Felix Hebgen</h1>
                     <div className="underscore"></div>
-                    <h2>Web-Developer & Designer</h2>
-                    <p>... is a <span className="emoji"><img src={GermanyEmoji} alt="Germany"/></span> German full-stack
-                        web developer and designer in today's ever so fast growing web-app economy.</p>
+                    <h2>Web-Entwickler & Designer</h2>
+                    <p>... ist ein <span className="emoji"><img src={GermanyEmoji} alt="Deutschland"/></span> Deutscher Full-Stack
+                        Entwickler & Designer in der heutzutage rapide wachsenden Internet-Wirtschaft.</p>
                     <div className="actions">
-                        <Link to={'/about'} className="button primary">About me</Link>
-                        <Link to={'/hire'} className="button">Hire me</Link>
+                        <Link to={'/about'} className="button primary">Über mich</Link>
+                        <Link to={'/hire'} className="button">Profil</Link>
                     </div>
                     <div className="separator"></div>
                 </div>
@@ -212,15 +212,15 @@ const Index = () => {
                             {articleItems.slice(0, 2).map((article: any, index: number) =>
                                 <Link to={'/article/' + article.slug} key={index}>
                                     <div className="card">
-                                        <img src={article.thumbnail} alt="Article" />
+                                        <img src={article.thumbnail} alt="Artikel" />
                                         <div className="overlay">
                                             {article.title ? <h2 dangerouslySetInnerHTML={{__html: article.title}}></h2> : <></>}
                                             <ul className="details">
-                                                <li><img src={UserIcon} alt="User"/> {article.author ?? ''}</li>
-                                                <li><img src={ClockIcon} alt="Clock"/> {article.readTime} Minutes</li>
+                                                <li><img src={UserIcon} alt="Autor"/> {article.author ?? ''}</li>
+                                                <li><img src={ClockIcon} alt="Lesezeit"/> {article.readTime} Minuten</li>
                                             </ul>
                                             <ul className="details right">
-                                                <li><img src={ShareIcon} alt="Share"/> Share</li>
+                                                <li><img src={ShareIcon} alt="Teilen"/> Teilen</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -231,15 +231,15 @@ const Index = () => {
                             {articleItems.slice(2, 5).map((article: any, index: number) =>
                                 <Link to={'/article/' + article.slug} key={index}>
                                     <div className="card">
-                                        <img src={article.thumbnail} alt="Article" />
+                                        <img src={article.thumbnail} alt="Artikel" />
                                         <div className="overlay">
                                             {article.title ? <h2 dangerouslySetInnerHTML={{__html: article.title}}></h2> : <></>}
                                             <ul className="details">
-                                                <li><img src={UserIcon} alt="User"/> {article.author ?? ''}</li>
-                                                <li><img src={ClockIcon} alt="Clock"/> {article.readTime} Minutes</li>
+                                                <li><img src={UserIcon} alt="Autor"/> {article.author ?? ''}</li>
+                                                <li><img src={ClockIcon} alt="Lesezeit"/> {article.readTime} Minuten</li>
                                             </ul>
                                             <ul className="details right">
-                                                <li><img src={ShareIcon} alt="Share"/> Share</li>
+                                                <li><img src={ShareIcon} alt="Teilen"/> Teilen</li>
                                             </ul>
                                         </div>
                                     </div>

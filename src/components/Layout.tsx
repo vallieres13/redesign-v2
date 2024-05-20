@@ -35,7 +35,7 @@ const Layout = () => {
 				{/* Meta Tags */}
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<meta name="title" content="Felix Hebgen — Web-Developer & Designer from Darmstadt" />
-				<meta name="description" content="The personal website of Felix Hebgen, a German full-stack web developer in today's ever so fast growing web-app economy, based in Darmstadt, Hessen." />
+				<meta name="description" content="Die persönliche Website von Felix Hebgen, ein deutscher Full-Stack Web-Entwickler in der heutigen rapide wachsenden Internet-Wirtschaft aus Darmstadt, Hessen." />
 				<meta name="keywords" content="felix hebgen, portfolio, web developer, designer, web design, darmstadt web developer, darmstadt web design, höchst im odenwald, hessen, job profile, cv, felix hebgen web design, felix hebgen design" />
 				<meta name="robots" content="index, follow" />
 				<meta name="author" content="Felix Hebgen, mail@felixhebgen.de" />
@@ -48,7 +48,7 @@ const Layout = () => {
 				<meta name="expires" content="" />
 
 				{/* Title */}
-				<title>Felix Hebgen — Web-Developer & Designer from Darmstadt</title>
+				<title>Felix Hebgen — Web-Developer & Designer aus Darmstadt</title>
 			</Helmet>
 			<InitialLoadOverlay hasFinished={() => setInitialLoadingHasFinished(true)} />
 			<ScrollToTop />
