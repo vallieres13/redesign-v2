@@ -250,7 +250,7 @@ const Profile = () => {
 			</Helmet>
 			<div className="page-heading centered">
 				<div className="wrapper container">
-					<h1>Felix' Profil</h1>
+					<h1><span className="hideOnMobile">Felix' </span>Profil</h1>
 					<div className="underscore"></div>
 				</div>
 				<div className="line"></div>

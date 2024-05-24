@@ -198,7 +198,7 @@ const Index = () => {
                         Entwickler & Designer in der heutzutage rapide wachsenden Internet-Wirtschaft.</p>
                     <div className="actions">
                         <Link to={'/about'} className="button primary">Über mich</Link>
-                        <Link to={'/hire'} className="button">Profil</Link>
+                        <Link to={'/profile'} className="button">Profil</Link>
                     </div>
                     <div className="separator"></div>
                 </div>

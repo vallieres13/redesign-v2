@@ -697,7 +697,7 @@ header {
 		}
 
 		.scroll {
-			margin: 6rem 0 3rem;
+			margin: 10rem 0 3rem;
 
 			p {
 				opacity: .5;
@@ -4115,6 +4115,10 @@ a.button {
 				margin: 0 auto;
 			}
 		}
+	}
+
+	.hideOnMobile {
+		display: none;
 	}
 }
 
