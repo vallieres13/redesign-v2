@@ -35,7 +35,7 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",
     "sharp": "^0.33.2",
-    "vite": "^5.0.13",
+    "vite": "^5.4.6",
     "vite-imagetools": "^6.2.9"
   }
 }
