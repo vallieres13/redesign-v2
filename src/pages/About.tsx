@@ -5,9 +5,9 @@ import Timeline from './../components/Timeline';
 import Heading from './../components/Heading';
 
 /* Assets */
-import BalconyPicture from '../assets/images/about/balcony.png?format=avif';
-import TowerPicture from '../assets/images/about/tower.png?format=avif';
-import NewYearsPicture from '../assets/images/about/newyears.png?format=avif';
+import LuxembourgPicture from '../assets/images/about/luxembourg.png?format=avif';
+import NancyPicture from '../assets/images/about/nancy.png?format=avif';
+import CatPicture from '../assets/images/about/cat.png?format=avif';
 
 import StarCitizen from '../assets/images/about/sc.png?format=avif';
 import WorldOfWarships from '../assets/images/about/wows.png?format=avif';
@@ -179,9 +179,9 @@ const About = () => {
 					</p>
 				</div>
 				<div className="pictures">
-					<img src={BalconyPicture} alt="Auf dem Balkon"/>
-					<img src={TowerPicture} alt="Auf einem Turm"/>
-					<img src={NewYearsPicture} alt="Silvester 2023"/>
+					<img src={CatPicture} alt="Mein Kater"/>
+					<img src={NancyPicture} alt="Am Place Stanislas"/>
+					<img src={LuxembourgPicture} alt="In Luxembourg"/>
 				</div>
 			</div>
 			<div className="interests container">

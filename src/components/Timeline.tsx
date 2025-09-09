@@ -14,6 +14,7 @@ import odwLogo from '../assets/icons/odw.svg';
 import friendelloLogo from '../assets/icons/friendello.svg';
 import egsLogo from '../assets/icons/egs.svg';
 import feLogo from '../assets/icons/fe.svg';
+import totallyhumanLogo from '../assets/icons/totallyhuman.svg';
 
 const Timeline = () => {
 	return (
@@ -21,6 +22,18 @@ const Timeline = () => {
 			<Heading>Timeline</Heading>
 			<p>In den letzten Jahren war ich zunehmend produktiv und habe in vielen Teams gearbeitet, die kreative Projekte innerhalb meines Tech-Stacks verwalten und pflegen.</p>
 			<div className="wrapper">
+				<div className="year">
+					<div className="heading">
+						<h2>2025</h2>
+					</div>
+					<div className="events">
+						<ul>
+							<li><img src={totallyhumanLogo} style={{width: "280px"}} alt="Totally Human"/></li>
+							<li><img src={campointLogo} alt="campoint AG"/></li>
+							<li><img src={cforgLogo} alt="Capital for Growth Beteiligungsgesellschaft"/></li>
+						</ul>
+					</div>
+				</div>
 				<div className="year">
 					<div className="heading">
 						<h2>2024</h2>
