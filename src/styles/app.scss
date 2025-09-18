@@ -421,13 +421,13 @@ header {
 
 			.picture {
 				background-color: #F5F5F5;
-				height: 280px;
-				width: 293px;
+				height: 300px;
+				width: 290px;
 				border-radius: 50%;
 
 				img {
-					margin-top: -2.65rem;
-					border-radius: 124px;
+					margin-top: -1.35rem;
+					margin-left: .7rem;
 				}
 			}
 
@@ -2181,7 +2181,7 @@ header {
 	}
 
 	.guarantee {
-		margin: -1rem auto 24rem;
+		margin: 9rem auto 30rem;
 		text-align: center;
 
 		svg {
@@ -2189,7 +2189,7 @@ header {
 			z-index: -1;
 			top: 0;
 			left: 0;
-			margin-top: 7.5rem;
+			margin-top: 5rem;
 			width: 100vw;
 			margin-left: calc(50% - 50vw);
 		}
@@ -3064,15 +3064,15 @@ footer {
 			text-align: center;
 
 			.picture {
-				margin: 0 auto;
+				margin-left: 70px;
 				background-color: #F5F5F5;
-				height: 280px;
-				width: 293px;
+				height: 300px;
+				width: 290px;
 				border-radius: 50%;
 
 				img {
-					margin-top: -2.65rem;
-					border-radius: 124px;
+					margin-top: -1.35rem;
+					margin-left: .7rem;
 				}
 			}
 

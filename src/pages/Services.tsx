@@ -5,6 +5,7 @@ import gsap from 'gsap';
 /* Components */
 import Spotlight from '../components/Spotlight';
 import Connect from '../components/Connect';
+import TechStack from '../components/TechStack';
 
 /* Assets */
 import IntroGraphic from '../assets/images/service/darmstadt.png';
@@ -115,14 +116,15 @@ const Services = () => {
 				<p>
 					<img className="da-icon" src={DarmstadtIcon} alt="Based in Wissenschaftsstadt Darmstadt"
 						 title="Based in Wissenschaftsstadt Darmstadt"/>
-					<span>Optimieren Sie Ihr Online-Marketing mit einer interaktiven Website</span>
+					<span>Stärkeres Kundenaufkommen mit einer interaktiven Website</span>
 				</p>
-				<h2>Wir Gestalten<br/>Digitale Erlebnisse.</h2>
+				<h2>Ihr Geschäft braucht<br />eine Webseite.</h2>
 				<div className="actions">
-					<Link to={'/work'} className="button primary big">Kontaktieren</Link>
-					<Link to={'/profile'} className="button big">Leistungen</Link>
+					<Link to={'/contact'} className="button primary big">Kontaktieren</Link>
+					<Link to={'/work'} className="button big">Impressionen</Link>
 				</div>
 			</div>
+			<Spotlight/>
 			<div className="intro container">
 				<div className="graphic">
 					<img src={IntroGraphic} alt="Web-Design in Darmstadt"/>
@@ -138,6 +140,7 @@ const Services = () => {
 					<img src={DotsVector} alt="Dots"/>
 				</div>
 			</div>
+			{/*
 			<div className="feature rtl container">
 				<div className="content">
 					<h1>Im Herzen Darmstadts</h1>
@@ -152,6 +155,8 @@ const Services = () => {
 					<div className="overlay"></div>
 				</div>
 			</div>
+			*/}
+			{/*
 			<div className="feature container">
 				<div className="graphic">
 					<img src={ProjectGraphic} alt="Kaffee beim Erstgespräch?"/>
@@ -166,8 +171,9 @@ const Services = () => {
 					</div>
 				</div>
 			</div>
-			<Spotlight/>
+			*/}
 			<Connect title="Kontakt" url="/contact" />
+			<TechStack />
 		</main>
 	);
 }

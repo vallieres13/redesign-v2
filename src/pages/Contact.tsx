@@ -19,13 +19,20 @@ import { Helmet } from 'react-helmet';
 
 const Contact = () => {
 
+
+
 	const contactItems = [
 		{
 			icon: NumberPad,
 			title: 'Anruf starten',
 			preferred: false,
 			disabled: false,
-			action: () => { window.location.href = 'tel:+4915159132500' }
+			action: () => {
+				const proceed = window.confirm("Klicken Sie auf 'OK', um den Anruf zu starten.\n\nHinweis: Ich bin telefonisch nur Montag bis Dienstag sowie Donnerstag bis Samstag erreichbar. Am Mittwoch und Sonntag kann ich leider keine Anrufe entgegennehmen.");
+				if(proceed) {
+					window.location.href = 'tel:+4915159132500';
+				}
+			}
 		},
 		{
 			icon: Mail,
@@ -199,7 +206,7 @@ const Contact = () => {
 			<div className="disclaimer container" ref={disclaimer}>
 				<p className="title">Hinweis</p>
 				<p>
-					Um eine effiziente und zeitnahe Antwort zu erhalten, möchten ich Sie auf Folgendes hinweisen:<br />
+					Um eine zeitnahe Antwort zu erhalten, möchten ich Sie auf Folgendes hinweisen:<br />
 					Ich stehe Ihnen von Montag bis Dienstag sowie Donnerstag bis Samstag zur Verfügung. Bedauerlicherweise kann ich am Mittwoch und Sonntag keine Anrufe entgegennehmen.
 				</p>
 			</div>
