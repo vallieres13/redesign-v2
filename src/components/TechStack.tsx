@@ -64,7 +64,7 @@ const TechStack = () => {
 		},{
 			scrollTrigger: {
 				trigger: '.grid.wrapper',
-				start: 'top bottom',
+				start: 'top+=150 bottom',
 				end: '+=600',
 				scrub: 1,
 			},

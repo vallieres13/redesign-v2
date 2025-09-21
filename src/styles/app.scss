@@ -412,7 +412,7 @@ header {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
-		margin: 3.5rem auto 2rem;
+		margin: 6.5rem auto 10rem;
 		gap: 3.5rem;
 
 		.profile {
@@ -466,7 +466,7 @@ header {
 
 		.introduction {
 			height: 42rem;
-			margin-top: -12rem;
+			margin-top: -17rem;
 			width: 400px;
 			transition: border-color 1s ease;
 			padding-left: 3rem;
@@ -483,7 +483,7 @@ header {
 			}
 
 			h1 {
-				margin: 11.5rem 0 0;
+				margin: 16.5rem 0 0;
 				font-family: 'Space Grotesk Bold', sans-serif;
 				color: black;
 				font-size: 96px;
@@ -2486,7 +2486,7 @@ footer {
 .spotlight {
 	height: 700px;
 	overflow: hidden;
-	margin: 1rem 0 0;
+	margin: 8rem 0 4rem;
 
 	.cards {
 		margin: 1.5rem 0 0;
@@ -3019,7 +3019,7 @@ footer {
  =================================== */
 
 .connect {
-	margin: 5rem auto;
+	margin: 10rem auto;
 
 	.messages {
 		&.left {
@@ -3268,6 +3268,12 @@ a.button {
 	text-transform: uppercase;
 	border-radius: 5px;
 
+    /* NEW */
+    padding: 12px 32px;
+    border-radius: 30px;
+    text-transform: none;
+    font-family: "Greycliff CF Bold", sans-serif;
+
 	&.primary {
 		color: white;
 		background-color: #292929;
@@ -3298,7 +3304,7 @@ a.button {
 	&:focus,
 	&:active {
 		outline-offset: 2px;
-		outline: 2px solid #cbcbcb;
+		outline: 3px solid #cbcbcb;
 	}
 }
 

@@ -54,7 +54,7 @@ const Index = () => {
     useGSAP(() => {
         const pseudo = document.querySelector('.introduction') as HTMLElement;
         gsap.to(pseudo,{
-            "--heightPseudo": "675px",
+            "--heightPseudo": "755px",
             duration: 1,
             delay: initDelay
         });

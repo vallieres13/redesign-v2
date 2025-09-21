@@ -35,7 +35,7 @@ const Connect = ({ title = defaultProps.title, url = defaultProps.url }: Props) 
 		},{
 			scrollTrigger: {
 				trigger: '.wrapper',
-				start: 'top bottom',
+				start: 'top+=20 bottom',
 				end: '+=50',
 				scrub: 1
 			},
